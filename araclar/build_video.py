@@ -10,7 +10,7 @@ Usage:
 episode.json keys: workdir, images_dir, audio_dir, title, brand, sections[
   {label, pieces:[{audio:"p01.wav", shots:[[image, weight], ...]}]} ]
 """
-import json, os, subprocess, sys, wave
+import json, os, re, subprocess, sys, wave
 import numpy as np
 import cv2
 from PIL import Image, ImageDraw, ImageFont
@@ -62,11 +62,74 @@ def trim_silence(a, sr, thr=0.008, pad=0.06):
     return a[s:e]
 
 
+def split_chunks(sentence, maxc=76):
+    words, out, cur = sentence.split(), [], ''
+    for w_ in words:
+        t = (cur + ' ' + w_).strip()
+        if len(t) <= maxc:
+            cur = t
+        else:
+            out.append(cur); cur = w_
+    if cur:
+        out.append(cur)
+    if len(out) > 1 and len(out[-1]) < 14:      # avoid a tiny last chunk
+        out[-2:] = [out[-2] + ' ' + out[-1]] if len(out[-2]) + len(out[-1]) < maxc + 14 else out[-2:]
+    return out
+
+
+def captions_for_piece(text, a, sr, t0):
+    """Sentence-level captions: predicted by character share, snapped to detected pauses."""
+    if not text:
+        return []
+    sents = [x.strip() for x in re.findall(r'[^.!?]+[.!?]+["”]?|[^.!?]+$', text) if x.strip()]
+    merged = []
+    for x in sents:
+        if merged and (len(merged[-1]) < 20 or len(x) < 12) and len(merged[-1]) + len(x) < 76:
+            merged[-1] += ' ' + x
+        else:
+            merged.append(x)
+    sents = merged
+    d = len(a) / sr
+    win = int(sr * 0.01)
+    n = len(a) // win
+    env = np.abs(a[:n * win]).reshape(n, win).max(axis=1) < 0.012
+    pauses, c = [], 0
+    for i, q in enumerate(env):
+        if q:
+            c += 1
+        else:
+            if c * 0.01 >= 0.18 and i - c > 5:
+                pauses.append(((i - c) * 0.01, i * 0.01))
+            c = 0
+    wts = np.array([len(x) + 6 for x in sents], dtype=float)
+    pred = d * np.cumsum(wts) / wts.sum()
+    bounds, last = [], 0.0
+    for i in range(len(sents) - 1):
+        cand = [(abs((p0 + p1) / 2 - pred[i]), p0, p1) for p0, p1 in pauses if abs((p0 + p1) / 2 - pred[i]) <= 1.6 and p0 > last + 0.5]
+        if cand:
+            _, p0, p1 = min(cand)
+            b = (p0 + p1) / 2
+        else:
+            b = max(pred[i], last + 0.5)
+        bounds.append(b); last = b
+    edges = [0.0] + bounds + [d]
+    caps = []
+    for i, x in enumerate(sents):
+        s0, s1 = edges[i], edges[i + 1]
+        ch = split_chunks(x)
+        cw = np.array([len(c_) for c_ in ch], dtype=float)
+        cum = np.concatenate([[0], np.cumsum(cw) / cw.sum()])
+        for k, c_ in enumerate(ch):
+            caps.append({'t0': float(t0 + s0 + (s1 - s0) * cum[k]), 't1': float(t0 + s0 + (s1 - s0) * cum[k + 1]), 'text': c_})
+    return caps
+
+
 def build_audio(cfg):
     wd = cfg['workdir']
     sr0 = None
     chunks, t = [], LEAD
     timeline = {'sections': []}
+    subs = []
     chunks.append(('sil', LEAD))
     nsec = len(cfg['sections'])
     for si, sec in enumerate(cfg['sections']):
@@ -79,6 +142,7 @@ def build_audio(cfg):
             a = trim_silence(a, sr)
             d = len(a) / sr
             srec['pieces'].append({'audio': piece['audio'], 'start': t, 'dur': d, 'shots': piece['shots']})
+            subs.extend(captions_for_piece(piece.get('text'), a, sr, t))
             chunks.append(('aud', a))
             t += d
             last_piece = pi == len(sec['pieces']) - 1
@@ -93,6 +157,7 @@ def build_audio(cfg):
     full = np.concatenate(out)
     total = len(full) / sr0
     timeline['total'] = total
+    timeline['subs'] = subs
     pcm = (np.clip(full, -1, 1) * 32767).astype('<i2')
     raw = os.path.join(wd, 'narration_raw.wav')
     with wave.open(raw, 'wb') as w:
@@ -255,6 +320,28 @@ class Renderer:
         self.labels = [make_label(s['label']) for s in self.tl['sections']]
         self.title = make_title(cfg['brand'], cfg['title'], cfg['subtitle'])
         self.total = self.tl['total']
+        self.subs = self.tl.get('subs', [])
+        self.subcache = {}
+        self.subfont = ImageFont.truetype(SANS_B, 46)
+
+    def caption(self, text):
+        if text in self.subcache:
+            return self.subcache[text]
+        tmp = ImageDraw.Draw(Image.new('RGBA', (10, 10)))
+        lines = wrap(tmp, text, self.subfont, 1500)
+        if len(lines) > 2:
+            lines = [' '.join(lines[:-1]), lines[-1]] if len(lines) == 3 and tmp.textlength(' '.join(lines[:-1]), font=self.subfont) < 1700 else lines[:2]
+        tw = max(int(tmp.textlength(l, font=self.subfont)) for l in lines)
+        lh = 60
+        img = Image.new('RGBA', (tw + 72, lh * len(lines) + 30), (0, 0, 0, 0))
+        d = ImageDraw.Draw(img)
+        d.rounded_rectangle([0, 0, img.width - 1, img.height - 1], radius=16, fill=(10, 12, 22, 150))
+        for i, l in enumerate(lines):
+            lw = int(tmp.textlength(l, font=self.subfont))
+            d.text(((img.width - lw) // 2, 12 + i * lh), l, font=self.subfont, fill=(255, 255, 255, 255), stroke_width=3, stroke_fill=(0, 0, 0, 255))
+        arr = np.array(img)
+        self.subcache[text] = arr
+        return arr
 
     def bounds(self, i):
         """active window of shot i including crossfade overlap with same-section neighbours"""
@@ -286,7 +373,11 @@ class Renderer:
             a = min(1.0, max(0.0, (t - 1.6) / 0.6)) * min(1.0, max(0.0, (9.2 - t) / 0.6))
             if a > 0:
                 th = self.title.shape[0]
-                blend(fr, self.title, 56, H - th - 70, a)
+                blend(fr, self.title, 56, H - th - (230 if self.subs else 70), a)
+        cap = next((c for c in self.subs if c['t0'] <= t < c['t1']), None)
+        if cap:
+            ci = self.caption(cap['text'])
+            blend(fr, ci, (W - ci.shape[1]) // 2, H - ci.shape[0] - 54)
         # section edge fades
         f = min(1.0, max(0.0, (t - sec['t0']) / FADE), max(0.0, (sec['t1'] - t) / FADE))
         if s.sec == len(self.tl['sections']) - 1:

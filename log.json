@@ -9,7 +9,7 @@
     "kisa_yt_post": null,
     "kisa_tiktok_post": null,
     "x_post": null,
-    "notlar": "Uzun video 17 Kasım 2026 akşamı YouTube'a yüklendi (herkese açık), YENİDEN YÜKLEME. Kapak 403 verdi (kanal telefonla doğrulanmamış). Kalan iş: iki kısa özet (A ve B) ve Buffer planlaması; bitince durum yuklendi yapılır."
+    "notlar": "Uzun video 17 Kasım 2026 akşamı YouTube'a yüklendi (herkese açık, kimlik R9qPgdqZQDU, altyazısız ilk sürüm). 18 Kasım gecesi altyazılı ve sade kelimeli yeni sürüm kurgulandı (p02, p04, p07, p12 yeniden seslendirildi) ama YouTube belirteci invalid_grant verdiği için yüklenemedi. Görev bu bölümün uzun videosunu YÜKLEMESİN; Cem hangi sürümün kalacağına karar verecek. Kalan iş: iki kısa özet (A ve B, altyazılı) ve Buffer planlaması; bitince durum yuklendi yapılır. Kapak dosyası kapak.jpg (kanal telefonla doğrulanınca yüklenebilir)."
   },
   {
     "no": 2,

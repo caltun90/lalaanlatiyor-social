@@ -7,7 +7,7 @@ Günlük zamanlanmış görev tamamen bulutta çalışır. Cem'in bilgisayarına
 - Kanal: Lala Anlatıyor, YouTube @LalaAnlatiyor, kanal kimliği UC-PHvR1Mom6FRRiReVg2USQ.
 - Buffer (lalaanlatiyor hesabı, ücretsiz plan, kanal başına en fazla 10 planlı gönderi): YouTube "Lala Anlatıyor", TikTok "osmanl.tarihi73", X "lalaanlatiyor".
 - Senaryolar: https://claude.ai/artifact/UbeYc7E79sCQTxwsKeLZfX (1. hafta, 5 senaryo, Claude Docs bağlayıcısıyla okunur; kimlik df7d2b7d-21ba-449c-96e9-b63d8bcc0542). Konu takvimi: https://claude.ai/artifact/EfQSU1KxKFxXnTmAzvXb3F
-- Anlatım kalıbı: Lala anlatır, izleyiciye "şehzadem" der, izleyici olayın içinde bir roldedir, olay gerçektir. Açılış ve kapanış Lala'nın odasında. Kapanışta Lala neyin kurgu neyin gerçek olduğunu söyler, sonraki videoya köprü kurar. Son cümle "Hadi şimdi yat."
+- Anlatım kalıbı (Cem, 17 Kasım 2026 gecesi, 2. bölümden itibaren): düz hikâye anlatımı. Anlatıcı bir hikâye anlatır gibi anlatır. "Şehzadem" hitabı YOK, izleyiciye rol verme YOK ("sen kâtipsin" gibi ikinci tekil anlatım yok), araya giren dersler ve öğütler yok, "Hadi şimdi yat" kapanışı yok. Olay baştan sona üçüncü kişiyle, sahne sahne, merak uyandırarak anlatılır; uydurma kişi ve konuşma eklenmez, bu yüzden "neyi uydurdum" kapanışına da gerek kalmaz. Açılış tek cümlelik kanca, kapanış olayın sonucunu ve bir sonraki bölümün konusunu söyleyen 1-2 cümle. Senaryo belgesindeki 2-5. bölüm metinleri eski kalıpla (şehzadem, sen anlatımı) yazılıdır: seslendirmeden önce aynı olayları ve aynı kaynakları koruyarak bu yeni kalıba göre yeniden yaz ve `bolumler/NN-slug/senaryo.md` olarak kaydet. 1. bölüm (Zigetvar) eski kalıpla yayınlandı, ona dokunma. Görsel tariflerinde de izleyici karakteri (genç kâtip, çırak vb.) yerine olayın gerçek kişileri ve mekânları çizilir; Lala yalnızca açılış ve kapanış görselinde anlatıcı olarak görünebilir.
 - Üslup: Cem'e yazılan her şey Türkçe, kısa, sade. Uzun tire (em dash) hiçbir yerde kullanılmaz.
 - Anlatım dili (Cem, 17 Kasım 2026): herkesin bildiği günlük Türkçe. Az bilinen ya da eski kelime kullanma (nikris, cülus, huruç, tebdil, müdebbir gibi). Böyle bir kelime gerekiyorsa yerine bilineni söyle (nikris yerine "ayağındaki ağrılı hastalık" ya da "gut hastalığı", cülus bahşişi yerine "tahta çıkış bahşişi") ya da ilk geçtiği yerde tek cümleyle açıkla. Senaryo belgesindeki metinleri seslendirmeden önce bu kurala göre sadeleştir. Kısa özetlerde de aynı kural geçerli.
 
@@ -47,6 +47,7 @@ Bölüm 01-zigetvar (17 Kasım 2026): 35 görsel, p01-p14 ses ve `episode.json` 
 
 - `pip install --break-system-packages opencv-python-headless pillow numpy` ve ffmpeg gerekir.
 - `python3 araclar/build_video.py bolumler/NN-slug/episode.json audio`, sonra `frames <4 farklı saniye>` ile kare kontrolü (Read ile aç), sonra her bölüm için `section <n>` (ikişer paralel), sonra `join`. 8 dakikalık video yaklaşık 11 dakikada işlenir.
+- Altyazı (Cem, 17 Kasım 2026): bütün videolar gömülü altyazıyla yayınlanır. `episode.json` içinde her parçaya `"text": "<o parçada seslendirilen metin, aynen>"` yaz; betik cümleleri duraklamalara oturtup altyazıyı kendisi üretir. Kare kontrolünde altyazının taşmadığına ve doğru cümleyi gösterdiğine bak. Kısa özetlerde de altyazı olur.
 - `episode.json`: yollar bu dosyaya göre görelidir. sections[{label, pieces[{audio, shots[[görsel adı, ağırlık]]}]}]. Etiket ekranın sol üstünde durur, seslendirilmez. Tek görsel 20 saniyeden uzun kalmasın.
 - Yeni bölüm için senaryoyu 5-6 ses parçasına böl, her parçaya o metnin anlattığı 4-7 görseli karakter sayısıyla orantılı ağırlıkla ver.
 - Senaryo belgesinde "emin olmadığım" diye işaretli noktaları seslendirmeden önce ikinci güvenilir kaynaktan doğrula ya da cümleyi yumuşat.
@@ -78,3 +79,5 @@ Kısa videolar (Buffer API):
 
 - (17 Kasım 2026) Gemini TTS API `audio/wav` döndürüyor; veriyi PCM sanıp yeniden başlık eklemek sesi bozar.
 - (17 Kasım 2026) Proje oturumundan `add_repo` ile push yetkisi alınabiliyor.
+- (18 Kasım 2026) YouTube yenileme belirteci üretildikten yaklaşık 3,5 saat sonra invalid_grant verdi; sebebi bilinmiyor. Belirteç reddedilirse uzun videoyu `cikti/` altında bırakma, yüklemeyi atla, kısa özetlere devam et ve Cem'e bildir.
+- (18 Kasım 2026) Altyazı betiğe eklendi: episode.json parçalarındaki `text` alanından üretilir.
