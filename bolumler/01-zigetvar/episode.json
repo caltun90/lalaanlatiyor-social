@@ -1,0 +1,302 @@
+{
+ "workdir": "work",
+ "images_dir": "gorseller",
+ "audio_dir": "ses",
+ "output": "cikti/Lala_Anlatiyor_01_Zigetvar_1566.mp4",
+ "brand": "LALA ANLATIYOR",
+ "title": "Padişah öldü ve bunu bilen birkaç kişiden birisin",
+ "subtitle": "Zigetvar, 1566",
+ "sections": [
+  {
+   "label": "LALA'NIN ODASI",
+   "pieces": [
+    {
+     "audio": "p01.wav",
+     "shots": [
+      [
+       "lala_room",
+       145
+      ],
+      [
+       "katip_desk",
+       215
+      ],
+      [
+       "lala_close",
+       105
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "label": "KUŞATMANIN 31. GECESİ",
+   "pieces": [
+    {
+     "audio": "p02.wav",
+     "shots": [
+      [
+       "siege_wide",
+       105
+      ],
+      [
+       "breach",
+       100
+      ],
+      [
+       "sultan_alive",
+       205
+      ],
+      [
+       "wake",
+       140
+      ]
+     ]
+    },
+    {
+     "audio": "p03.wav",
+     "shots": [
+      [
+       "tent_bed",
+       110
+      ],
+      [
+       "katip_closeup",
+       235
+      ],
+      [
+       "sokollu_hush",
+       93
+      ]
+     ]
+    },
+    {
+     "audio": "p04.wav",
+     "shots": [
+      [
+       "siege_wide",
+       145
+      ],
+      [
+       "map_route",
+       82
+      ],
+      [
+       "janissary_fire",
+       215
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "label": "SIRRIN 1. GÜNÜ",
+   "pieces": [
+    {
+     "audio": "p05.wav",
+     "shots": [
+      [
+       "sortie",
+       110
+      ],
+      [
+       "flag_cheer",
+       55
+      ],
+      [
+       "look_hill",
+       135
+      ],
+      [
+       "two_letters",
+       215
+      ]
+     ]
+    },
+    {
+     "audio": "p06.wav",
+     "shots": [
+      [
+       "courier",
+       200
+      ],
+      [
+       "burial_throne",
+       240
+      ],
+      [
+       "throne_normal",
+       235
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "label": "SIRRIN 3. GÜNÜ",
+   "pieces": [
+    {
+     "audio": "p07.wav",
+     "shots": [
+      [
+       "trays",
+       170
+      ],
+      [
+       "divan",
+       90
+      ],
+      [
+       "writing_hand",
+       215
+      ],
+      [
+       "sultan_alive",
+       180
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "label": "SIRRIN 10. GÜNÜ",
+   "pieces": [
+    {
+     "audio": "p08.wav",
+     "shots": [
+      [
+       "whisper",
+       170
+      ],
+      [
+       "grab_arm",
+       250
+      ],
+      [
+       "shrug_laugh",
+       195
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "label": "SIRRIN 20. GÜNÜ",
+   "pieces": [
+    {
+     "audio": "p09.wav",
+     "shots": [
+      [
+       "repair",
+       185
+      ],
+      [
+       "sokollu_sleepless",
+       190
+      ],
+      [
+       "katip_closeup",
+       120
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "label": "SIRRIN 42. GÜNÜ",
+   "pieces": [
+    {
+     "audio": "p10.wav",
+     "shots": [
+      [
+       "load_carriage",
+       145
+      ],
+      [
+       "march",
+       305
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "label": "BELGRAD YOLU",
+   "pieces": [
+    {
+     "audio": "p11.wav",
+     "shots": [
+      [
+       "selim_arrives",
+       120
+      ],
+      [
+       "soldiers_react",
+       150
+      ],
+      [
+       "sokollu_speech",
+       190
+      ]
+     ]
+    },
+    {
+     "audio": "p12.wav",
+     "shots": [
+      [
+       "roadblock",
+       250
+      ],
+      [
+       "suleymaniye",
+       170
+      ],
+      [
+       "tomb_hill",
+       67
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "label": "LALA'NIN ODASI",
+   "pieces": [
+    {
+     "audio": "p13.wav",
+     "shots": [
+      [
+       "lala_room",
+       150
+      ],
+      [
+       "tent_bed",
+       130
+      ],
+      [
+       "two_letters",
+       90
+      ]
+     ]
+    },
+    {
+     "audio": "p14.wav",
+     "shots": [
+      [
+       "lala_close",
+       185
+      ],
+      [
+       "sokollu_hush",
+       105
+      ],
+      [
+       "lala_room",
+       95
+      ]
+     ]
+    }
+   ]
+  }
+ ]
+}
