@@ -9,6 +9,7 @@ Günlük zamanlanmış görev tamamen bulutta çalışır. Cem'in bilgisayarına
 - Senaryolar: https://claude.ai/artifact/UbeYc7E79sCQTxwsKeLZfX (1. hafta, 5 senaryo, Claude Docs bağlayıcısıyla okunur; kimlik df7d2b7d-21ba-449c-96e9-b63d8bcc0542). Konu takvimi: https://claude.ai/artifact/EfQSU1KxKFxXnTmAzvXb3F
 - Anlatım kalıbı: Lala anlatır, izleyiciye "şehzadem" der, izleyici olayın içinde bir roldedir, olay gerçektir. Açılış ve kapanış Lala'nın odasında. Kapanışta Lala neyin kurgu neyin gerçek olduğunu söyler, sonraki videoya köprü kurar. Son cümle "Hadi şimdi yat."
 - Üslup: Cem'e yazılan her şey Türkçe, kısa, sade. Uzun tire (em dash) hiçbir yerde kullanılmaz.
+- Anlatım dili (Cem, 17 Kasım 2026): herkesin bildiği günlük Türkçe. Az bilinen ya da eski kelime kullanma (nikris, cülus, huruç, tebdil, müdebbir gibi). Böyle bir kelime gerekiyorsa yerine bilineni söyle (nikris yerine "ayağındaki ağrılı hastalık" ya da "gut hastalığı", cülus bahşişi yerine "tahta çıkış bahşişi") ya da ilk geçtiği yerde tek cümleyle açıkla. Senaryo belgesindeki metinleri seslendirmeden önce bu kurala göre sadeleştir. Kısa özetlerde de aynı kural geçerli.
 
 ## 2. Depo düzeni
 
