@@ -3,13 +3,13 @@
     "no": 1,
     "slug": "zigetvar",
     "baslik": "Padişah öldü ve bunu bilen birkaç kişiden birisin",
-    "durum": "hazir",
-    "tarih": "2026-11-17",
-    "uzun_youtube": "R9qPgdqZQDU",
-    "kisa_yt_post": null,
-    "kisa_tiktok_post": null,
-    "x_post": null,
-    "notlar": "Uzun video 17 Kasım 2026 akşamı YouTube'a yüklendi (herkese açık, kimlik R9qPgdqZQDU, altyazısız ilk sürüm). 18 Kasım gecesi altyazılı ve sade kelimeli yeni sürüm kurgulandı (p02, p04, p07, p12 yeniden seslendirildi) ama YouTube belirteci invalid_grant verdiği için yüklenemedi. Görev bu bölümün uzun videosunu YÜKLEMESİN; Cem hangi sürümün kalacağına karar verecek. Kalan iş: iki kısa özet (A ve B, altyazılı) ve Buffer planlaması; bitince durum yuklendi yapılır. Kapak dosyası kapak.jpg (kanal telefonla doğrulanınca yüklenebilir)."
+    "durum": "yuklendi",
+    "tarih": "2026-11-18",
+    "uzun_youtube": "_vL798I_qRM",
+    "kisa_yt_post": "YouTube API ile doğrudan: Z7-IDnvfSOk",
+    "kisa_tiktok_post": "6afdb01c6c30c3c862884ea3",
+    "x_post": "6afdb01d6c30c3c862884f24",
+    "notlar": "Altyazılı sürüm 18 Kasım 2026'da yüklendi (_vL798I_qRM). Altyazısız ilk sürüm R9qPgdqZQDU da yayında, Cem silecek. Kısa A YouTube'a API ile yüklendi; Buffer'daki YouTube kanalı kopuk (isDisconnected) olduğu için Buffer YouTube gönderisi (6afdb01ba509ab209389f73b) başarısız olabilir. Kısa A 1:32, kısa B 1:09 çıktı (hedefin altında). Kanal 17 Kasım gecesi YouTube tarafından kapatıldı, 18 Kasım'da itirazla geri açıldı."
   },
   {
     "no": 2,

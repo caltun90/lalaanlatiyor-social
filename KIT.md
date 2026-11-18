@@ -81,3 +81,7 @@ Kısa videolar (Buffer API):
 - (17 Kasım 2026) Proje oturumundan `add_repo` ile push yetkisi alınabiliyor.
 - (18 Kasım 2026) YouTube yenileme belirteci üretildikten yaklaşık 3,5 saat sonra invalid_grant verdi; sebebi bilinmiyor. Belirteç reddedilirse uzun videoyu `cikti/` altında bırakma, yüklemeyi atla, kısa özetlere devam et ve Cem'e bildir.
 - (18 Kasım 2026) Altyazı betiğe eklendi: episode.json parçalarındaki `text` alanından üretilir.
+- (18 Kasım 2026) Dikey kip betiğe eklendi: episode json'da "size": [1080, 1920], "layout": "dikey". Örnek: bolumler/01-zigetvar/kisa-a.json.
+- (18 Kasım 2026) YouTube Short'u Buffer ile DEĞİL, uzun video gibi YouTube API ile doğrudan yükle (başlığın sonuna #shorts). Buffer'daki YouTube kanalı kopuk; Buffer yalnızca TikTok ve X için kullanılır. Buffer kanal listesinde isDisconnected true olan kanala gönderi oluşturma.
+- (18 Kasım 2026) Kanal 17 Kasım gecesi YouTube tarafından kapatıldı, itirazla ertesi gün açıldı. Yeni kanalda aynı gün içinde yoğun otomasyon riskli: günde en fazla bir uzun video ve bir Short yükle, aynı videonun ikinci kopyasını yükleme.
+- (18 Kasım 2026) Kısa özet metinleri saniyede yaklaşık 16 karakter hızla okunuyor: 2:50 için yaklaşık 2.700, 2:10 için yaklaşık 2.050 karakter yaz.
