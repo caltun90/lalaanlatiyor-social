@@ -312,5 +312,196 @@
     }
    ]
   }
- ]
+ ],
+ "hareketler": {
+  "breach": {
+   "hareket": "sarsinti",
+   "efekt": [
+    "duman",
+    "kivilcim"
+   ]
+  },
+  "burial_throne": {
+   "hareket": "sakin",
+   "efekt": [
+    "mum",
+    "toz"
+   ]
+  },
+  "courier": {
+   "hareket": "takip",
+   "efekt": [
+    "toz"
+   ]
+  },
+  "divan": {
+   "hareket": "derin",
+   "efekt": [
+    "mum"
+   ]
+  },
+  "flag_cheer": {
+   "hareket": "derin",
+   "efekt": [
+    "duman"
+   ]
+  },
+  "grab_arm": {
+   "hareket": "derin",
+   "efekt": [
+    "toz"
+   ]
+  },
+  "janissary_fire": {
+   "hareket": "derin",
+   "efekt": [
+    "kivilcim",
+    "mum"
+   ]
+  },
+  "katip_closeup": {
+   "hareket": "yaklas",
+   "efekt": [
+    "mum"
+   ]
+  },
+  "katip_desk": {
+   "hareket": "sakin",
+   "efekt": [
+    "toz"
+   ]
+  },
+  "lala_close": {
+   "hareket": "yaklas",
+   "efekt": [
+    "mum",
+    "toz"
+   ]
+  },
+  "lala_room": {
+   "hareket": "sakin",
+   "efekt": [
+    "mum",
+    "toz"
+   ]
+  },
+  "load_carriage": {
+   "hareket": "derin",
+   "efekt": [
+    "mum"
+   ]
+  },
+  "look_hill": {
+   "hareket": "derin"
+  },
+  "map_route": {
+   "hareket": "sakin",
+   "efekt": [
+    "mum"
+   ]
+  },
+  "march": {
+   "hareket": "takip",
+   "efekt": [
+    "toz"
+   ]
+  },
+  "repair": {
+   "hareket": "derin",
+   "efekt": [
+    "toz"
+   ]
+  },
+  "roadblock": {
+   "hareket": "derin"
+  },
+  "selim_arrives": {
+   "hareket": "derin"
+  },
+  "shrug_laugh": {
+   "hareket": "derin"
+  },
+  "siege_wide": {
+   "hareket": "sarsinti",
+   "efekt": [
+    "duman"
+   ]
+  },
+  "sokollu_hush": {
+   "hareket": "yaklas",
+   "efekt": [
+    "mum"
+   ]
+  },
+  "sokollu_sleepless": {
+   "hareket": "sakin",
+   "efekt": [
+    "mum"
+   ]
+  },
+  "sokollu_speech": {
+   "hareket": "derin"
+  },
+  "soldiers_react": {
+   "hareket": "derin"
+  },
+  "sortie": {
+   "hareket": "sarsinti",
+   "efekt": [
+    "toz",
+    "kivilcim"
+   ]
+  },
+  "suleymaniye": {
+   "hareket": "derin"
+  },
+  "sultan_alive": {
+   "hareket": "derin",
+   "efekt": [
+    "duman"
+   ]
+  },
+  "tent_bed": {
+   "hareket": "sakin",
+   "efekt": [
+    "mum"
+   ]
+  },
+  "throne_normal": {
+   "hareket": "derin",
+   "efekt": [
+    "mum"
+   ]
+  },
+  "tomb_hill": {
+   "hareket": "derin",
+   "efekt": [
+    "toz"
+   ]
+  },
+  "trays": {
+   "hareket": "derin"
+  },
+  "two_letters": {
+   "hareket": "sakin",
+   "efekt": [
+    "mum"
+   ]
+  },
+  "wake": {
+   "hareket": "sakin",
+   "efekt": [
+    "mum"
+   ]
+  },
+  "whisper": {
+   "hareket": "derin"
+  },
+  "writing_hand": {
+   "hareket": "yaklas",
+   "efekt": [
+    "mum"
+   ]
+  }
+ }
 }

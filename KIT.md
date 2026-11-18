@@ -45,8 +45,11 @@ Bölüm 01-zigetvar (17 Kasım 2026): 35 görsel, p01-p14 ses ve `episode.json` 
 
 ## 6. Uzun video
 
-- `pip install --break-system-packages opencv-python-headless pillow numpy` ve ffmpeg gerekir.
-- `python3 araclar/build_video.py bolumler/NN-slug/episode.json audio`, sonra `frames <4 farklı saniye>` ile kare kontrolü (Read ile aç), sonra her bölüm için `section <n>` (ikişer paralel), sonra `join`. 8 dakikalık video yaklaşık 11 dakikada işlenir.
+- `pip install --break-system-packages opencv-python-headless pillow numpy onnxruntime` ve ffmpeg gerekir.
+- Hareket (19 Kasım 2026, Cem'in kararı): görseller 2.5D canlandırılır. Önce `python3 araclar/build_video.py bolumler/NN-slug/episode.json derinlik` çalıştır: Depth Anything V2 modelini (GitHub, ~100 MB, `~/.cache/lala/`) indirir ve her görsel için `gorseller/derinlik/<ad>.png` üretir (35 görsel yaklaşık 40 saniye). Bu klasörü commit et. Harita yoksa betik eski düz yakınlaşmaya döner ve uyarı yazar.
+- `episode.json` ve kısa özet dosyalarına `"hareketler": {"<görsel adı>": {"hareket": "...", "efekt": [...]}}` yaz. Hareketler: `derin` (varsayılan, katmanlı kaydırma ve yavaş yaklaşma), `sakin` (iç mekân, konuşma), `yaklas` (yakın plan yüz, mektup), `takip` (at, yürüyüş, araba; `"yon": "sag"` ya da `"sol"` ile hareket yönü), `sarsinti` (top, gedik, çatışma), `duz` (eski 2D). Efektler: `mum` (kandil, mum, ateş ışığı titremesi), `toz` (havada uçuşan toz), `kivilcim` (ateş, top, yangın), `duman` (kuşatma dumanı, uzak planlarda yoğun). Görseli gözle görerek seç, her sahneye en fazla iki efekt. Örnek: `bolumler/01-zigetvar/episode.json`.
+- Deneme için `klip <başlangıç sn> <bitiş sn> <çıktı.mp4>` komutu sesli kısa parça üretir.
+- `python3 araclar/build_video.py bolumler/NN-slug/episode.json audio`, sonra `frames <4 farklı saniye>` ile kare kontrolü (Read ile aç), sonra her bölüm için `section <n>` (ikişer paralel), sonra `join`. Hareketli sürümde kare başına yaklaşık 65 ms; 8 dakikalık video iki çekirdekte yaklaşık 10-15 dakikada işlenir.
 - Altyazı (Cem, 17 Kasım 2026): bütün videolar gömülü altyazıyla yayınlanır. `episode.json` içinde her parçaya `"text": "<o parçada seslendirilen metin, aynen>"` yaz; betik cümleleri duraklamalara oturtup altyazıyı kendisi üretir. Kare kontrolünde altyazının taşmadığına ve doğru cümleyi gösterdiğine bak. Kısa özetlerde de altyazı olur.
 - `episode.json`: yollar bu dosyaya göre görelidir. sections[{label, pieces[{audio, shots[[görsel adı, ağırlık]]}]}]. Etiket ekranın sol üstünde durur, seslendirilmez. Tek görsel 20 saniyeden uzun kalmasın.
 - Yeni bölüm için senaryoyu 5-6 ses parçasına böl, her parçaya o metnin anlattığı 4-7 görseli karakter sayısıyla orantılı ağırlıkla ver.
@@ -85,3 +88,5 @@ Kısa videolar (Buffer API):
 - (18 Kasım 2026) YouTube Short'u Buffer ile DEĞİL, uzun video gibi YouTube API ile doğrudan yükle (başlığın sonuna #shorts). Buffer'daki YouTube kanalı kopuk; Buffer yalnızca TikTok ve X için kullanılır. Buffer kanal listesinde isDisconnected true olan kanala gönderi oluşturma.
 - (18 Kasım 2026) Kanal 17 Kasım gecesi YouTube tarafından kapatıldı, itirazla ertesi gün açıldı. Yeni kanalda aynı gün içinde yoğun otomasyon riskli: günde en fazla bir uzun video ve bir Short yükle, aynı videonun ikinci kopyasını yükleme.
 - (18 Kasım 2026) Kısa özet metinleri saniyede yaklaşık 16 karakter hızla okunuyor: 2:50 için yaklaşık 2.700, 2:10 için yaklaşık 2.050 karakter yaz.
+- (19 Kasım 2026) 2.5D hareket betiğe eklendi (`derinlik` komutu, `hareketler` alanı, bölüm 6). Tek katmanlı derinlik kaydırması karakter kenarında hayalet kopya bırakıyordu; betik artık ön planı ayrı katmana alıp arkasını dolduruyor. Takip hareketinde kaydırmayı büyütme, hayalet geri gelir.
+- (19 Kasım 2026) Görsellerde ay yıldızlı kırmızı bayrak var (ör. courier, siege_wide); 16. yüzyıl için anakronizm. Yeni stok oturumlarında istemde "no crescent-and-star flags" yaz.

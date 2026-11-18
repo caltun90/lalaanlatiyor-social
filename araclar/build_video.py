@@ -6,9 +6,16 @@ Usage:
   build_video.py <episode.json> frames t1 t2 ... -> writes preview frames (seconds)
   build_video.py <episode.json> section <idx>    -> renders one section to mp4
   build_video.py <episode.json> join             -> concat sections + mux audio
+  build_video.py <episode.json> derinlik [--yeniden] -> depth maps into images_dir/derinlik/
+  build_video.py <episode.json> klip t0 t1 out.mp4 -> render a time range with audio (test)
 
 episode.json keys: workdir, images_dir, audio_dir, title, brand, sections[
   {label, pieces:[{audio:"p01.wav", shots:[[image, weight], ...]}]} ]
+Optional (2.5D animation, needs derinlik maps; without them the old 2D motion is used):
+  "hareketler": {image: {"hareket": derin|sakin|takip|sarsinti|yaklas|duz,
+                         "efekt": [toz, kivilcim, duman, mum], "yon": sag|sol}}
+  "hareket_varsayilan": "derin", "vinyet": true
+  A single shot can override with a third element: [image, weight, {"hareket": ...}]
 """
 import json, os, re, subprocess, sys, wave
 import numpy as np
@@ -184,7 +191,8 @@ def build_audio(cfg):
             for k, s in enumerate(p['shots']):
                 a0 = p_t0 if k == 0 else p['start'] + p['dur'] * cum[k]
                 a1 = p_t1 if k == len(p['shots']) - 1 else p['start'] + p['dur'] * cum[k + 1]
-                shots.append({'sec': si, 'image': s[0], 't0': float(a0), 't1': float(a1)})
+                shots.append({'sec': si, 'image': s[0], 't0': float(a0), 't1': float(a1),
+                              'fx': s[2] if len(s) > 2 else None})
     timeline['shots'] = shots
     with open(os.path.join(wd, 'timeline.json'), 'w', encoding='utf-8') as f:
         json.dump(timeline, f, ensure_ascii=False, indent=1)
@@ -291,9 +299,147 @@ MOTIONS = [  # (zoom0, cx0, cy0) -> (zoom1, cx1, cy1); zoom deltas get scaled by
 ]
 
 
+DEPTH_URL = 'https://github.com/fabio-sim/Depth-Anything-ONNX/releases/download/v2.0.0/depth_anything_v2_vits.onnx'
+# par: parallax travel in px (1920 wide), kz: dolly strength, pan: camera drift scale, dref: focus depth
+HAREKET = {
+    'derin':    dict(par=34,  kz=0.045, pan=1.0, dref=0.45),
+    'sakin':    dict(par=16,  kz=0.032, pan=0.6, dref=0.45),
+    'takip':    dict(par=56,  kz=0.015, pan=0.25, dref=0.70),
+    'sarsinti': dict(par=30,  kz=0.040, pan=1.0, dref=0.45),
+    'yaklas':   dict(par=14,  kz=0.085, pan=0.4, dref=0.40),
+    'duz':      dict(par=0,   kz=0.0,   pan=1.0, dref=0.45),
+}
+_GRID, _VIG = {}, {}
+
+
+def grid_half(ow, oh):
+    """half-res sampling grid expressed in full-res output pixel coordinates"""
+    k = (ow, oh)
+    if k not in _GRID:
+        sw, sh = ow // 2, oh // 2
+        gx = (np.arange(sw, dtype=np.float32) + 0.5) * (ow / sw) - 0.5
+        gy = (np.arange(sh, dtype=np.float32) + 0.5) * (oh / sh) - 0.5
+        _GRID[k] = np.meshgrid(gx, gy)
+    return _GRID[k]
+
+
+def vignette(ow, oh, strength=0.20):
+    k = (ow, oh, strength)
+    if k not in _VIG:
+        y, x = np.mgrid[0:oh, 0:ow].astype(np.float32)
+        r = np.sqrt(((x - ow / 2) / (ow / 2)) ** 2 + ((y - oh / 2) / (oh / 2)) ** 2) / np.sqrt(2)
+        m = 1.0 - strength * np.clip((r - 0.45) / 0.55, 0, 1) ** 1.6
+        _VIG[k] = cv2.merge([(m * 255).astype(np.uint8)] * 3)
+    return _VIG[k]
+
+
+def load_depth(images_dir, name, iw, ih):
+    p = os.path.join(images_dir, 'derinlik', name + '.png')
+    if not os.path.exists(p):
+        return None
+    d = cv2.imread(p, cv2.IMREAD_GRAYSCALE).astype(np.float32) / 255.0
+    d = cv2.resize(d, (iw, ih), interpolation=cv2.INTER_LINEAR)
+    k = max(3, int(iw * 0.006) | 1)   # grow near objects a little so their edges move with them
+    d = cv2.dilate(d, cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (k, k)))
+    return cv2.GaussianBlur(d, (0, 0), iw * 0.004)
+
+
+def fill_from(D, m, sigma):
+    """extend values of D inside mask m smoothly outward (normalized blur)"""
+    num = cv2.GaussianBlur(D * m, (0, 0), sigma)
+    den = cv2.GaussianBlur(m, (0, 0), sigma)
+    return np.where(den > 1e-3, num / np.maximum(den, 1e-3), float(D[m > 0.5].mean()) if (m > 0.5).any() else 0.5).astype(np.float32)
+
+
+def make_layers(im, D):
+    """split into near (fg) and far (bg) layers: fg alpha, fg depth, bg plate (fg removed), bg depth.
+    Returns None when the picture has no clear foreground."""
+    ih, iw = D.shape
+    hw_, hh_ = iw // 2, ih // 2
+    d8 = (cv2.resize(D, (hw_, hh_), interpolation=cv2.INTER_AREA) * 255).astype(np.uint8)
+    thr, _ = cv2.threshold(d8, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
+    thr = max(thr / 255.0, 0.42)
+    m = (d8.astype(np.float32) / 255.0 > thr).astype(np.float32)
+    m = cv2.morphologyEx(m, cv2.MORPH_OPEN, np.ones((5, 5), np.uint8))
+    frac = m.mean()
+    if frac < 0.03 or frac > 0.85:
+        return None
+    Dh = d8.astype(np.float32) / 255.0
+    fgD = np.where(m > 0.5, Dh, fill_from(Dh, m, 40))
+    bgD = np.where(m > 0.5, fill_from(Dh, 1 - m, 40), Dh)
+    grow = cv2.dilate(m, cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (9, 9)))
+    small = cv2.resize(im, (hw_, hh_), interpolation=cv2.INTER_AREA)
+    plate = cv2.inpaint(small, (grow * 255).astype(np.uint8), 6, cv2.INPAINT_TELEA)
+    plate = cv2.resize(plate, (iw, ih), interpolation=cv2.INTER_CUBIC)
+    g_full = cv2.resize(cv2.GaussianBlur(grow, (0, 0), 2), (iw, ih))[..., None]
+    plate = (im * (1 - g_full) + plate * g_full).astype(np.uint8)
+    up = lambda a: cv2.resize(a, (iw, ih), interpolation=cv2.INTER_LINEAR)
+    alpha = cv2.GaussianBlur(m, (0, 0), 1.0)
+    return dict(alpha=up(alpha), fgD=up(fgD), bgD=up(bgD), plate=plate)
+
+
+class Particles:
+    """dust motes / embers; position is a closed-form function of time so any frame renders alone"""
+    def __init__(self, kind, seed, ow):
+        r = np.random.default_rng(seed)
+        self.kind, sc = kind, ow / 1920
+        if kind == 'kivilcim':
+            n = 60
+            self.vx, self.vy = r.normal(0.008, 0.02, n), r.uniform(-0.12, -0.05, n)
+            self.size, self.bri = r.uniform(1.4, 3.2, n) * sc, r.uniform(0.55, 1.0, n)
+            self.col, self.amp = np.array([70, 160, 255], np.float32), 0.012
+        else:   # toz
+            n = 70
+            self.vx, self.vy = r.normal(0.004, 0.006, n), r.normal(-0.004, 0.004, n)
+            self.size, self.bri = r.uniform(1.2, 3.8, n) * sc, r.uniform(0.22, 0.6, n)
+            self.col, self.amp = np.array([175, 220, 245], np.float32), 0.010
+        self.x0, self.y0 = r.random(n), r.random(n)
+        self.ph, self.w = r.uniform(0, 2 * np.pi, n), r.uniform(0.4, 1.4, n)
+        self.pk = r.uniform(0.6, 1.4, n)   # parallax factor (particles float in front)
+
+    def draw(self, layer, tl, parx, ow):
+        hh, hw = layer.shape[:2]
+        x = (self.x0 + self.vx * tl + self.amp * np.sin(self.w * tl + self.ph) + parx * self.pk / ow) % 1.0
+        y = (self.y0 + self.vy * tl + self.amp * np.cos(0.7 * self.w * tl + self.ph)) % 1.0
+        b = self.bri.copy()
+        if self.kind == 'kivilcim':
+            b *= (0.5 + 0.5 * np.sin(7 * self.w * tl + self.ph) ** 2) * np.clip(y * 1.6, 0, 1)
+        else:
+            b *= 0.6 + 0.4 * np.sin(0.9 * self.w * tl + self.ph) ** 2
+        for i in range(len(x)):
+            c = tuple(float(v) for v in self.col * b[i])
+            cv2.circle(layer, (int(x[i] * hw * 16), int(y[i] * hh * 16)), max(16, int(self.size[i] * 8)), c, -1, cv2.LINE_AA, 4)
+
+
+class Haze:
+    """drifting smoke, stronger on far (low depth) areas"""
+    def __init__(self, seed, ow, oh):
+        r = np.random.default_rng(seed)
+        self.w4, self.h4 = ow // 4, oh // 4
+        tw = int(self.w4 * 1.9)
+        def octave(gw, gh):
+            return cv2.resize(r.random((gh, gw)).astype(np.float32), (tw, self.h4), interpolation=cv2.INTER_CUBIC)
+        n = 0.6 * octave(10, 4) + 0.4 * octave(24, 9)
+        self.tex = (n - n.min()) / (n.max() - n.min() + 1e-6)
+        self.speed = r.uniform(0.012, 0.02) * self.w4
+        self.dir = 1 if r.random() < 0.5 else -1
+        self.x0 = (tw - self.w4) / 2
+
+    def mask(self, tl, Dq):
+        off = self.x0 + self.dir * self.speed * tl
+        M = np.float32([[1, 0, off], [0, 1, 0]])
+        n = cv2.warpAffine(self.tex, M, (self.w4, self.h4), flags=cv2.INTER_LINEAR | cv2.WARP_INVERSE_MAP,
+                           borderMode=cv2.BORDER_REFLECT)
+        m = np.clip((n - 0.35) / 0.5, 0, 1) ** 1.5
+        far = (1 - Dq) ** 1.4 if Dq is not None else 0.7
+        return m * far * 0.32
+
+
 class Shot:
-    def __init__(self, rec, idx, images_dir, cache):
+    def __init__(self, rec, idx, cfg, cache):
+        images_dir = cfg['images_dir']
         self.t0, self.t1, self.sec = rec['t0'], rec['t1'], rec['sec']
+        self.name = rec['image']
         if rec['image'] not in cache:
             im = None
             for ext in ('.jpg', '.png'):
@@ -306,6 +452,7 @@ class Shot:
         self.im = cache[rec['image']]
         self.ih, self.iw = self.im.shape[:2]
         self.ow, self.oh = (W, H) if LAYOUT == 'yatay' else (W, FG_H)
+        self.sc = self.ow / 1920
         self.base = max(self.ow / self.iw, self.oh / self.ih)
         self.bg = None
         if LAYOUT == 'dikey':
@@ -317,18 +464,77 @@ class Shot:
                 bg = cv2.GaussianBlur(big[y0:y0 + H, x0:x0 + W], (0, 0), 28)
                 cache[key] = (bg.astype(np.float32) * 0.42).astype(np.uint8)
             self.bg = cache[key]
+        # animation spec
+        spec = dict(cfg.get('hareketler', {}).get(self.name, {}))
+        if rec.get('fx'):
+            spec.update(rec['fx'])
+        dkey = self.name + '#d'
+        if dkey not in cache:
+            cache[dkey] = load_depth(images_dir, self.name, self.iw, self.ih)
+        self.dep = cache[dkey]
+        lkey = self.name + '#L'
+        if lkey not in cache:
+            cache[lkey] = make_layers(self.im, self.dep) if self.dep is not None else None
+        self.layers = cache[lkey]
+        self.mot = spec.get('hareket', cfg.get('hareket_varsayilan', 'derin'))
+        if self.mot not in HAREKET:
+            self.mot = 'derin'
+        hp = HAREKET[self.mot if self.dep is not None else 'duz']
+        self.fx = [e for e in spec.get('efekt', []) if e in ('toz', 'kivilcim', 'duman', 'mum')]
+        self.vig = cfg.get('vinyet', True)
+        seed = (sum(ord(c) * (i + 1) for i, c in enumerate(self.name)) * 7919 + idx * 104729) % (2 ** 31)
+        rng = np.random.default_rng(seed)
         m0, m1, sign = MOTIONS[idx % len(MOTIONS)]
+        pan = hp['pan']
+        c0 = (.5 + (m0[1] - .5) * pan, .5 + (m0[2] - .5) * pan)
+        c1 = (.5 + (m1[1] - .5) * pan, .5 + (m1[2] - .5) * pan)
+        if self.mot == 'takip':
+            sign = +1
+        self.zsign = sign
         dur = self.t1 - self.t0 + XF
-        dz = min(0.13, max(0.05, 0.008 * dur))
-        zmin = 1.03
-        if sign > 0:
-            self.a = (zmin, m0[1], m0[2]); self.b = (zmin + dz, m1[1], m1[2])
+        self.dref = hp['dref']
+        self.par = hp['par'] * self.sc * min(1.0, max(0.55, dur / 10))
+        self.kz = hp['kz']
+        if self.mot == 'takip':
+            self.pdir = -1 if spec.get('yon', 'sag') == 'sol' else 1
         else:
-            self.a = (zmin + dz, m0[1], m0[2]); self.b = (zmin, m1[1], m1[2])
+            dx = c1[0] - c0[0]
+            self.pdir = (-1 if dx > 0 else 1) if abs(dx) > 1e-3 else (1 if idx % 2 else -1)
+        self.impacts = []
+        if self.mot == 'sarsinti' and self.dep is not None:
+            t_ = rng.uniform(0.4, 1.2)
+            while t_ < dur + 1:
+                self.impacts.append((t_, rng.uniform(0, 2 * np.pi), rng.uniform(6, 11) * self.sc))
+                t_ += rng.uniform(1.6, 3.0)
+        # margin needed for parallax/dolly/shake so the frame edge never shows
+        dd_max = max(self.dref, 1 - self.dref)
+        margin = self.par * dd_max + self.kz * dd_max * self.ow / 2 + (14 * self.sc if self.impacts else 0)
+        zmin = 1.03 + 2 * margin / self.ow
+        dz = min(0.13, max(0.05, 0.008 * dur))
+        if sign > 0:
+            self.a = (zmin, c0[0], c0[1]); self.b = (zmin + dz, c1[0], c1[1])
+        else:
+            self.a = (zmin + dz, c0[0], c0[1]); self.b = (zmin, c1[0], c1[1])
+        self.parts = [Particles(e, seed + k, self.ow) for k, e in enumerate(self.fx) if e in ('toz', 'kivilcim')]
+        self.haze = Haze(seed + 7, self.ow, self.oh) if 'duman' in self.fx else None
+        self.ph = rng.uniform(0, 6.28, 3)
+
+    def shake(self, tl):
+        ox = 0.8 * self.sc * np.sin(tl * 13.1); oy = 0.8 * self.sc * np.sin(tl * 11.7 + 1)
+        fl = 0.0
+        for ti, ang, a in self.impacts:
+            u = tl - ti
+            if 0 <= u < 1.2:
+                e = a * np.exp(-u * 7)
+                ox += e * np.cos(ang) * np.cos(u * 38)
+                oy += e * np.sin(ang) * np.cos(u * 38 + 0.7)
+                fl += 0.06 * np.exp(-u * 10)
+        return ox, oy, fl
 
     def frame(self, t, lo, hi):
         p = (t - lo) / max(1e-6, hi - lo)
         p = min(1.0, max(0.0, p))
+        tl = t - lo
         z = self.a[0] + (self.b[0] - self.a[0]) * p
         cx = self.a[1] + (self.b[1] - self.a[1]) * p
         cy = self.a[2] + (self.b[2] - self.a[2]) * p
@@ -336,9 +542,73 @@ class Shot:
         hw, hh = (self.ow / 2) / s, (self.oh / 2) / s
         x = min(max(cx * self.iw, hw), self.iw - hw)
         y = min(max(cy * self.ih, hh), self.ih - hh)
-        M = np.array([[1 / s, 0, x - hw], [0, 1 / s, y - hh]], dtype=np.float64)
-        fg = cv2.warpAffine(self.im, M, (self.ow, self.oh), flags=cv2.INTER_CUBIC | cv2.WARP_INVERSE_MAP,
-                            borderMode=cv2.BORDER_REPLICATE)
+        ox = oy = flash = 0.0
+        if self.impacts:
+            ox, oy, flash = self.shake(tl)
+        elif self.mot == 'takip' and self.dep is not None:
+            oy = 2.5 * self.sc * np.sin(2 * np.pi * 1.6 * tl)
+        x += ox / s; y += oy / s
+        par = self.par * (2 * p - 1) * self.pdir
+        Dh = None
+        if self.dep is None or (self.par == 0 and self.kz == 0):
+            M = np.array([[1 / s, 0, x - hw], [0, 1 / s, y - hh]], dtype=np.float64)
+            fg = cv2.warpAffine(self.im, M, (self.ow, self.oh), flags=cv2.INTER_CUBIC | cv2.WARP_INVERSE_MAP,
+                                borderMode=cv2.BORDER_REPLICATE)
+        else:
+            kz = self.kz * (p if self.zsign > 0 else 1 - p)
+            gx, gy = grid_half(self.ow, self.oh)
+            bx = gx * np.float32(1 / s) + np.float32(x - hw)
+            by = gy * np.float32(1 / s) + np.float32(y - hh)
+            ux = (par + (gx - self.ow / 2) * kz) / s
+            uy = ((gy - self.oh / 2) * kz) / s
+            dref = np.float32(self.dref)
+
+            def warp(depth, n_it=2):
+                mx, my = bx, by
+                for _ in range(n_it):   # fixed-point: depth at the source point
+                    Dw = cv2.remap(depth, mx, my, cv2.INTER_LINEAR, borderMode=cv2.BORDER_REPLICATE)
+                    dd = Dw - dref
+                    mx = bx - dd * ux
+                    my = by - dd * uy
+                return mx, my, Dw
+
+            def full(a):
+                return cv2.resize(a, (self.ow, self.oh), interpolation=cv2.INTER_LINEAR)
+
+            L = self.layers
+            if L is None:
+                mx, my, Dh = warp(self.dep, 3)
+                fg = cv2.remap(self.im, full(mx), full(my), cv2.INTER_CUBIC, borderMode=cv2.BORDER_REPLICATE)
+            else:
+                bmx, bmy, Db = warp(L['bgD'])
+                fmx, fmy, Df = warp(L['fgD'])
+                back = cv2.remap(L['plate'], full(bmx), full(bmy), cv2.INTER_LINEAR, borderMode=cv2.BORDER_REPLICATE)
+                fmx, fmy = full(fmx), full(fmy)
+                front = cv2.remap(self.im, fmx, fmy, cv2.INTER_CUBIC, borderMode=cv2.BORDER_REPLICATE)
+                al = cv2.remap(L['alpha'], fmx, fmy, cv2.INTER_LINEAR, borderMode=cv2.BORDER_REPLICATE)[..., None]
+                fg = (back + (front.astype(np.float32) - back) * al).astype(np.uint8)
+                ah = cv2.resize(al[..., 0], (Db.shape[1], Db.shape[0]), interpolation=cv2.INTER_AREA)
+                Dh = Db + (Df - Db) * ah
+        if self.haze is not None:
+            Dq = cv2.resize(Dh, (self.haze.w4, self.haze.h4), interpolation=cv2.INTER_AREA) if Dh is not None else None
+            hm = cv2.resize(self.haze.mask(tl, Dq), (self.ow, self.oh), interpolation=cv2.INTER_LINEAR)[..., None]
+            f = fg.astype(np.float32)
+            fg = (f + (np.float32([200, 205, 210]) - f) * hm).astype(np.uint8)
+        gain = 1.0 + flash
+        if 'mum' in self.fx:
+            q = self.ph
+            gain += 0.028 * (np.sin(2 * np.pi * 1.3 * tl + q[0]) + 0.6 * np.sin(2 * np.pi * 3.1 * tl + q[1])
+                             + 0.4 * np.sin(2 * np.pi * 7.3 * tl + q[2])) / 2.0
+        if abs(gain - 1.0) > 1e-3:
+            fg = cv2.convertScaleAbs(fg, alpha=gain)
+        if self.parts:
+            layer = np.zeros((self.oh // 2, self.ow // 2, 3), np.uint8)
+            for pa in self.parts:
+                pa.draw(layer, tl, par * 0.9, self.ow)
+            layer = cv2.GaussianBlur(layer, (0, 0), 1.1)
+            fg = cv2.add(fg, cv2.resize(layer, (self.ow, self.oh), interpolation=cv2.INTER_LINEAR))
+        if self.vig:
+            fg = cv2.multiply(fg, vignette(self.ow, self.oh), scale=1 / 255)
         if self.bg is None:
             return fg
         comp = self.bg.copy()
@@ -352,7 +622,10 @@ class Renderer:
         with open(os.path.join(cfg['workdir'], 'timeline.json'), encoding='utf-8') as f:
             self.tl = json.load(f)
         cache = {}
-        self.shots = [Shot(r, i, cfg['images_dir'], cache) for i, r in enumerate(self.tl['shots'])]
+        self.shots = [Shot(r, i, cfg, cache) for i, r in enumerate(self.tl['shots'])]
+        miss = sorted({s.name for s in self.shots if s.dep is None})
+        if miss:
+            print(f'uyari: derinlik haritasi yok, 2D hareket kullaniliyor: {", ".join(miss)}', file=sys.stderr)
         self.labels = [make_label(s['label']) for s in self.tl['sections']]
         self.title = make_title(cfg['brand'], cfg['title'], cfg['subtitle']) if LAYOUT == 'yatay' else make_title_dikey(cfg['brand'], cfg['title'])
         self.total = self.tl['total']
@@ -432,6 +705,44 @@ class Renderer:
         return int(round(sec['t0'] * FPS)), int(round(sec['t1'] * FPS))
 
 
+def depth_model_path():
+    p = os.environ.get('LALA_DEPTH_MODEL') or os.path.expanduser('~/.cache/lala/depth_anything_v2_vits.onnx')
+    if not os.path.exists(p):
+        os.makedirs(os.path.dirname(p), exist_ok=True)
+        print('derinlik modeli indiriliyor (~100 MB)...')
+        subprocess.run(['curl', '-sSLf', '-o', p + '.part', DEPTH_URL], check=True)
+        os.replace(p + '.part', p)
+    return p
+
+
+def build_depth(cfg, force=False):
+    """Depth Anything V2 (small, ONNX, CPU): one 8-bit PNG per image, near = bright."""
+    import onnxruntime as ort
+    idir = cfg['images_dir']
+    ddir = os.path.join(idir, 'derinlik')
+    os.makedirs(ddir, exist_ok=True)
+    names = sorted({os.path.splitext(f)[0] for f in os.listdir(idir) if f.lower().endswith(('.jpg', '.png'))})
+    sess = None
+    for n in names:
+        out = os.path.join(ddir, n + '.png')
+        if os.path.exists(out) and not force:
+            continue
+        if sess is None:
+            sess = ort.InferenceSession(depth_model_path(), providers=['CPUExecutionProvider'])
+            iname = sess.get_inputs()[0].name
+        pth = next(os.path.join(idir, n + e) for e in ('.jpg', '.png') if os.path.exists(os.path.join(idir, n + e)))
+        im = cv2.imread(pth, cv2.IMREAD_COLOR)
+        h, w = im.shape[:2]
+        x = cv2.resize(im[:, :, ::-1], (518, 518), interpolation=cv2.INTER_CUBIC).astype(np.float32) / 255.0
+        x = ((x - [0.485, 0.456, 0.406]) / [0.229, 0.224, 0.225]).transpose(2, 0, 1)[None].astype(np.float32)
+        d = sess.run(None, {iname: x})[0].squeeze()
+        lo, hi = np.percentile(d, [1, 99])
+        d = np.clip((d - lo) / (hi - lo + 1e-6), 0, 1)
+        d = cv2.resize(d, (w // 2, h // 2), interpolation=cv2.INTER_CUBIC)
+        cv2.imwrite(out, (np.clip(d, 0, 1) * 255).astype(np.uint8))
+        print('derinlik', n)
+
+
 def main():
     global W, H, LAYOUT, CAP_MAXC
     cfg = load_cfg(sys.argv[1])
@@ -442,6 +753,23 @@ def main():
     wd = cfg['workdir']
     if cmd == 'audio':
         build_audio(cfg)
+    elif cmd == 'derinlik':
+        build_depth(cfg, force='--yeniden' in sys.argv[3:])
+    elif cmd == 'klip':
+        t0, t1, out = float(sys.argv[3]), float(sys.argv[4]), sys.argv[5]
+        r = Renderer(cfg)
+        tmp = os.path.join(wd, 'klip_silent.mp4')
+        p = subprocess.Popen(['ffmpeg', '-y', '-v', 'error', '-f', 'rawvideo', '-pix_fmt', 'bgr24', '-s', f'{W}x{H}',
+                              '-r', str(FPS), '-i', '-', '-c:v', 'libx264', '-preset', 'fast', '-crf', '21',
+                              '-pix_fmt', 'yuv420p', tmp], stdin=subprocess.PIPE)
+        for f in range(int(round(t0 * FPS)), int(round(t1 * FPS))):
+            p.stdin.write(r.render(f / FPS).tobytes())
+        p.stdin.close()
+        assert p.wait() == 0
+        subprocess.run(['ffmpeg', '-y', '-v', 'error', '-i', tmp, '-ss', str(t0), '-t', str(t1 - t0),
+                        '-i', os.path.join(wd, 'narration.wav'), '-map', '0:v', '-map', '1:a', '-c:v', 'copy',
+                        '-c:a', 'aac', '-b:a', '160k', '-movflags', '+faststart', '-shortest', out], check=True)
+        print('wrote', out)
     elif cmd == 'frames':
         r = Renderer(cfg)
         for ts in sys.argv[3:]:
