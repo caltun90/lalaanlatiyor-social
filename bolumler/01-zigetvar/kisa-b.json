@@ -1,0 +1,71 @@
+{
+ "images_dir": "gorseller",
+ "audio_dir": "ses",
+ "brand": "LALA ANLATIYOR",
+ "title": "Padişah öldü, 42 gün kimse bilmedi",
+ "subtitle": "",
+ "size": [
+  1080,
+  1920
+ ],
+ "layout": "dikey",
+ "workdir": "work_b",
+ "output": "../../videos/2026-11-18-zigetvar-kisa-b.mp4",
+ "sections": [
+  {
+   "label": "",
+   "pieces": [
+    {
+     "audio": "kb.wav",
+     "text": "Yıl 1566. Osmanlı ordusu Macaristan'da Zigetvar Kalesi'ni kuşatıyor. Kale düşmek üzereyken, kırk altı yıldır tahtta olan Kanuni Sultan Süleyman çadırında hayatını kaybediyor. Dışarıda on binlerce asker var ve hepsi padişahın yaşadığını sanıyor. Sadrazam Sokollu Mehmed Paşa kararını veriyor: bu ölümü kimse duymayacak. Çünkü asker öğrenirse kuşatma dağılabilir, taht da boş. Tek varis Şehzade Selim haftalarca uzakta, Kütahya'da. Sokollu ona gizlice haber gönderiyor. Padişahın bedeni bir tabuta konuyor ve çadırın içinde, kendi tahtının altına gömülüyor. Orada tam kırk iki gün kalıyor. Bu sürede devlet işleri padişah hayattaymış gibi yürüyor, emirler onun adıyla çıkıyor. Kırk iki gün sonra ordu dönüş yoluna çıkıyor. Tabut gizlice bir arabaya konuyor. Ordu, perdeleri kapalı arabada padişahın oturduğunu sanarak yürüyor. Belgrad yakınlarında Şehzade Selim orduya ulaşıyor ve sır açıklanıyor. Bir imparatorluğu o günlerde kılıç değil, susmayı bilen birkaç adam ayakta tuttu. Hikâyenin tamamı YouTube'da, Lala Anlatıyor kanalında.",
+     "shots": [
+      [
+       "siege_wide",
+       70
+      ],
+      [
+       "tent_bed",
+       105
+      ],
+      [
+       "look_hill",
+       80
+      ],
+      [
+       "sokollu_hush",
+       125
+      ],
+      [
+       "courier",
+       100
+      ],
+      [
+       "burial_throne",
+       150
+      ],
+      [
+       "writing_hand",
+       105
+      ],
+      [
+       "load_carriage",
+       95
+      ],
+      [
+       "march",
+       85
+      ],
+      [
+       "selim_arrives",
+       85
+      ],
+      [
+       "lala_close",
+       150
+      ]
+     ]
+    }
+   ]
+  }
+ ]
+}

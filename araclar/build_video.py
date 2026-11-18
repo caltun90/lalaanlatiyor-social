@@ -16,6 +16,9 @@ import cv2
 from PIL import Image, ImageDraw, ImageFont
 
 W, H, FPS = 1920, 1080, 30
+LAYOUT = 'yatay'      # 'dikey': 1080x1920, blurred background + centered picture
+FG_H, FG_Y = 720, 560
+CAP_MAXC = 76
 LEAD, GAP_IN, GAP_SEC, TAIL = 0.7, 0.45, 1.4, 2.4
 XF = 0.5          # crossfade between shots inside a section (seconds)
 FADE = 0.55       # fade from/to black at section edges
@@ -116,7 +119,7 @@ def captions_for_piece(text, a, sr, t0):
     caps = []
     for i, x in enumerate(sents):
         s0, s1 = edges[i], edges[i + 1]
-        ch = split_chunks(x)
+        ch = split_chunks(x, CAP_MAXC)
         cw = np.array([len(c_) for c_ in ch], dtype=float)
         cum = np.concatenate([[0], np.cumsum(cw) / cw.sum()])
         for k, c_ in enumerate(ch):
@@ -250,6 +253,23 @@ def make_title(brand, title, sub):
     return np.array(img)
 
 
+def make_title_dikey(brand, title):
+    fb = ImageFont.truetype(SANS_B, 34)
+    ft = ImageFont.truetype(SERIF_B, 62)
+    tmp = ImageDraw.Draw(Image.new('RGBA', (10, 10)))
+    lines = wrap(tmp, title, ft, 960)
+    h_ = 70 + len(lines) * 78 + 20
+    img = Image.new('RGBA', (W, h_), (0, 0, 0, 0))
+    d = ImageDraw.Draw(img)
+    bw = int(spaced_width(tmp, brand, fb, 8))
+    spaced_text(d, ((W - bw) // 2, 0), brand, fb, GOLD + (255,), 8)
+    y = 64
+    for l in lines:
+        lw = int(tmp.textlength(l, font=ft))
+        d.text(((W - lw) // 2, y), l, font=ft, fill=CREAM + (255,), stroke_width=3, stroke_fill=(10, 10, 20, 255)); y += 78
+    return np.array(img)
+
+
 def blend(frame, rgba, x, y, alpha=1.0):
     if alpha <= 0:
         return
@@ -285,7 +305,18 @@ class Shot:
             cache[rec['image']] = im
         self.im = cache[rec['image']]
         self.ih, self.iw = self.im.shape[:2]
-        self.base = max(W / self.iw, H / self.ih)
+        self.ow, self.oh = (W, H) if LAYOUT == 'yatay' else (W, FG_H)
+        self.base = max(self.ow / self.iw, self.oh / self.ih)
+        self.bg = None
+        if LAYOUT == 'dikey':
+            key = rec['image'] + '#bg'
+            if key not in cache:
+                sc = max(W / self.iw, H / self.ih)
+                big = cv2.resize(self.im, (int(self.iw * sc) + 1, int(self.ih * sc) + 1), interpolation=cv2.INTER_AREA)
+                x0 = (big.shape[1] - W) // 2; y0 = (big.shape[0] - H) // 2
+                bg = cv2.GaussianBlur(big[y0:y0 + H, x0:x0 + W], (0, 0), 28)
+                cache[key] = (bg.astype(np.float32) * 0.42).astype(np.uint8)
+            self.bg = cache[key]
         m0, m1, sign = MOTIONS[idx % len(MOTIONS)]
         dur = self.t1 - self.t0 + XF
         dz = min(0.13, max(0.05, 0.008 * dur))
@@ -302,12 +333,17 @@ class Shot:
         cx = self.a[1] + (self.b[1] - self.a[1]) * p
         cy = self.a[2] + (self.b[2] - self.a[2]) * p
         s = self.base * z
-        hw, hh = (W / 2) / s, (H / 2) / s
+        hw, hh = (self.ow / 2) / s, (self.oh / 2) / s
         x = min(max(cx * self.iw, hw), self.iw - hw)
         y = min(max(cy * self.ih, hh), self.ih - hh)
         M = np.array([[1 / s, 0, x - hw], [0, 1 / s, y - hh]], dtype=np.float64)
-        return cv2.warpAffine(self.im, M, (W, H), flags=cv2.INTER_CUBIC | cv2.WARP_INVERSE_MAP,
-                              borderMode=cv2.BORDER_REPLICATE)
+        fg = cv2.warpAffine(self.im, M, (self.ow, self.oh), flags=cv2.INTER_CUBIC | cv2.WARP_INVERSE_MAP,
+                            borderMode=cv2.BORDER_REPLICATE)
+        if self.bg is None:
+            return fg
+        comp = self.bg.copy()
+        comp[FG_Y:FG_Y + FG_H] = fg
+        return comp
 
 
 class Renderer:
@@ -318,21 +354,23 @@ class Renderer:
         cache = {}
         self.shots = [Shot(r, i, cfg['images_dir'], cache) for i, r in enumerate(self.tl['shots'])]
         self.labels = [make_label(s['label']) for s in self.tl['sections']]
-        self.title = make_title(cfg['brand'], cfg['title'], cfg['subtitle'])
+        self.title = make_title(cfg['brand'], cfg['title'], cfg['subtitle']) if LAYOUT == 'yatay' else make_title_dikey(cfg['brand'], cfg['title'])
         self.total = self.tl['total']
         self.subs = self.tl.get('subs', [])
         self.subcache = {}
-        self.subfont = ImageFont.truetype(SANS_B, 46)
+        self.subfont = ImageFont.truetype(SANS_B, 46 if LAYOUT == 'yatay' else 54)
 
     def caption(self, text):
         if text in self.subcache:
             return self.subcache[text]
         tmp = ImageDraw.Draw(Image.new('RGBA', (10, 10)))
-        lines = wrap(tmp, text, self.subfont, 1500)
-        if len(lines) > 2:
+        lines = wrap(tmp, text, self.subfont, 1500 if LAYOUT == 'yatay' else 960)
+        if len(lines) > 2 and LAYOUT == 'dikey':
+            lines = lines[:3]
+        elif len(lines) > 2:
             lines = [' '.join(lines[:-1]), lines[-1]] if len(lines) == 3 and tmp.textlength(' '.join(lines[:-1]), font=self.subfont) < 1700 else lines[:2]
         tw = max(int(tmp.textlength(l, font=self.subfont)) for l in lines)
-        lh = 60
+        lh = 60 if LAYOUT == 'yatay' else 70
         img = Image.new('RGBA', (tw + 72, lh * len(lines) + 30), (0, 0, 0, 0))
         d = ImageDraw.Draw(img)
         d.rounded_rectangle([0, 0, img.width - 1, img.height - 1], radius=16, fill=(10, 12, 22, 150))
@@ -367,9 +405,12 @@ class Renderer:
         sec = self.tl['sections'][s.sec]
         # label
         la = min(1.0, max(0.0, (t - sec['t0'] - 0.5) / 0.5))
-        blend(fr, self.labels[s.sec], 56, 48, la)
+        if LAYOUT == 'yatay':
+            blend(fr, self.labels[s.sec], 56, 48, la)
+        else:
+            blend(fr, self.title, 0, 190)
         # opening title
-        if s.sec == 0:
+        if s.sec == 0 and LAYOUT == 'yatay':
             a = min(1.0, max(0.0, (t - 1.6) / 0.6)) * min(1.0, max(0.0, (9.2 - t) / 0.6))
             if a > 0:
                 th = self.title.shape[0]
@@ -377,7 +418,7 @@ class Renderer:
         cap = next((c for c in self.subs if c['t0'] <= t < c['t1']), None)
         if cap:
             ci = self.caption(cap['text'])
-            blend(fr, ci, (W - ci.shape[1]) // 2, H - ci.shape[0] - 54)
+            blend(fr, ci, (W - ci.shape[1]) // 2, (H - ci.shape[0] - 54) if LAYOUT == 'yatay' else (FG_Y + FG_H + 80))
         # section edge fades
         f = min(1.0, max(0.0, (t - sec['t0']) / FADE), max(0.0, (sec['t1'] - t) / FADE))
         if s.sec == len(self.tl['sections']) - 1:
@@ -392,8 +433,12 @@ class Renderer:
 
 
 def main():
+    global W, H, LAYOUT, CAP_MAXC
     cfg = load_cfg(sys.argv[1])
     cmd = sys.argv[2]
+    if cfg.get('layout') == 'dikey':
+        W, H = cfg.get('size', [1080, 1920])
+        LAYOUT, CAP_MAXC = 'dikey', 44
     wd = cfg['workdir']
     if cmd == 'audio':
         build_audio(cfg)

@@ -1,0 +1,97 @@
+{
+ "images_dir": "gorseller",
+ "audio_dir": "ses",
+ "brand": "LALA ANLATIYOR",
+ "title": "Padişah öldü, 42 gün kimse bilmedi",
+ "subtitle": "",
+ "size": [
+  1080,
+  1920
+ ],
+ "layout": "dikey",
+ "workdir": "work_a",
+ "output": "../../videos/2026-11-18-zigetvar-kisa-a.mp4",
+ "sections": [
+  {
+   "label": "",
+   "pieces": [
+    {
+     "audio": "ka1.wav",
+     "text": "Yıl 1566. Osmanlı ordusu Macaristan'da, Zigetvar Kalesi'ni kuşatıyor. Kuşatma bir aydır sürüyor ve kale düşmek üzere. Ama o gece, zaferden hemen önce, padişahın çadırında kimsenin beklemediği bir şey oluyor. Kırk altı yıldır tahtta olan Kanuni Sultan Süleyman hayatını kaybediyor. Çadırın dışında on binlerce asker var ve hepsi padişahın yaşadığını sanıyor. Sadrazam Sokollu Mehmed Paşa o anda bir karar veriyor: bu ölümü kimse duymayacak. Çünkü asker öğrenirse kuşatma dağılabilir. Taht da boş. Tek varis Şehzade Selim, haftalarca uzakta, Kütahya'da. Sokollu ona gizlice haber gönderiyor. Şehzade gelene kadar, ölmüş bir padişahın yaşadığına koca bir orduyu inandırmak gerekiyor.",
+     "shots": [
+      [
+       "siege_wide",
+       130
+      ],
+      [
+       "breach",
+       110
+      ],
+      [
+       "tent_bed",
+       105
+      ],
+      [
+       "look_hill",
+       85
+      ],
+      [
+       "sokollu_hush",
+       130
+      ],
+      [
+       "map_route",
+       120
+      ],
+      [
+       "courier",
+       95
+      ]
+     ]
+    },
+    {
+     "audio": "ka2.wav",
+     "text": "Önce en zor iş hallediliyor. Padişahın bedeni bir tabuta konuyor ve çadırın içinde, kendi tahtının altına gömülüyor. Orada tam kırk iki gün kalacak. Bu sürede devlet işleri padişah hayattaymış gibi yürüyor. Emirler onun adıyla çıkıyor. Kale düşüyor, ordu zaferi kutluyor ama padişahı gören yok. Kırk iki gün sonra ordu dönüş yoluna çıkıyor. Tabut gizlice bir arabaya konuyor. Ordu, perdeleri kapalı arabada padişahın oturduğunu sanarak yürüyor. Belgrad yakınlarında Şehzade Selim orduya ulaşıyor ve sır nihayet açıklanıyor. On binlerce asker, haftalardır peşinden yürüdükleri arabada bir tabut olduğunu o gün öğreniyor. Bir imparatorluğu o günlerde kılıç değil, susmayı bilen birkaç adam ayakta tuttu. Hikâyenin tamamı YouTube'da, Lala Anlatıyor kanalında.",
+     "shots": [
+      [
+       "burial_throne",
+       150
+      ],
+      [
+       "throne_normal",
+       95
+      ],
+      [
+       "writing_hand",
+       70
+      ],
+      [
+       "flag_cheer",
+       75
+      ],
+      [
+       "load_carriage",
+       95
+      ],
+      [
+       "march",
+       80
+      ],
+      [
+       "selim_arrives",
+       95
+      ],
+      [
+       "soldiers_react",
+       95
+      ],
+      [
+       "lala_close",
+       150
+      ]
+     ]
+    }
+   ]
+  }
+ ]
+}
