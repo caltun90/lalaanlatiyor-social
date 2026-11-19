@@ -116,10 +116,105 @@ def detect_pauses(a, sr, min_d=0.13, thr=0.012):
     return first * 0.01, last * 0.01, pauses
 
 
-def align_words(words, a, sr):
-    """Forced alignment without a speech model: every pause in the audio is matched to a word boundary
-    (punctuation preferred) so that syllable counts fit the spoken durations (dynamic programming);
-    inside a breath group words are spread by syllables. Returns (start[], end[]) per word in seconds."""
+WHISPER_URL = 'https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-whisper-small.tar.bz2'
+_REC = []
+
+
+def norm_tr(x):
+    x = x.replace('İ', 'i').replace('I', 'ı').lower()
+    for a_, b_ in (('â', 'a'), ('î', 'i'), ('û', 'u')):
+        x = x.replace(a_, b_)
+    return ' '.join(re.sub(r'[^a-zçğıöşü0-9 ]', ' ', x).split())
+
+
+def recognizer():
+    """optional helper (pip install sherpa-onnx; model ~640 MB from GitHub). None when unavailable."""
+    if _REC:
+        return _REC[0]
+    rec = None
+    try:
+        import sherpa_onnx
+        d = os.path.expanduser('~/.cache/lala/sherpa-onnx-whisper-small')
+        if not os.path.exists(d + '/small-encoder.int8.onnx'):
+            os.makedirs(os.path.dirname(d), exist_ok=True)
+            print('konusma tanima modeli indiriliyor (~640 MB)...')
+            tb = d + '.tar.bz2'
+            subprocess.run(['curl', '-sSLf', '-o', tb, WHISPER_URL], check=True)
+            subprocess.run(['tar', 'xjf', tb, '-C', os.path.dirname(d)], check=True)
+            os.remove(tb)
+        rec = sherpa_onnx.OfflineRecognizer.from_whisper(
+            encoder=d + '/small-encoder.int8.onnx', decoder=d + '/small-decoder.int8.onnx',
+            tokens=d + '/small-tokens.txt', language='tr', task='transcribe', num_threads=2)
+    except Exception as e:
+        print(f'uyari: konusma tanima yok ({type(e).__name__}), altyazi yalnizca duraklama ve heceyle hizalanacak', file=sys.stderr)
+    _REC.append(rec)
+    return rec
+
+
+def heard_spans(a, sr, spans, cache_dir):
+    """what is said in each breath group (speech recognizer), cached next to the audio. None if unavailable."""
+    import hashlib
+    key = hashlib.md5(np.round(a * 32767).astype('<i2').tobytes() + repr([(round(x, 2), round(y, 2)) for x, y in spans]).encode()).hexdigest()[:16]
+    cp = os.path.join(cache_dir, key + '.json') if cache_dir else None
+    if cp and os.path.exists(cp):
+        with open(cp, encoding='utf-8') as f:
+            return json.load(f)
+    rec = recognizer()
+    if rec is None:
+        return None
+    out = []
+    for b, e in spans:
+        seg = a[int(max(0, b - 0.08) * sr):int((e + 0.08) * sr)]
+        st = rec.create_stream()
+        st.accept_waveform(sr, seg)
+        rec.decode_stream(st)
+        out.append(norm_tr(st.result.text))
+    if cp:
+        os.makedirs(cache_dir, exist_ok=True)
+        with open(cp, 'w', encoding='utf-8') as f:
+            json.dump(out, f, ensure_ascii=False)
+    return out
+
+
+def heard_prior(words, heard):
+    """for the end of each breath group: (word boundary index, confidence 0..1) from matching the recognized
+    text against the script; numbers and misheard words simply lower the confidence around them."""
+    import difflib
+    nw = [norm_tr(w) for w in words]
+    S, wend = '', []
+    for w in nw:
+        S += w + ' '
+        wend.append(len(S))                 # script char position where word ends (after the space)
+    Hc, hend = '', []
+    for h in heard:
+        Hc += h + ' '
+        hend.append(len(Hc))
+    blocks = [b for b in difflib.SequenceMatcher(None, Hc, S, autojunk=False).get_matching_blocks() if b.size >= 4]
+    wend_a = np.array(wend)
+    pri = []
+    for p in hend[:-1]:
+        prev = [b for b in blocks if b.a + b.size <= p]
+        nxt = [b for b in blocks if b.a >= p]
+        ins = [b for b in blocks if b.a < p < b.a + b.size]
+        if ins:
+            sp, gap = ins[0].b + (p - ins[0].a), 0
+        elif prev and nxt:
+            pa, pb = prev[-1].a + prev[-1].size, prev[-1].b + prev[-1].size
+            na, nb = nxt[0].a, nxt[0].b
+            gap = (na - pa) + max(0, nb - pb)
+            sp = pb + (nb - pb) * ((p - pa) / max(1, na - pa))
+        else:
+            pri.append((None, 0.0)); continue
+        i = int(np.argmin(np.abs(wend_a - sp))) + 1          # boundary index = words before it
+        pri.append((i, 1.0 / (1.0 + gap / 10.0)))
+    return pri
+
+
+def align_words(words, a, sr, cache_dir=None):
+    """Forced alignment: every pause in the audio is matched to a word boundary (dynamic programming) using
+    (1) syllable counts vs. spoken durations, (2) punctuation, and (3) when the recognizer is available, what
+    is actually said in each breath group. Inside a breath group words are spread by syllables.
+    Returns (start[], end[]) per word in seconds."""
     N = len(words)
     syl = np.array([max(1, sum(ch in VOWELS for ch in w)) for w in words], dtype=float)
     cs = np.concatenate([[0.0], np.cumsum(syl)])
@@ -145,6 +240,12 @@ def align_words(words, a, sr):
         else:
             bpen[i], skip[i] = 1.2, 0.0
     cskip = np.cumsum(skip)
+    prior = None
+    if M:
+        heard = heard_spans(a, sr, spans, cache_dir)
+        if heard is not None:
+            prior = heard_prior(words, heard)
+            bpen = bpen * 0.5           # with real evidence, pauses inside a sentence are less surprising
     INF = 1e18
     dp = np.full((M + 2, N + 1), INF)
     bk = np.zeros((M + 2, N + 1), dtype=int)
@@ -161,6 +262,8 @@ def align_words(words, a, sr):
             sy = cs[i] - cs[i0]
             z = (d - rate * sy) / (0.12 + 0.18 * rate * sy)
             cost = prev + z * z + (cskip[i - 1] - cskip[i0]) + bpen[i]
+            if prior is not None and j <= M and prior[j - 1][0] is not None:
+                cost = cost + prior[j - 1][1] * min(6.0, 0.9 * abs(cs[i] - cs[prior[j - 1][0]]))
             cost[~ok] = INF
             k = int(np.argmin(cost))
             dp[j][i], bk[j][i] = cost[k], i0[k]
@@ -194,14 +297,14 @@ def caption_chunks(text):
     return out
 
 
-def captions_for_piece(text, a, sr, t0):
+def captions_for_piece(text, a, sr, t0, cache_dir=None):
     """Captions timed to the speech: each line appears when its first word is spoken (align_words)."""
     if not text:
         return []
     chunks = caption_chunks(text)
     words = [w for c in chunks for w in c.split()]
     try:
-        ws, we = align_words(words, a, sr)
+        ws, we = align_words(words, a, sr, cache_dir)
     except Exception as e:      # fall back to the old estimate
         print(f'uyari: altyazi hizalanamadi ({e}), tahmini zamanlama kullaniliyor', file=sys.stderr)
         return captions_estimate(text, a, sr, t0)
@@ -321,6 +424,7 @@ def hook_fit(a, sr, lead, wd, nth=1):
 def build_audio(cfg):
     wd = cfg['workdir']
     kanca = cfg.get('kanca')
+    hz = os.path.join(cfg['audio_dir'], 'hizalama')
     LEAD = KANCA_LEAD if kanca else globals()['LEAD']
     sr0 = None
     chunks, t = [], LEAD
@@ -344,11 +448,11 @@ def build_audio(cfg):
                 m = re.match(r'\s*([^.!?]+[.!?]+)\s*(.*)$', text or '', re.S)
                 if m:
                     subs.append({'t0': 0.0, 't1': float(t + h_cut), 'text': m.group(1).strip()})
-                    subs.extend(captions_for_piece(m.group(2), a[int(h_cut * sr):], sr, t + h_cut))
+                    subs.extend(captions_for_piece(m.group(2), a[int(h_cut * sr):], sr, t + h_cut, hz))
                     text = None
             d = len(a) / sr
             srec['pieces'].append({'audio': piece['audio'], 'start': t, 'dur': d, 'shots': piece['shots']})
-            subs.extend(captions_for_piece(text, a, sr, t))
+            subs.extend(captions_for_piece(text, a, sr, t, hz))
             chunks.append(('aud', a))
             t += d
             last_piece = pi == len(sec['pieces']) - 1
