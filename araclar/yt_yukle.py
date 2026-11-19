@@ -5,6 +5,7 @@ YT_CLIENT_ID, YT_CLIENT_SECRET, YT_REFRESH_TOKEN. Dosyaya ya da depoya anahtar y
   yt_yukle.py kanal                      -> belirtecin kanalini gosterir
   yt_yukle.py liste                      -> son yuklemeler
   yt_yukle.py video <id>                 -> durum, yayin saati
+  yt_yukle.py sil <id>                   -> videoyu siler (yalnizca bu kanalin videosu)
   yt_yukle.py yukle <mp4> <meta.json> [kapak.jpg]
      meta.json: {"snippet": {title, description, tags, categoryId}, "status": {privacyStatus, publishAt, selfDeclaredMadeForKids}}
      Kanal UC-PHvR1Mom6FRRiReVg2USQ degilse yuklemez.
@@ -47,6 +48,12 @@ elif cmd=='video':
     for i in j.get('items',[]):
         print(json.dumps({'id':i['id'],'title':i['snippet']['title'],'channelId':i['snippet']['channelId'],'status':i['status'],'duration':i['contentDetails'].get('duration'),'processing':i.get('processingDetails',{}).get('processingStatus'),'tags':i['snippet'].get('tags'),'cat':i['snippet'].get('categoryId')},ensure_ascii=False,indent=1))
     if not j.get('items'): print(c,b[:400])
+elif cmd=='sil':
+    c,b,e=api(tok,'GET','https://www.googleapis.com/youtube/v3/videos?part=snippet,status&id='+sys.argv[2])
+    it=json.loads(b).get('items',[])
+    if not it or it[0]['snippet']['channelId']!='UC-PHvR1Mom6FRRiReVg2USQ': print('SIL_BULUNAMADI',c,b[:200]); sys.exit(8)
+    c,b,e=api(tok,'DELETE','https://www.googleapis.com/youtube/v3/videos?id='+sys.argv[2])
+    print('SIL',c,b[:300]); sys.exit(0 if c==204 else 9)
 elif cmd=='yukle':
     # yukle <video> <meta.json> [kapak.jpg]
     video,meta=sys.argv[2],json.load(open(sys.argv[3],encoding='utf-8'))
