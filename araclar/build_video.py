@@ -31,6 +31,7 @@ W, H, FPS = 1920, 1080, 30
 LAYOUT = 'yatay'      # 'dikey': 1080x1920, blurred background + centered picture
 FG_H, FG_Y = 720, 560
 CAP_MAXC = 76
+CAP_W_DIKEY = 690   # caption text width in vertical videos: keeps clear of the Shorts/TikTok buttons on the right
 LEAD, GAP_IN, GAP_SEC, TAIL = 0.7, 0.45, 1.4, 2.4
 XF = 0.5          # crossfade between shots inside a section (seconds)
 FADE = 0.55       # fade from/to black at section edges
@@ -92,8 +93,136 @@ def split_chunks(sentence, maxc=76):
     return out
 
 
+VOWELS = set('aeıioöuüâîûAEIİOÖUÜÂÎÛ')
+
+
+def detect_pauses(a, sr, min_d=0.13, thr=0.012):
+    """(speech start, speech end, [(pause start, pause end)]) in seconds"""
+    win = int(sr * 0.01)
+    n = len(a) // win
+    voiced = np.abs(a[:n * win]).reshape(n, win).max(axis=1) >= thr
+    idx = np.where(voiced)[0]
+    if len(idx) == 0:
+        return 0.0, len(a) / sr, []
+    first, last = int(idx[0]), int(idx[-1]) + 1
+    pauses, c = [], 0
+    for i in range(first, last):
+        if not voiced[i]:
+            c += 1
+        else:
+            if c * 0.01 >= min_d:
+                pauses.append(((i - c) * 0.01, i * 0.01))
+            c = 0
+    return first * 0.01, last * 0.01, pauses
+
+
+def align_words(words, a, sr):
+    """Forced alignment without a speech model: every pause in the audio is matched to a word boundary
+    (punctuation preferred) so that syllable counts fit the spoken durations (dynamic programming);
+    inside a breath group words are spread by syllables. Returns (start[], end[]) per word in seconds."""
+    N = len(words)
+    syl = np.array([max(1, sum(ch in VOWELS for ch in w)) for w in words], dtype=float)
+    cs = np.concatenate([[0.0], np.cumsum(syl)])
+    s0, s1, pauses = detect_pauses(a, sr)
+    if len(pauses) > N - 1:
+        pauses = sorted(sorted(pauses, key=lambda p: p[0] - p[1])[:max(0, N - 1)])
+    M = len(pauses)
+    edges = [s0] + [x for p in pauses for x in p] + [s1]
+    spans = [(edges[2 * k], edges[2 * k + 1]) for k in range(M + 1)]
+    durs = np.array([e - b for b, e in spans])
+    rate = durs.sum() / cs[-1]
+
+    def last_char(i):
+        return words[i - 1].rstrip('"”’\')')[-1:]
+    bpen = np.zeros(N + 1)      # cost of putting a pause after word i-1 (boundary i)
+    skip = np.zeros(N + 1)      # cost of passing boundary i without a pause
+    for i in range(1, N):
+        ch = last_char(i)
+        if ch and ch in '.?!:':
+            bpen[i], skip[i] = 0.0, 0.8
+        elif ch and ch in ',;':
+            bpen[i], skip[i] = 0.15, 0.05
+        else:
+            bpen[i], skip[i] = 1.2, 0.0
+    cskip = np.cumsum(skip)
+    INF = 1e18
+    dp = np.full((M + 2, N + 1), INF)
+    bk = np.zeros((M + 2, N + 1), dtype=int)
+    dp[0][0] = 0.0
+    for j in range(1, M + 2):
+        d = durs[j - 1]
+        lo_i, hi_i = (N, N) if j == M + 1 else (j, N - (M + 1 - j))
+        for i in range(lo_i, hi_i + 1):
+            i0 = np.arange(max(j - 1, i - 70), i)
+            prev = dp[j - 1][i0]
+            ok = prev < INF
+            if not ok.any():
+                continue
+            sy = cs[i] - cs[i0]
+            z = (d - rate * sy) / (0.12 + 0.18 * rate * sy)
+            cost = prev + z * z + (cskip[i - 1] - cskip[i0]) + bpen[i]
+            cost[~ok] = INF
+            k = int(np.argmin(cost))
+            dp[j][i], bk[j][i] = cost[k], i0[k]
+    assert dp[M + 1][N] < INF, 'hizalama bulunamadi'
+    b = [N]
+    for j in range(M + 1, 0, -1):
+        b.append(int(bk[j][b[-1]]))
+    b = b[::-1]
+    start, end = np.zeros(N), np.zeros(N)
+    for k in range(M + 1):
+        w0, w1 = b[k], b[k + 1]
+        t_a, t_b = spans[k]
+        tot = cs[w1] - cs[w0]
+        for w in range(w0, w1):
+            start[w] = t_a + (t_b - t_a) * (cs[w] - cs[w0]) / tot
+            end[w] = t_a + (t_b - t_a) * (cs[w + 1] - cs[w0]) / tot
+    return start, end
+
+
+def caption_chunks(text):
+    sents = [x.strip() for x in re.findall(r'[^.!?]+[.!?]+["”]?|[^.!?]+$', text) if x.strip()]
+    merged = []
+    for x in sents:
+        if merged and (len(merged[-1]) < 20 or len(x) < 12) and len(merged[-1]) + len(x) < CAP_MAXC:
+            merged[-1] += ' ' + x
+        else:
+            merged.append(x)
+    out = []
+    for x in merged:
+        out += split_chunks(x, CAP_MAXC)
+    return out
+
+
 def captions_for_piece(text, a, sr, t0):
-    """Sentence-level captions: predicted by character share, snapped to detected pauses."""
+    """Captions timed to the speech: each line appears when its first word is spoken (align_words)."""
+    if not text:
+        return []
+    chunks = caption_chunks(text)
+    words = [w for c in chunks for w in c.split()]
+    try:
+        ws, we = align_words(words, a, sr)
+    except Exception as e:      # fall back to the old estimate
+        print(f'uyari: altyazi hizalanamadi ({e}), tahmini zamanlama kullaniliyor', file=sys.stderr)
+        return captions_estimate(text, a, sr, t0)
+    caps, k = [], 0
+    for n, c in enumerate(chunks):
+        nw = len(c.split())
+        b = max(0.0, ws[k] - 0.06)
+        last_end = we[k + nw - 1]
+        if n + 1 < len(chunks):
+            nxt = ws[k + nw] - 0.06
+            e = nxt if nxt - last_end < 1.0 else last_end + 0.5
+        else:
+            e = min(len(a) / sr, last_end + 0.35)
+        caps.append({'t0': float(t0 + b), 't1': float(t0 + max(e, b + 0.3)), 'text': c,
+                     'kelimeler': [[w, round(float(t0 + ws[k + q]), 2)] for q, w in enumerate(c.split())]})
+        k += nw
+    return caps
+
+
+def captions_estimate(text, a, sr, t0):
+    """Old method: sentence times predicted by character share, snapped to detected pauses."""
     if not text:
         return []
     sents = [x.strip() for x in re.findall(r'[^.!?]+[.!?]+["”]?|[^.!?]+$', text) if x.strip()]
@@ -720,7 +849,7 @@ class Renderer:
         self.total = self.tl['total']
         self.subs = self.tl.get('subs', [])
         self.subcache = {}
-        self.subfont = ImageFont.truetype(SANS_B, 46 if LAYOUT == 'yatay' else 54)
+        self.subfont = ImageFont.truetype(SANS_B, 46 if LAYOUT == 'yatay' else 52)
         self.kanca = None
         k = cfg.get('kanca')
         if k and 'kanca' in self.tl:
@@ -729,14 +858,14 @@ class Renderer:
                    'fx': {'hareket': k.get('hareket', 'yaklas'), 'efekt': k.get('efekt', [])}}
             yat = LAYOUT == 'yatay'
             self.kanca = {'kes': kes, 'shot': Shot(rec, 0, cfg, cache),
-                          'img': make_hook(k['yazi'], 1640 if yat else 960, k.get('punto', 132 if yat else 118)),
-                          'y': k.get('y', 0.30 if yat else 0.175), 'zoom': k.get('zoom', 0.15)}
+                          'img': make_hook(k['yazi'], 1640 if yat else 860, k.get('punto', 132 if yat else 118)),
+                          'y': k.get('y', 0.30 if yat else 0.195), 'zoom': k.get('zoom', 0.15)}
 
     def caption(self, text):
         if text in self.subcache:
             return self.subcache[text]
         tmp = ImageDraw.Draw(Image.new('RGBA', (10, 10)))
-        lines = wrap(tmp, text, self.subfont, 1500 if LAYOUT == 'yatay' else 960)
+        lines = wrap(tmp, text, self.subfont, 1500 if LAYOUT == 'yatay' else CAP_W_DIKEY)
         if len(lines) > 2 and LAYOUT == 'dikey':
             lines = lines[:3]
         elif len(lines) > 2:
@@ -876,7 +1005,7 @@ def main():
     cmd = sys.argv[2]
     if cfg.get('layout') == 'dikey':
         W, H = cfg.get('size', [1080, 1920])
-        LAYOUT, CAP_MAXC = 'dikey', 44
+        LAYOUT, CAP_MAXC = 'dikey', 40
     wd = cfg['workdir']
     if cmd == 'audio':
         build_audio(cfg)
