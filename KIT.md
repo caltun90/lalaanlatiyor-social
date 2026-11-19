@@ -90,3 +90,4 @@ Kısa videolar (Buffer API):
 - (18 Kasım 2026) Kısa özet metinleri saniyede yaklaşık 16 karakter hızla okunuyor: 2:50 için yaklaşık 2.700, 2:10 için yaklaşık 2.050 karakter yaz.
 - (19 Kasım 2026) 2.5D hareket betiğe eklendi (`derinlik` komutu, `hareketler` alanı, bölüm 6). Tek katmanlı derinlik kaydırması karakter kenarında hayalet kopya bırakıyordu; betik artık ön planı ayrı katmana alıp arkasını dolduruyor. Takip hareketinde kaydırmayı büyütme, hayalet geri gelir.
 - (19 Kasım 2026) Görsellerde ay yıldızlı kırmızı bayrak var (ör. courier, siege_wide); 16. yüzyıl için anakronizm. Yeni stok oturumlarında istemde "no crescent-and-star flags" yaz.
+- (19 Kasım 2026) ChatGPT aynı sohbette 12-13 görselden sonra düz çizgi film stilinden gerçekçi, boyama görünüme kaydı ve ay yıldızlı bayrak ekledi; 21 görsel yeniden üretildi. Stok oturumunda stil cümlesini ve "no flags" notunu her istemin başına yaz, her 10 görselde bir toplu kontrol yap.
