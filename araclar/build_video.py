@@ -17,7 +17,7 @@ Optional (2.5D animation, needs derinlik maps; without them the old 2D motion is
   "hareket_varsayilan": "derin", "vinyet": true
   A single shot can override with a third element: [image, weight, {"hareket": ...}]
 Optional (first 2 seconds hook, rule of 19 Nov 2026):
-  "kanca": {"yazi": "SARAY NEDEN SUSTU?", "gorsel": image, "y": 0.7}
+  "kanca": {"yazi": "SARAY NEDEN SUSTU?", "gorsel": image, "y": 0.7, "duraklama": 1}
   The first sentence of the first piece is the spoken hook: audio starts at ~0.15 s, the sentence is fitted to
   end before 1.9 s (gently sped up if needed), the first frame shows the hook picture with the big hook text and
   a fast push-in, then a hard cut; brand, title and label only come after the cut.
@@ -142,23 +142,33 @@ def captions_for_piece(text, a, sr, t0):
 KANCA_LEAD, KANCA_MAX = 0.10, 1.88
 
 
-def hook_fit(a, sr, lead, wd):
+def hook_fit(a, sr, lead, wd, nth=1):
     """first sentence of the first piece = spoken hook. Returns (audio, hook end, caption cut) in piece seconds.
-    If the sentence would end after KANCA_MAX it is sped up (pitch kept) just enough."""
-    win = int(sr * 0.01)
-    n = len(a) // win
-    quiet = np.abs(a[:n * win]).reshape(n, win).max(axis=1) < 0.012
-    p0 = p1 = None
-    c = 0
-    for i, q in enumerate(quiet):
-        if q:
-            c += 1
-        else:
-            if c * 0.01 >= 0.12 and (i - c) * 0.01 > 0.4:
-                p0, p1 = (i - c) * 0.01, i * 0.01
-                break
-            c = 0
-    assert p0 is not None, 'kanca: ilk cumlenin sonu bulunamadi'
+    nth: which pause ends the sentence (2 when the sentence has one comma pause inside; inner pauses are
+    shortened to 0.10 s). If the sentence would end after KANCA_MAX it is sped up (pitch kept) just enough."""
+    def pauses(a):
+        win = int(sr * 0.01)
+        n = len(a) // win
+        quiet = np.abs(a[:n * win]).reshape(n, win).max(axis=1) < 0.012
+        out, c = [], 0
+        for i, q in enumerate(quiet):
+            if q:
+                c += 1
+            else:
+                if c * 0.01 >= 0.12 and (i - c) * 0.01 > 0.3:
+                    out.append(((i - c) * 0.01, i * 0.01))
+                    if len(out) >= nth:
+                        break
+                c = 0
+        return out
+    ps = pauses(a)
+    assert len(ps) >= nth, 'kanca: ilk cumlenin sonu bulunamadi'
+    cut = 0.0
+    for q0, q1 in reversed(ps[:nth - 1]):          # tighten comma pauses inside the hook sentence
+        if q1 - q0 > 0.10:
+            a = np.concatenate([a[:int((q0 + 0.05) * sr)], a[int((q1 - 0.05) * sr):]])
+            cut += (q1 - q0) - 0.10
+    p0, p1 = ps[nth - 1][0] - cut, ps[nth - 1][1] - cut
     if lead + p0 > KANCA_MAX:
         f = min(1.4, p0 / (KANCA_MAX - lead - 0.02))
         src, dst = os.path.join(wd, 'kanca_src.wav'), os.path.join(wd, 'kanca_hizli.wav')
@@ -199,7 +209,7 @@ def build_audio(cfg):
             a = trim_silence(a, sr)
             text = piece.get('text')
             if kanca and si == 0 and pi == 0:
-                a, h_end, h_cut = hook_fit(a, sr, LEAD, wd)
+                a, h_end, h_cut = hook_fit(a, sr, LEAD, wd, int(kanca.get('duraklama', 1)))
                 timeline['kanca'] = {'bitis': t + h_end, 'kes': max(2.2, t + h_end + 0.3)}
                 assert t + h_end < 2.0, f'kanca cumlesi 2 saniyeyi asiyor: {t + h_end:.2f}'
                 m = re.match(r'\s*([^.!?]+[.!?]+)\s*(.*)$', text or '', re.S)

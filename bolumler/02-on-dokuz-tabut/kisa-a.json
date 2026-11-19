@@ -12,9 +12,10 @@
  "workdir": "work_a",
  "output": "../../videos/2026-11-19-on-dokuz-tabut-kisa-a.mp4",
  "kanca": {
-  "yazi": "ŞEHİR O SABAH NE GÖRDÜ?",
-  "gorsel": "29_gate_morning",
-  "punto": 100
+  "yazi": "19 ŞEHZADE, TEK GECE",
+  "gorsel": "11_older_princes",
+  "punto": 100,
+  "duraklama": 2
  },
  "sections": [
   {
@@ -24,8 +25,12 @@
      "audio": "ka.wav",
      "shots": [
       [
+       "22_accession",
+       79
+      ],
+      [
        "02_topkapi_winter",
-       127
+       103
       ],
       [
        "04_chamber_door",
@@ -120,7 +125,7 @@
        68
       ]
      ],
-     "text": "Şehir o sabah ne gördü? Bin beş yüz doksan beş yılının ocak ayı. Topkapı Sarayı'nda Sultan Üçüncü Murad bir gece ansızın öldü. Ama saray bunu kimseye söylemedi. Çünkü tahtın yeni sahibi İstanbul'da değildi. Padişahın en büyük oğlu Şehzade Mehmed, Manisa'daydı. Taht boş kalırsa askerler ayaklanabilir, şehir karışabilirdi. Padişahın eşi Safiye Sultan ve sarayın güçlü ağası Gazanfer Ağa, Manisa'ya gizlice haber gönderdi. Sonra beklemeye başladılar. Saray on bir gün boyunca hiçbir şey olmamış gibi davrandı. Oysa içeride ölmüş bir padişah vardı. Ve olanlardan habersiz on dokuz şehzade. Dördü genç adamdı, ötekiler çok küçüktü. O sarayda herkes bir kuralı bilirdi. Yüz yılı aşkın süredir, tahta çıkan padişah taht kavgası çıkmasın diye kardeşlerini öldürtebiliyordu. Bu kuralın arkasında bir korku vardı. Osmanlı daha önce kardeş kavgaları yüzünden dağılmanın eşiğine gelmişti. Ölen padişah tahta çıktığı gece de beş kardeşi öldürülmüştü. Bu kez sayı on dokuzdu. Bu arada sır yavaş yavaş sızıyordu. Bir Venedik elçisinin raporuna göre bazı bilgiler saray dışına çıkmıştı. Şehzade Mehmed haberi alır almaz, kış ortasında yola çıktı. Yanında lalası Lala Mehmed Bey vardı. Mudanya'dan bir kadırgaya bindi. Yirmi yedi Ocak, cuma günü İstanbul'a ulaştı. Önce annesiyle buluştu. Sonra tahta oturdu. Devlet adamları ona bağlılık sözü verdi. Cuma namazında hutbe onun adına okundu. İstanbul iki haberi birden öğrendi: eski padişah ölmüştü, yenisi tahta çıkmıştı. Gündüz böyle geçti. Sonra gece oldu. Yeni padişah o gece yüz yıllık kuralı uyguladı. On dokuz kardeşi aynı gece hayatını kaybetti. Ertesi gün sarayın kapısı açıldı. On dokuz cenaze aynı saraydan çıktı. İstanbul halkı bu görüntüye tanık oldu. Kaynaklar bunun her kesimde büyük tepkiye yol açtığını yazar. Şehir böylesini hiç görmemişti. Şehzadeler babalarının yanına, Ayasofya'nın bahçesine gömüldü. Türbeleri bugün hâlâ orada. Saray o günlerde boşaldı. Şehzadelerin anneleri, eski padişahın yirmi yedi kızı ve iki yüzden fazla dadı ile cariye Eski Saray'a taşındı. Bu, Osmanlı tarihinin en büyük kardeş katliydi ve bir daha bu ölçüde yaşanmadı. Sonraki padişah Birinci Ahmed kardeşini öldürtmedi. Şehzadeler artık sarayda kapalı tutulacaktı. Buna kafes denir. Peki saray o sırrı on bir gün boyunca nasıl sakladı? Devamı kanalda."
+     "text": "On dokuz şehzade, tek gece. Hepsi ağabeylerinin emriyle öldürüldü. Peki nasıl? Bin beş yüz doksan beş yılının ocak ayı. Topkapı Sarayı'nda Sultan Üçüncü Murad bir gece ansızın öldü. Ama saray bunu kimseye söylemedi. Çünkü tahtın yeni sahibi İstanbul'da değildi. Padişahın en büyük oğlu Şehzade Mehmed, Manisa'daydı. Taht boş kalırsa askerler ayaklanabilir, şehir karışabilirdi. Padişahın eşi Safiye Sultan ve sarayın güçlü ağası Gazanfer Ağa, Manisa'ya gizlice haber gönderdi. Sonra beklemeye başladılar. Saray on bir gün boyunca hiçbir şey olmamış gibi davrandı. Oysa içeride ölmüş bir padişah vardı. Ve olanlardan habersiz on dokuz şehzade. Dördü genç adamdı, ötekiler çok küçüktü. O sarayda herkes bir kuralı bilirdi. Yüz yılı aşkın süredir, tahta çıkan padişah taht kavgası çıkmasın diye kardeşlerini öldürtebiliyordu. Bu kuralın arkasında bir korku vardı. Osmanlı daha önce kardeş kavgaları yüzünden dağılmanın eşiğine gelmişti. Ölen padişah tahta çıktığı gece de beş kardeşi öldürülmüştü. Bu kez sayı on dokuzdu. Bu arada sır yavaş yavaş sızıyordu. Bir Venedik elçisinin raporuna göre bazı bilgiler saray dışına çıkmıştı. Şehzade Mehmed haberi alır almaz, kış ortasında yola çıktı. Yanında lalası Lala Mehmed Bey vardı. Mudanya'dan bir kadırgaya bindi. Yirmi yedi Ocak, cuma günü İstanbul'a ulaştı. Önce annesiyle buluştu. Sonra tahta oturdu. Devlet adamları ona bağlılık sözü verdi. Cuma namazında hutbe onun adına okundu. İstanbul iki haberi birden öğrendi: eski padişah ölmüştü, yenisi tahta çıkmıştı. Gündüz böyle geçti. Sonra gece oldu. Yeni padişah o gece yüz yıllık kuralı uyguladı. On dokuz kardeşi aynı gece hayatını kaybetti. Ertesi gün sarayın kapısı açıldı. On dokuz cenaze aynı saraydan çıktı. İstanbul halkı bu görüntüye tanık oldu. Kaynaklar bunun her kesimde büyük tepkiye yol açtığını yazar. Şehir böylesini hiç görmemişti. Şehzadeler babalarının yanına, Ayasofya'nın bahçesine gömüldü. Türbeleri bugün hâlâ orada. Saray o günlerde boşaldı. Şehzadelerin anneleri, eski padişahın yirmi yedi kızı ve iki yüzden fazla dadı ile cariye Eski Saray'a taşındı. Bu, Osmanlı tarihinin en büyük kardeş katliydi ve bir daha bu ölçüde yaşanmadı. Sonraki padişah Birinci Ahmed kardeşini öldürtmedi. Şehzadeler artık sarayda kapalı tutulacaktı. Buna kafes denir. Peki saray o sırrı on bir gün boyunca nasıl sakladı? Devamı kanalda."
     }
    ]
   }
