@@ -15,8 +15,13 @@
     "no": 2,
     "slug": "on-dokuz-tabut",
     "baslik": "Saraydan 19 tabutun çıktığı gece",
-    "durum": "hazir",
-    "notlar": "36 görsel depoda (19 Kasım 2026), sıra ve içerik için bolumler/02-on-dokuz-tabut/gorsel_listesi.md. Çocuk ölümü içeriyor; başlık ve kapakta 'sarayın en uzun gecesi' gibi ifade kullan. Görsellerde ölüm sahnesi yok, tabutlar yalnızca uzak ve örtülü."
+    "durum": "yuklendi",
+    "tarih": "2026-11-19",
+    "uzun_youtube": "VbYPaFHtUT8",
+    "kisa_yt_post": "YouTube API ile doğrudan: iueOKAmMzPE",
+    "kisa_tiktok_post": "6afea35bb16549e9b83263ea",
+    "x_post": "6afea35bf6b6aa0cd4adf5db",
+    "notlar": "YouTube başlığı: Sarayın En Uzun Gecesi: Topkapı'da 11 Gün Saklanan Sır | 1595. Uzun video 7:00, yayın 19 Kasım 2026 19:00. Kısa A 2:39 (YouTube Short API ile ve TikTok Buffer ile), kısa B 1:31 (X, Buffer), hepsi 20:00'ye planlı. Yeni düz anlatım kalıbı ve ilk 2 saniye kancası ilk kez uygulandı (kancalar: Saray neden sustu? / Şehir o sabah ne gördü? / O gece ne emretti?). 7 ses isteği kullanıldı. Çocuk ölümü tek cümleyle ve ayrıntısız söylenir, görsellerde yok; başlık ve kapakta tabut kelimesi yok. Kaynak ve yumuşatılan noktalar: bolumler/02-on-dokuz-tabut/senaryo.md."
   },
   {
     "no": 3,
