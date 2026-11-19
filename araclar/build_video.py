@@ -16,6 +16,11 @@ Optional (2.5D animation, needs derinlik maps; without them the old 2D motion is
                          "efekt": [toz, kivilcim, duman, mum], "yon": sag|sol}}
   "hareket_varsayilan": "derin", "vinyet": true
   A single shot can override with a third element: [image, weight, {"hareket": ...}]
+Optional (first 2 seconds hook, rule of 19 Nov 2026):
+  "kanca": {"yazi": "SARAY NEDEN SUSTU?", "gorsel": image, "y": 0.7}
+  The first sentence of the first piece is the spoken hook: audio starts at ~0.15 s, the sentence is fitted to
+  end before 1.9 s (gently sped up if needed), the first frame shows the hook picture with the big hook text and
+  a fast push-in, then a hard cut; brand, title and label only come after the cut.
 """
 import json, os, re, subprocess, sys, wave
 import numpy as np
@@ -134,8 +139,50 @@ def captions_for_piece(text, a, sr, t0):
     return caps
 
 
+KANCA_LEAD, KANCA_MAX = 0.10, 1.88
+
+
+def hook_fit(a, sr, lead, wd):
+    """first sentence of the first piece = spoken hook. Returns (audio, hook end, caption cut) in piece seconds.
+    If the sentence would end after KANCA_MAX it is sped up (pitch kept) just enough."""
+    win = int(sr * 0.01)
+    n = len(a) // win
+    quiet = np.abs(a[:n * win]).reshape(n, win).max(axis=1) < 0.012
+    p0 = p1 = None
+    c = 0
+    for i, q in enumerate(quiet):
+        if q:
+            c += 1
+        else:
+            if c * 0.01 >= 0.12 and (i - c) * 0.01 > 0.4:
+                p0, p1 = (i - c) * 0.01, i * 0.01
+                break
+            c = 0
+    assert p0 is not None, 'kanca: ilk cumlenin sonu bulunamadi'
+    if lead + p0 > KANCA_MAX:
+        f = min(1.4, p0 / (KANCA_MAX - lead - 0.02))
+        src, dst = os.path.join(wd, 'kanca_src.wav'), os.path.join(wd, 'kanca_hizli.wav')
+        with wave.open(src, 'wb') as w:
+            w.setnchannels(1); w.setsampwidth(2); w.setframerate(sr)
+            w.writeframes((np.clip(a[:int(p0 * sr)], -1, 1) * 32767).astype('<i2').tobytes())
+        subprocess.run(['ffmpeg', '-y', '-v', 'error', '-i', src, '-af', f'atempo={f:.4f}', '-ar', str(sr), dst], check=True)
+        _, h = read_wav(dst)
+        print(f'kanca: ilk cumle {p0:.2f}s, {f:.2f}x hizlandirildi -> {len(h) / sr:.2f}s')
+        a = np.concatenate([h, a[int(p0 * sr):]])
+        p1 = len(h) / sr + (p1 - p0)
+        p0 = len(h) / sr
+    if p1 - p0 < 0.45:       # let the hook land before the story starts
+        add = 0.45 - (p1 - p0)
+        k = int((p0 + (p1 - p0) / 2) * sr)
+        a = np.concatenate([a[:k], np.zeros(int(add * sr), np.float32), a[k:]])
+        p1 += add
+    return a, p0, p0 + min(0.5, (p1 - p0) * 0.75)
+
+
 def build_audio(cfg):
     wd = cfg['workdir']
+    kanca = cfg.get('kanca')
+    LEAD = KANCA_LEAD if kanca else globals()['LEAD']
     sr0 = None
     chunks, t = [], LEAD
     timeline = {'sections': []}
@@ -150,9 +197,19 @@ def build_audio(cfg):
                 sr0 = sr
             assert sr == sr0
             a = trim_silence(a, sr)
+            text = piece.get('text')
+            if kanca and si == 0 and pi == 0:
+                a, h_end, h_cut = hook_fit(a, sr, LEAD, wd)
+                timeline['kanca'] = {'bitis': t + h_end, 'kes': max(2.2, t + h_end + 0.3)}
+                assert t + h_end < 2.0, f'kanca cumlesi 2 saniyeyi asiyor: {t + h_end:.2f}'
+                m = re.match(r'\s*([^.!?]+[.!?]+)\s*(.*)$', text or '', re.S)
+                if m:
+                    subs.append({'t0': 0.0, 't1': float(t + h_cut), 'text': m.group(1).strip()})
+                    subs.extend(captions_for_piece(m.group(2), a[int(h_cut * sr):], sr, t + h_cut))
+                    text = None
             d = len(a) / sr
             srec['pieces'].append({'audio': piece['audio'], 'start': t, 'dur': d, 'shots': piece['shots']})
-            subs.extend(captions_for_piece(piece.get('text'), a, sr, t))
+            subs.extend(captions_for_piece(text, a, sr, t))
             chunks.append(('aud', a))
             t += d
             last_piece = pi == len(sec['pieces']) - 1
@@ -196,6 +253,8 @@ def build_audio(cfg):
     timeline['shots'] = shots
     with open(os.path.join(wd, 'timeline.json'), 'w', encoding='utf-8') as f:
         json.dump(timeline, f, ensure_ascii=False, indent=1)
+    if 'kanca' in timeline:
+        print(f"kanca: cumle {timeline['kanca']['bitis']:.2f}s'de bitiyor, kesme {timeline['kanca']['kes']:.2f}s")
     print(f'total {total:.2f}s  shots {len(shots)}')
     for s in shots:
         print(f"  sec{s['sec']} {s['t0']:7.2f}-{s['t1']:7.2f} ({s['t1']-s['t0']:5.2f}s) {s['image']}")
@@ -275,6 +334,26 @@ def make_title_dikey(brand, title):
     for l in lines:
         lw = int(tmp.textlength(l, font=ft))
         d.text(((W - lw) // 2, y), l, font=ft, fill=CREAM + (255,), stroke_width=3, stroke_fill=(10, 10, 20, 255)); y += 78
+    return np.array(img)
+
+
+def make_hook(text, maxw, size):
+    """big hook text for the first two seconds: cream letters, thick dark outline, gold bar underneath"""
+    font = ImageFont.truetype(SANS_B, size)
+    tmp = ImageDraw.Draw(Image.new('RGBA', (10, 10)))
+    lines = wrap(tmp, text, font, maxw)
+    lh = int(size * 1.16)
+    tw = max(int(tmp.textlength(l, font=font)) for l in lines)
+    pad = int(size * 0.42)
+    w_, h_ = tw + pad * 2, lh * len(lines) + pad * 2 + 10
+    img = Image.new('RGBA', (w_, h_), (0, 0, 0, 0))
+    d = ImageDraw.Draw(img)
+    d.rounded_rectangle([0, 0, w_ - 1, h_ - 1], radius=26, fill=(12, 14, 26, 178))
+    for i, l in enumerate(lines):
+        lw = int(tmp.textlength(l, font=font))
+        d.text(((w_ - lw) // 2, pad - int(size * 0.12) + i * lh), l, font=font, fill=CREAM + (255,),
+               stroke_width=max(6, size // 14), stroke_fill=(8, 8, 16, 255))
+    d.rectangle([pad, h_ - pad // 2 - 12, w_ - pad, h_ - pad // 2 - 2], fill=GOLD + (255,))
     return np.array(img)
 
 
@@ -632,6 +711,16 @@ class Renderer:
         self.subs = self.tl.get('subs', [])
         self.subcache = {}
         self.subfont = ImageFont.truetype(SANS_B, 46 if LAYOUT == 'yatay' else 54)
+        self.kanca = None
+        k = cfg.get('kanca')
+        if k and 'kanca' in self.tl:
+            kes = self.tl['kanca']['kes']
+            rec = {'image': k.get('gorsel', self.tl['shots'][0]['image']), 't0': 0.0, 't1': kes, 'sec': 0,
+                   'fx': {'hareket': k.get('hareket', 'yaklas'), 'efekt': k.get('efekt', [])}}
+            yat = LAYOUT == 'yatay'
+            self.kanca = {'kes': kes, 'shot': Shot(rec, 0, cfg, cache),
+                          'img': make_hook(k['yazi'], 1640 if yat else 960, k.get('punto', 132 if yat else 118)),
+                          'y': k.get('y', 0.30 if yat else 0.175), 'zoom': k.get('zoom', 0.15)}
 
     def caption(self, text):
         if text in self.subcache:
@@ -661,7 +750,35 @@ class Renderer:
         hi = s.t1 + (XF / 2 if i < len(self.shots) - 1 and self.shots[i + 1].sec == s.sec else 0)
         return lo, hi
 
+    def render_kanca(self, t):
+        """0 .. kes: hook picture with a fast push-in, big hook text popping in, subtitle. No brand, no label."""
+        K = self.kanca
+        kes = K['kes']
+        fr = K['shot'].frame(t, 0.0, kes)
+        u = min(1.0, max(0.0, t / kes))
+        z = 1.0 + K['zoom'] * (1 - (1 - u) ** 3)          # fast at the very start, easing out
+        M = cv2.getRotationMatrix2D((W / 2, H * (0.5 if LAYOUT == 'yatay' else (FG_Y + FG_H / 2) / H)), 0, z)
+        fr = cv2.warpAffine(fr, M, (W, H), flags=cv2.INTER_LINEAR, borderMode=cv2.BORDER_REPLICATE)
+        img = K['img']
+        s = 1.0 + 0.10 * max(0.0, 1 - t / 0.22) ** 2      # readable on frame 0, settles in 0.2 s
+        s = min(s, (W - 24) / img.shape[1])
+        if s > 1.002:
+            img = cv2.resize(img, (int(img.shape[1] * s), int(img.shape[0] * s)), interpolation=cv2.INTER_LINEAR)
+        x = max(0, (W - img.shape[1]) // 2)
+        y = max(0, int(H * K['y'] - img.shape[0] / 2))
+        blend(fr, img[:, :W - x], x, y)
+        cap = next((c for c in self.subs if c['t0'] <= t < c['t1']), None)
+        if cap:
+            ci = self.caption(cap['text'])
+            blend(fr, ci, (W - ci.shape[1]) // 2, (H - ci.shape[0] - 54) if LAYOUT == 'yatay' else (FG_Y + FG_H + 80))
+        return fr
+
     def render(self, t):
+        kes = 0.0
+        if self.kanca:
+            kes = self.kanca['kes']
+            if t < kes:
+                return self.render_kanca(t)
         idx = next((i for i, s in enumerate(self.shots) if s.t0 <= t < s.t1), len(self.shots) - 1)
         s = self.shots[idx]
         lo, hi = self.bounds(idx)
@@ -677,14 +794,14 @@ class Renderer:
             fr = cv2.addWeighted(fr, 1 - k, self.shots[idx + 1].frame(t, nlo, nhi), k, 0)
         sec = self.tl['sections'][s.sec]
         # label
-        la = min(1.0, max(0.0, (t - sec['t0'] - 0.5) / 0.5))
+        la = min(1.0, max(0.0, (t - sec['t0'] - 0.5 - (kes if s.sec == 0 else 0)) / 0.5))
         if LAYOUT == 'yatay':
             blend(fr, self.labels[s.sec], 56, 48, la)
         else:
-            blend(fr, self.title, 0, 190)
+            blend(fr, self.title, 0, 190, min(1.0, (t - kes) / 0.4) if kes else 1.0)
         # opening title
         if s.sec == 0 and LAYOUT == 'yatay':
-            a = min(1.0, max(0.0, (t - 1.6) / 0.6)) * min(1.0, max(0.0, (9.2 - t) / 0.6))
+            a = min(1.0, max(0.0, (t - 1.6 - kes) / 0.6)) * min(1.0, max(0.0, (9.2 + kes - t) / 0.6))
             if a > 0:
                 th = self.title.shape[0]
                 blend(fr, self.title, 56, H - th - (230 if self.subs else 70), a)

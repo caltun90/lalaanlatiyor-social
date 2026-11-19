@@ -1,0 +1,420 @@
+{
+ "workdir": "work",
+ "images_dir": "gorseller",
+ "audio_dir": "ses",
+ "output": "cikti/Lala_Anlatiyor_02_Sarayin_En_Uzun_Gecesi_1595.mp4",
+ "brand": "LALA ANLATIYOR",
+ "title": "Sarayın En Uzun Gecesi",
+ "subtitle": "Topkapı Sarayı, 1595",
+ "kanca": {
+  "yazi": "SARAY NEDEN SUSTU?",
+  "gorsel": "05_gazanfer_order",
+  "y": 0.7,
+  "punto": 118,
+  "efekt": [
+   "mum"
+  ]
+ },
+ "sections": [
+  {
+   "label": "TOPKAPI SARAYI, OCAK 1595",
+   "pieces": [
+    {
+     "audio": "p01.wav",
+     "shots": [
+      [
+       "02_topkapi_winter",
+       79
+      ],
+      [
+       "03_corridor_rush",
+       182
+      ],
+      [
+       "04_chamber_door",
+       194
+      ],
+      [
+       "05_gazanfer_order",
+       124
+      ],
+      [
+       "08_map_route",
+       155
+      ],
+      [
+       "16_empty_throne",
+       269
+      ],
+      [
+       "06_safiye_letter",
+       76
+      ],
+      [
+       "07_ferhad_gate",
+       59
+      ],
+      [
+       "09_winter_road",
+       102
+      ],
+      [
+       "13_palace_roleplay",
+       156
+      ]
+     ],
+     "text": "Saray neden sustu? Bin beş yüz doksan beş yılının ocak ayı. İstanbul buz gibi. Bir gece yarısı Topkapı Sarayı'nın iç tarafında bir telaş başladı. Kapılar açılıp kapanıyor, görevliler ellerinde fenerlerle koridorlarda koşuyordu. Ama kimse sesini yükseltmiyordu. Çünkü o gece Sultan Üçüncü Murad ansızın ölmüştü. Yirmi yıldan uzun süredir tahtta oturan padişah artık yoktu. Normalde böyle bir haber hemen duyurulur. O gece tam tersi yapıldı. Ölüm saklandı. Bu kararın arkasında iki isim vardı. Biri padişahın eşi Safiye Sultan'dı. Öteki, sarayın en güçlü ağalarından Gazanfer Ağa. Peki neden sakladılar? Çünkü tahtın yeni sahibi İstanbul'da değildi. Ölen padişahın en büyük oğlu Şehzade Mehmed, yüzlerce kilometre uzakta, Manisa'daydı. Osmanlı'da şehzadeler devlet yönetmeyi öğrensin diye genç yaşta bir şehre yönetici olarak gönderilirdi. Mehmed de on yıldan uzun süredir Manisa'yı yönetiyordu. Taht boş kalırsa her şey olabilirdi. Askerler ayaklanabilir, şehir karışabilir, taht için kavga çıkabilirdi. Bu yüzden Safiye Sultan ile Gazanfer Ağa, Manisa'ya gizlice haber gönderdi. Haberi Ferhad Ağa götürecekti. Mevsim kıştı, yollar zordu. Ferhad Ağa Manisa'ya varacak, şehzade oradan İstanbul'a gelecekti. Bu, günler sürecek bir yolculuktu. O zamana kadar sarayın tek bir işi vardı: hiçbir şey olmamış gibi davranmak. Çünkü içeride ölmüş bir padişah vardı. Ve olanlardan habersiz on dokuz şehzade."
+    }
+   ]
+  },
+  {
+   "label": "ON BİR GÜN",
+   "pieces": [
+    {
+     "audio": "p02.wav",
+     "shots": [
+      [
+       "10_palace_normal_day",
+       139
+      ],
+      [
+       "11_older_princes",
+       211
+      ],
+      [
+       "12_little_princes_garden",
+       70
+      ],
+      [
+       "16_empty_throne",
+       213
+      ],
+      [
+       "02_topkapi_winter",
+       240
+      ],
+      [
+       "04_chamber_door",
+       115
+      ],
+      [
+       "14_bazaar_whispers",
+       127
+      ],
+      [
+       "15_venetian_envoy",
+       84
+      ],
+      [
+       "09_winter_road",
+       65
+      ]
+     ],
+     "text": "Saray dışarıdan bakınca her zamanki gibiydi. Nöbetçiler yerindeydi, günlük işler sürüyordu. Kaynaklar ölümün ustalıkla gizlendiğini yazar. İçeride ise durum çok farklıydı. Ölen padişahın hayatta yirmi oğlu vardı. En büyükleri Manisa'daki Mehmed'di. Geri kalan on dokuzu saraydaydı. Dördü artık genç birer adamdı: Mustafa, Bayezid, Osman ve Abdullah. Ötekiler çok küçüktü. Ve o sarayda büyüyen herkes bir kuralı bilirdi. Yüz yılı aşkın süredir, tahta çıkan padişah devletin düzeni bozulmasın diye kardeşlerini öldürtebiliyordu. Bu kural Fatih Sultan Mehmed'in kanununa dayandırılıyordu. Arkasında büyük bir korku vardı: taht kavgası. Osmanlı bunu daha önce yaşamıştı. Yıldırım Bayezid'in oğulları on yıldan uzun süre birbiriyle savaşmış, devlet dağılmanın eşiğine gelmişti. Fatih'in oğulları Bayezid ile Cem'in kavgası da yıllarca sürmüştü. Kural işte bu korkudan doğmuştu. Ölen padişah Üçüncü Murad tahta çıktığı gece de beş kardeşi öldürülmüştü. Ama bu kez sayı beş değildi. On dokuzdu. Bu arada sır yavaş yavaş sızıyordu. On bir gün boyunca bir ölümü saklamak kolay değildi. Şehirde fısıltılar dolaşmaya başladı. Bir Venedik elçisinin raporuna göre o günlerde bazı bilgiler saray dışına çıkmıştı. Günler geçiyordu. Taht boştu. Ve herkesin gözü Manisa yolundaydı."
+    }
+   ]
+  },
+  {
+   "label": "27 OCAK 1595, CUMA",
+   "pieces": [
+    {
+     "audio": "p03.wav",
+     "shots": [
+      [
+       "17_manisa_news",
+       180
+      ],
+      [
+       "18_mehmed_ride",
+       126
+      ],
+      [
+       "19_mudanya_galley",
+       120
+      ],
+      [
+       "20_sarayburnu_arrival",
+       94
+      ],
+      [
+       "21_mother_son",
+       76
+      ],
+      [
+       "22_accession",
+       179
+      ],
+      [
+       "23_friday_sermon",
+       49
+      ],
+      [
+       "24_city_news",
+       127
+      ],
+      [
+       "25_dusk_palace",
+       99
+      ]
+     ],
+     "text": "Haber Manisa'ya ulaştı. Şehzade Mehmed yirmi sekiz yaşındaydı. Babasının öldüğünü öğrenir öğrenmez yola çıktı. Yanında lalası, yani onu yetiştiren hocası Lala Mehmed Bey de vardı. Hava çok sertti, kış bütün ağırlığıyla sürüyordu. Kafile önce karadan kuzeye, Marmara kıyısındaki Mudanya İskelesi'ne ulaştı. Oradan bir kadırgaya bindiler. Kadırga, kürekle giden hızlı bir savaş gemisidir. Şehzade Marmara Denizi'ni böyle geçti. Yirmi yedi Ocak, cuma günü İstanbul'a ulaştı. Babasının ölümü on bir gün boyunca saklanmıştı. Saraya girer girmez uzun süredir görmediği annesi Safiye Sultan'la buluştu. Ardından hiç beklenmeden tören yapıldı. Taht kuruldu. Devlet adamları sırayla yeni padişahın önüne geldi ve ona bağlılık sözü verdi. Şehzade Mehmed artık Sultan Üçüncü Mehmed'di. Aynı gün cuma namazında hutbe onun adına okundu. İstanbul iki haberi birden öğrendi: eski padişah ölmüştü, yenisi tahta çıkmıştı. On bir gündür saklanan sır artık sır değildi. Taht boş kalmamış, kavga çıkmamıştı. Sarayın planı işlemişti. Gündüz böyle geçti. Sonra akşam oldu."
+    }
+   ]
+  },
+  {
+   "label": "O GECE",
+   "pieces": [
+    {
+     "audio": "p04.wav",
+     "shots": [
+      [
+       "26_inner_door_night",
+       234
+      ],
+      [
+       "27_silent_shadows",
+       127
+      ],
+      [
+       "28_dawn_windows",
+       85
+      ],
+      [
+       "29_gate_morning",
+       83
+      ],
+      [
+       "30_procession",
+       128
+      ],
+      [
+       "31_crowd_grief",
+       145
+      ],
+      [
+       "35_tomb_hagia_sophia",
+       112
+      ],
+      [
+       "22_accession",
+       133
+      ],
+      [
+       "25_dusk_palace",
+       146
+      ],
+      [
+       "31_crowd_grief",
+       90
+      ]
+     ],
+     "text": "Yirmi yedi Ocak gecesi. Topkapı Sarayı'nın üzerine karanlık çöktü. Gündüzki törenin kalabalığı dağılmıştı. İç koridorlar sessizdi. Yeni padişah o gece yüz yıllık kuralı uyguladı. Emir verildi ve sarayın iç bölümünde yerine getirildi. O gece on dokuz şehzade hayatını kaybetti. Dördü genç adamdı. Ötekiler çok küçük yaştaydı. Bu hikâyede o odalara girmeyeceğiz. Şehzadelerin anneleri de o sırada aynı saraydaydı. Sabah olduğunda Topkapı yastaydı. Ertesi gün sarayın kapısı açıldı. On dokuz şehzadenin cenazesi saraydan çıkarıldı. İstanbul halkı bu görüntüye tanık oldu. Kaynaklar, cenazelerin saraydan çıkışının her kesimde büyük tepkiye yol açtığını yazar. Kardeş öldürme kuralını herkes bilirdi. Daha önce de uygulanmıştı. Ama şehir böylesini hiç görmemişti. On dokuz cenaze, aynı gün, aynı saraydan. Şehzadeler, babaları Üçüncü Murad'ın yanına, Ayasofya'nın bahçesine gömüldü. Sonradan üzerlerine türbe yapıldı. Yeni padişahın saltanatı böyle başladı. İlk gününde tören ve hutbe vardı. İlk gecesinde ise Osmanlı tarihinin en büyük kardeş katli. Bugün bu olaya bakarken iki şeyi birlikte görmek gerekir. Birincisi, o günün devlet anlayışında bu bir kuraldı ve yeni padişah o kuralı uyguladı. İkincisi, o günün insanları buna sessiz kalmadı. Tepki gösterdiler. Ve o tepki unutulmadı."
+    }
+   ]
+  },
+  {
+   "label": "SONRASI",
+   "pieces": [
+    {
+     "audio": "p05.wav",
+     "shots": [
+      [
+       "32_old_palace_carriages",
+       263
+      ],
+      [
+       "33_coins_janissaries",
+       207
+      ],
+      [
+       "02_topkapi_winter",
+       58
+      ],
+      [
+       "16_empty_throne",
+       151
+      ],
+      [
+       "34_kafes",
+       180
+      ],
+      [
+       "26_inner_door_night",
+       136
+      ],
+      [
+       "35_tomb_hagia_sophia",
+       164
+      ],
+      [
+       "36_lala_close",
+       93
+      ]
+     ],
+     "text": "Saray o günlerde boşaldı. Ölen padişahın ailesi Topkapı'dan ayrıldı. Şehzadelerin anneleri, eski padişahın yirmi yedi kızı ve iki yüzden fazla dadı ile cariye, Eski Saray'a taşındı. Eski Saray bugünkü Beyazıt'taydı ve padişahı ölen saray kadınları orada yaşardı. Tahta çıkıştan üç gün sonra askere bahşiş dağıtıldı. Bu, her yeni padişahın askere verdiği bir tahta çıkış hediyesiydi. Dönemin tarihçisi Âlî'ye göre yalnızca yeniçerilere altı yüz altmış bin altın verildi. Hayat devam etti. Ama o gün İstanbul'un aklından çıkmadı. Üçüncü Mehmed yaklaşık dokuz yıl padişahlık yaptı. Öldüğünde yerine on üç yaşındaki oğlu Birinci Ahmed geçti. Ve Ahmed, kardeşi Mustafa'yı öldürtmedi. Onun döneminde düzen değişmeye başladı. Artık tahta hanedanın en yaşlı erkeği geçecekti. Öteki şehzadeler ise sarayın özel bir bölümünde kapalı tutulacaktı. Bu düzene kafes denir. Kardeş öldürme bir anda bitmedi. Sonraki yıllarda da kardeşini öldürten padişahlar oldu. Ama bir daha hiçbir zaman bu ölçüde yaşanmadı. Bugün Ayasofya'nın bahçesindeki türbelerde Üçüncü Murad ve çocukları yatıyor. İstanbul'un en kalabalık yerlerinden birinde, o uzun gecenin sessiz tanıkları olarak. Sonraki bölümde bir kaleye gidiyoruz. Kanije. Dışarıda koca bir ordu, içeride yaşlı bir paşa."
+    }
+   ]
+  }
+ ],
+ "hareketler": {
+  "02_topkapi_winter": {
+   "hareket": "derin"
+  },
+  "03_corridor_rush": {
+   "hareket": "derin",
+   "efekt": [
+    "mum"
+   ]
+  },
+  "04_chamber_door": {
+   "hareket": "sakin",
+   "efekt": [
+    "mum"
+   ]
+  },
+  "05_gazanfer_order": {
+   "hareket": "yaklas",
+   "efekt": [
+    "mum"
+   ]
+  },
+  "06_safiye_letter": {
+   "hareket": "sakin",
+   "efekt": [
+    "mum"
+   ]
+  },
+  "07_ferhad_gate": {
+   "hareket": "takip",
+   "yon": "sag",
+   "efekt": [
+    "kivilcim"
+   ]
+  },
+  "08_map_route": {
+   "hareket": "duz"
+  },
+  "09_winter_road": {
+   "hareket": "takip",
+   "yon": "sag"
+  },
+  "10_palace_normal_day": {
+   "hareket": "derin"
+  },
+  "11_older_princes": {
+   "hareket": "sakin"
+  },
+  "12_little_princes_garden": {
+   "hareket": "sakin"
+  },
+  "13_palace_roleplay": {
+   "hareket": "sakin",
+   "efekt": [
+    "mum"
+   ]
+  },
+  "14_bazaar_whispers": {
+   "hareket": "derin",
+   "efekt": [
+    "mum"
+   ]
+  },
+  "15_venetian_envoy": {
+   "hareket": "yaklas",
+   "efekt": [
+    "mum"
+   ]
+  },
+  "16_empty_throne": {
+   "hareket": "derin",
+   "efekt": [
+    "toz"
+   ]
+  },
+  "17_manisa_news": {
+   "hareket": "sakin",
+   "efekt": [
+    "mum"
+   ]
+  },
+  "18_mehmed_ride": {
+   "hareket": "takip",
+   "yon": "sag"
+  },
+  "19_mudanya_galley": {
+   "hareket": "derin"
+  },
+  "20_sarayburnu_arrival": {
+   "hareket": "derin",
+   "efekt": [
+    "mum"
+   ]
+  },
+  "21_mother_son": {
+   "hareket": "sakin",
+   "efekt": [
+    "mum"
+   ]
+  },
+  "22_accession": {
+   "hareket": "derin"
+  },
+  "23_friday_sermon": {
+   "hareket": "derin",
+   "efekt": [
+    "toz"
+   ]
+  },
+  "24_city_news": {
+   "hareket": "derin"
+  },
+  "25_dusk_palace": {
+   "hareket": "derin"
+  },
+  "26_inner_door_night": {
+   "hareket": "sakin",
+   "efekt": [
+    "mum"
+   ]
+  },
+  "27_silent_shadows": {
+   "hareket": "duz",
+   "efekt": [
+    "mum"
+   ]
+  },
+  "28_dawn_windows": {
+   "hareket": "sakin"
+  },
+  "29_gate_morning": {
+   "hareket": "derin"
+  },
+  "30_procession": {
+   "hareket": "duz"
+  },
+  "31_crowd_grief": {
+   "hareket": "sakin"
+  },
+  "32_old_palace_carriages": {
+   "hareket": "derin"
+  },
+  "33_coins_janissaries": {
+   "hareket": "derin"
+  },
+  "34_kafes": {
+   "hareket": "sakin",
+   "efekt": [
+    "toz"
+   ]
+  },
+  "35_tomb_hagia_sophia": {
+   "hareket": "derin"
+  },
+  "36_lala_close": {
+   "hareket": "yaklas",
+   "efekt": [
+    "mum"
+   ]
+  }
+ }
+}
