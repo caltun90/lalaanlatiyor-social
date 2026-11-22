@@ -1,0 +1,190 @@
+{
+ "images_dir": "gorseller",
+ "audio_dir": "ses",
+ "brand": "LALA ANLATIYOR",
+ "title": "Şehzade 19 Kardeşini Öldürdü",
+ "subtitle": "",
+ "size": [
+  1080,
+  1920
+ ],
+ "layout": "dikey",
+ "workdir": "work_bx2",
+ "output": "../../videos/2026-11-23-on-dokuz-tabut-kisa-b-x2.mp4",
+ "kanca": {
+  "yazi": "19 ŞEHZADE, TEK GECE",
+  "gorsel": "11_older_princes",
+  "punto": 100,
+  "duraklama": 2
+ },
+ "sections": [
+  {
+   "label": "",
+   "pieces": [
+    {
+     "audio": "kb_x2.wav",
+     "shots": [
+      [
+       "11_older_princes",
+       80
+      ],
+      [
+       "24_city_news",
+       122
+      ],
+      [
+       "18_mehmed_ride",
+       53
+      ],
+      [
+       "04_chamber_door",
+       125
+      ],
+      [
+       "19_mudanya_galley",
+       75
+      ],
+      [
+       "21_mother_son",
+       53
+      ],
+      [
+       "22_accession",
+       61
+      ],
+      [
+       "23_friday_sermon",
+       32
+      ],
+      [
+       "11_older_princes",
+       77
+      ],
+      [
+       "16_empty_throne",
+       233
+      ],
+      [
+       "26_inner_door_night",
+       40
+      ],
+      [
+       "27_silent_shadows",
+       46
+      ],
+      [
+       "29_gate_morning",
+       47
+      ],
+      [
+       "31_crowd_grief",
+       70
+      ],
+      [
+       "35_tomb_hagia_sophia",
+       63
+      ],
+      [
+       "28_dawn_windows",
+       78
+      ],
+      [
+       "32_old_palace_carriages",
+       62
+      ],
+      [
+       "34_kafes",
+       83
+      ],
+      [
+       "36_lala_close",
+       15
+      ]
+     ],
+     "text": "On dokuz şehzade, tek gece. Hepsi ağabeylerinin emriyle öldürüldü. Peki nasıl? Yirmi yedi Ocak bin beş yüz doksan beş, cuma. İstanbul'da yeni bir padişah tahta çıktı: Üçüncü Mehmed. Yirmi sekiz yaşındaydı ve o gün Manisa'dan gelmişti. Babası Üçüncü Murad ölmüş, saray bu ölümü on bir gün boyunca herkesten saklamıştı. Çünkü taht boş kalırsa kavga çıkabilirdi. Mehmed kış ortasında yola çıktı, Mudanya'dan kadırgayla İstanbul'a ulaştı. Saraya girince önce annesi Safiye Sultan'la buluştu. Sonra tahta oturdu. Devlet adamları ona bağlılık sözü verdi. Cuma hutbesi onun adına okundu. Ama sarayda on dokuz kardeşi vardı. Dördü genç adamdı, ötekiler çok küçüktü. Ve yüz yılı aşkın süredir uygulanan bir kural vardı. Tahta çıkan padişah, taht kavgası çıkmasın diye kardeşlerini öldürtebiliyordu. Osmanlı daha önce kardeş kavgaları yüzünden dağılmanın eşiğine gelmişti. Kural bu korkudan doğmuştu. Yeni padişah o gece bu kuralı uyguladı. On dokuz kardeşi aynı gece hayatını kaybetti. Ertesi gün on dokuz cenaze saraydan çıkarıldı. Kaynaklar bu görüntünün her kesimde büyük tepkiye yol açtığını yazar. Şehzadeler babalarının yanına, Ayasofya'nın bahçesine gömüldü. Bu, Osmanlı tarihinin en büyük kardeş katliydi. Bir daha bu ölçüde yaşanmadı. Şehzadelerin anneleri Eski Saray'a gönderildi, saray boşaldı. Sonraki padişah kardeşini öldürtmedi. Şehzadeler artık sarayda kapalı tutulacaktı. Böyle hikâyeler için takip et. Devamı YouTube'da, Lala Anlatıyor kanalında."
+    }
+   ]
+  }
+ ],
+ "hareketler": {
+  "04_chamber_door": {
+   "hareket": "sakin",
+   "efekt": [
+    "mum"
+   ]
+  },
+  "11_older_princes": {
+   "hareket": "sakin"
+  },
+  "16_empty_throne": {
+   "hareket": "derin",
+   "efekt": [
+    "toz"
+   ]
+  },
+  "18_mehmed_ride": {
+   "hareket": "takip",
+   "yon": "sag"
+  },
+  "19_mudanya_galley": {
+   "hareket": "derin"
+  },
+  "21_mother_son": {
+   "hareket": "sakin",
+   "efekt": [
+    "mum"
+   ]
+  },
+  "22_accession": {
+   "hareket": "derin"
+  },
+  "23_friday_sermon": {
+   "hareket": "derin",
+   "efekt": [
+    "toz"
+   ]
+  },
+  "24_city_news": {
+   "hareket": "derin"
+  },
+  "26_inner_door_night": {
+   "hareket": "sakin",
+   "efekt": [
+    "mum"
+   ]
+  },
+  "27_silent_shadows": {
+   "hareket": "duz",
+   "efekt": [
+    "mum"
+   ]
+  },
+  "28_dawn_windows": {
+   "hareket": "sakin"
+  },
+  "29_gate_morning": {
+   "hareket": "derin"
+  },
+  "31_crowd_grief": {
+   "hareket": "sakin"
+  },
+  "32_old_palace_carriages": {
+   "hareket": "derin"
+  },
+  "34_kafes": {
+   "hareket": "sakin",
+   "efekt": [
+    "toz"
+   ]
+  },
+  "35_tomb_hagia_sophia": {
+   "hareket": "derin"
+  },
+  "36_lala_close": {
+   "hareket": "yaklas",
+   "efekt": [
+    "mum"
+   ]
+  }
+ }
+}
