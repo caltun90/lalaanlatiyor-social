@@ -1,0 +1,441 @@
+{
+ "workdir": "work",
+ "images_dir": "gorseller",
+ "audio_dir": "ses",
+ "output": "cikti/Lala_Anlatiyor_06_Patrona_Halil_1730.mp4",
+ "brand": "LALA ANLATIYOR",
+ "title": "Bir Hamam Tellağı Padişahı Devirdi",
+ "subtitle": "İstanbul, 1730",
+ "kanca": {
+  "yazi": "TELLAK PADİŞAHI DEVİRDİ",
+  "gorsel": "00_hook",
+  "y": 0.7,
+  "punto": 104,
+  "efekt": [
+   "kivilcim"
+  ]
+ },
+ "sections": [
+  {
+   "label": "İSTANBUL, 1730",
+   "pieces": [
+    {
+     "audio": "p01.wav",
+     "shots": [
+      [
+       "00_hook",
+       100
+      ],
+      [
+       "01_hamam",
+       70
+      ],
+      [
+       "02_bazaar_gate",
+       60
+      ],
+      [
+       "03_empty_cushion",
+       45
+      ],
+      [
+       "04_sultan_steps_down",
+       62
+      ],
+      [
+       "05_damat_curtain",
+       57
+      ],
+      [
+       "27_halil_divan",
+       72
+      ],
+      [
+       "06_sunnet_door",
+       75
+      ],
+      [
+       "07_puppet",
+       145
+      ]
+     ],
+     "text": "Bir hamam tellağı padişahı devirdi. Bu bir masal değil, gerçek bir olay. Bin yedi yüz otuz yılı, İstanbul. Bayezid Hamamı'nda müşterilerin sırtını keseleyen bir adam, bir ikindi vakti bir avuç arkadaşıyla Kapalıçarşı'ya giriyor. Birkaç gün sonra devletin sadrazamı ölmüş, yirmi yedi yıldır tahtta oturan padişah tahtı bırakmış oluyor. Üstelik bu isyanın arkasında sadrazamın kendi damadı var. İki ay boyunca İstanbul'da sözü en çok geçen adam bu eski tellak oluyor. Sonra bir gün saraya, bir toplantıya çağrılıyor. Ve o odadan sağ çıkamıyor. Peki Patrona Halil halkın sesi miydi, yoksa saray kavgasında kullanılan bir maşa mı? Kararı videonun sonunda sana bırakacağım. Şimdi en başa dönelim."
+    }
+   ]
+  },
+  {
+   "label": "LALE DEVRİ",
+   "pieces": [
+    {
+     "audio": "p02.wav",
+     "shots": [
+      [
+       "08_ahmed_ibrahim",
+       230
+      ],
+      [
+       "09_tulip_night",
+       110
+      ],
+      [
+       "10_sadabad",
+       70
+      ],
+      [
+       "11_golden_horn",
+       110
+      ],
+      [
+       "12_tax_collector",
+       170
+      ],
+      [
+       "13_bad_news",
+       110
+      ],
+      [
+       "14_uskudar_army",
+       150
+      ],
+      [
+       "17_bayezid_gathering",
+       60
+      ]
+     ],
+     "text": "Tahtta Sultan Üçüncü Ahmed vardı. Yanında da devletin ikinci adamı, sadrazam Nevşehirli Damat İbrahim Paşa. Sadrazam, padişahtan sonra devleti yöneten en yetkili kişiydi. İbrahim Paşa on iki yıldır bu görevdeydi. Bu yıllara sonradan Lale Devri dendi. Çünkü sarayda ve konaklarda laleye büyük bir merak vardı. Kâğıthane'de Sadabad adında bir saray yapıldı. Haliç kıyıları köşklerle, bahçelerle doldu. Geceleri bahçelerde şenlikler düzenlendi. İlk Türkçe kitaplar bu dönemde matbaada basıldı. Ama şehrin her yerinde aynı hava yoktu. Vergiler ağırdı. Fiyatlar yükseliyordu. Sokaktaki pek çok insan bu şenliklerin parasını kendisinin ödediğini düşünüyordu. Üstelik doğudan kötü haberler geliyordu. İran cephesinde savaş kötü gidiyordu ve Tebriz kaybedilmişti. Bin yedi yüz otuz yılının eylül ayında ordu İran'a gitmek için Üsküdar'da toplandı. Padişah da sadrazam da oradaydı. İstanbul'un karşı yakası, yani asıl şehir, neredeyse sahipsiz kalmıştı. İşte tam o günlerde, Bayezid'de birkaç adam bir plan yapıyordu."
+    }
+   ]
+  },
+  {
+   "label": "BAYEZİD'DE BİR İKİNDİ",
+   "pieces": [
+    {
+     "audio": "p03.wav",
+     "shots": [
+      [
+       "15_halil_portrait",
+       110
+      ],
+      [
+       "16_halil_ship",
+       120
+      ],
+      [
+       "01_hamam",
+       170
+      ],
+      [
+       "05_damat_curtain",
+       250
+      ],
+      [
+       "17_bayezid_gathering",
+       150
+      ],
+      [
+       "18_shops_closing",
+       60
+      ],
+      [
+       "19_weapons",
+       70
+      ],
+      [
+       "20_crowd_grows",
+       150
+      ],
+      [
+       "21_etmeydani",
+       200
+      ]
+     ],
+     "text": "Planın başındaki adamın adı Halil'di. Arnavut'tu, bugünkü Yunanistan'ın kuzeyindeki Horpeşte köyünden geliyordu. Bir süre savaş gemilerinde asker olarak çalışmıştı. Arkadaşları ona gemilerdeki bir rütbeden gelen \"Patrona\" lakabını takmıştı. Sonra yeniçeri olmuştu. İstanbul'da sokakta satıcılık yapmış, Bayezid Hamamı'nda tellaklık etmişti. Tellak, hamamda müşterileri keseleyen kişidir. Yani Patrona Halil, şehrin en sıradan insanlarından biriydi. Ama bu isyan yalnızca onun fikri değildi. Kaynaklara göre işin arkasında devletin içinden biri vardı: Kaymakam Mustafa Paşa. Kaymakam, sadrazam şehirde yokken onun yerine bakan kişiydi. Ve işin en şaşırtıcı yanı şu: Mustafa Paşa, İbrahim Paşa'nın kendi damadıydı. Eylül ayının son günlerinde, bir ikindi vakti, Patrona Halil ve arkadaşı Muslu Beşe küçük bir grupla Bayezid Camii'nin yanında toplandı. Sonra Kapalıçarşı'ya girdiler. Dükkânları kapattırdılar, silah satan çarşıdan silah aldılar. Bağırarak halkı yanlarına çağırdılar. Bir avuç adam birkaç saat içinde kalabalık bir topluluğa dönüştü. Yeniçeri ağası onları durdurmaya çalıştı ama başaramadı. Ertesi gün işler büyüdü. Yeniçeriler de isyancıların yanına geçti. Kalabalık Etmeydanı'nda, yeniçerilerin büyük meydanında toplandı. Artık karşılarında duracak bir güç kalmamıştı."
+    }
+   ]
+  },
+  {
+   "label": "LİSTE",
+   "pieces": [
+    {
+     "audio": "p04.wav",
+     "shots": [
+      [
+       "22_sultan_returns",
+       110
+      ],
+      [
+       "23_the_list",
+       230
+      ],
+      [
+       "24_sultan_night",
+       120
+      ],
+      [
+       "03_empty_cushion",
+       150
+      ],
+      [
+       "05_damat_curtain",
+       110
+      ],
+      [
+       "25_gate_torches",
+       200
+      ],
+      [
+       "04_sultan_steps_down",
+       120
+      ],
+      [
+       "26_mahmud_accession",
+       200
+      ]
+     ],
+     "text": "Padişah haberi Üsküdar'da aldı ve hemen İstanbul'a döndü. Önce isyancıları yatıştırmaya çalıştı. Ne istediklerini sordu. Gelen cevap bir listeydi. Listede otuz yedi devlet adamının adı vardı. En başta sadrazam İbrahim Paşa. İsyancılar bu adamların kendilerine teslim edilmesini istiyordu. Padişah günlerce direnmeye çalıştı. Ama saray her geçen saat biraz daha yalnız kalıyordu. Sonunda bir ekim gecesi karar verildi. Sadrazam İbrahim Paşa, Kaymakam Mustafa Paşa ve Kethüda Mehmed Paşa öldürüldü. Evet, isyanı başlatan Kaymakam Mustafa Paşa da bu üç kişinin arasındaydı. Kurduğu plan sonunda onu da yutmuştu. Cesetler isyancılara teslim edildi. Ama isyancılar bununla da yetinmedi. Bu cesedin gerçekten İbrahim Paşa'ya ait olmadığını, onun kaçırıldığını iddia ettiler. Ve yeni bir istekte bulundular: padişahın kendisi de gitmeliydi. İki Ekim günü Sultan Üçüncü Ahmed, kendisinin ve çocuklarının hayatına dokunulmayacağı sözünü aldı. Sonra tahtı bıraktı. Yerine yeğeni Şehzade Mahmud geçti. Artık Sultan Birinci Mahmud'du. Yirmi yedi yıl tahtta kalan padişah, bir hamam tellağının başlattığı isyanla birkaç gün içinde tahttan inmişti."
+    }
+   ]
+  },
+  {
+   "label": "TELLAĞIN İSTANBUL'U",
+   "pieces": [
+    {
+     "audio": "p05.wav",
+     "shots": [
+      [
+       "27_halil_divan",
+       250
+      ],
+      [
+       "28_gold_refused",
+       160
+      ],
+      [
+       "29_sadabad_looted",
+       270
+      ],
+      [
+       "30_mahmud_window",
+       230
+      ]
+     ],
+     "text": "Şimdi İstanbul'da garip bir dönem başladı. Kâğıt üzerinde padişah Birinci Mahmud'du. Ama şehirde son sözü çoğu zaman Patrona Halil söylüyordu. Eski tellak devlet adamlarının arasına oturdu. Yeniçeri ağasını o seçti. Önemli makamlara kendi adamlarını getirtti. Kaynaklara göre kendisine yüz bin altın teklif edildi, ama almadı. Bunun yerine ağır vergilerin kaldırılmasını istedi. Kendisine borç para veren Yanaki adında bir kasabı yüksek bir göreve getirtmek istedi. Lale Devri'nin simgesi olan köşkler de bu öfkeden payını aldı. Sadabad'daki köşkler yağmalandı ve kısmen yıkıldı. Bahçelerdeki ağaçlar kesildi. Haliç kıyısındaki pek çok köşkün sahiplerine onları yıkmaları emredildi. Bir dönemin bütün süsü birkaç hafta içinde söküldü. Ama saray sessizce bekliyordu. Yeni padişah, isyancılar şehre hâkim oldukça kendi düzenini kuramayacağını biliyordu. Ve Patrona Halil her geçen gün daha fazlasını istiyordu."
+    }
+   ]
+  },
+  {
+   "label": "SÜNNET ODASI",
+   "pieces": [
+    {
+     "audio": "p06.wav",
+     "shots": [
+      [
+       "31_secret_plan",
+       230
+      ],
+      [
+       "32_invitation",
+       120
+      ],
+      [
+       "33_courtyard_walk",
+       110
+      ],
+      [
+       "34_hidden_men",
+       100
+      ],
+      [
+       "06_sunnet_door",
+       170
+      ],
+      [
+       "35_winter_tulips",
+       90
+      ],
+      [
+       "07_puppet",
+       250
+      ],
+      [
+       "36_lala_close",
+       60
+      ]
+     ],
+     "text": "Sarayda gizli bir plan hazırlandı. Planın başında iki kişi vardı: sarayın güçlü ağası Hacı Beşir Ağa ve o sırada İstanbul'da bulunan Kırım Hanı Kaplan Giray. Saklandığı yerden çağrılan Pehlivan Halil Ağa da işe katıldı. Yirmi beş Kasım bin yedi yüz otuz. Patrona Halil ve arkadaşları sarayda bir toplantıya çağrıldı. Toplantı Topkapı Sarayı'ndaki Sünnet Odası'nda yapılacaktı. Patrona her zamanki gibi kendinden emin geldi. Ama odanın çevresinde adamlar saklanmıştı. Toplantı sırasında Pehlivan Halil Ağa'nın adamları ortaya çıktı. Patrona Halil, Muslu Beşe ve yanlarındaki Kel Mehmed orada öldürüldü. İstanbul'u iki ay elinde tutan adamın hikâyesi, sarayın içinde, birkaç dakikada bitti. Sonraki günlerde isyanın öteki elebaşları da yakalandı. Lale Devri geri gelmedi. Bugün Patrona Halil hakkında iki farklı görüş var. Kimine göre o, ağır vergilere ve saray israfına karşı çıkan halkın sesiydi. Kimine göre ise sarayın içindeki bir güç kavgasında kullanılan bir maşaydı. Çünkü isyanı başlatan kaymakamı da, ona sonunda tuzak kuranları da aynı saray çıkarmıştı. Sence hangisi? Yorumlara yaz. Böyle hikâyeler için abone ol."
+    }
+   ]
+  }
+ ],
+ "hareketler": {
+  "00_hook": {
+   "hareket": "derin",
+   "efekt": [
+    "kivilcim"
+   ]
+  },
+  "01_hamam": {
+   "hareket": "sakin",
+   "efekt": [
+    "duman"
+   ]
+  },
+  "02_bazaar_gate": {
+   "hareket": "derin",
+   "efekt": [
+    "toz"
+   ]
+  },
+  "03_empty_cushion": {
+   "hareket": "yaklas",
+   "efekt": [
+    "mum"
+   ]
+  },
+  "04_sultan_steps_down": {
+   "hareket": "sakin"
+  },
+  "05_damat_curtain": {
+   "hareket": "yaklas",
+   "efekt": [
+    "mum"
+   ]
+  },
+  "06_sunnet_door": {
+   "hareket": "sakin",
+   "efekt": [
+    "mum"
+   ]
+  },
+  "07_puppet": {
+   "hareket": "derin"
+  },
+  "08_ahmed_ibrahim": {
+   "hareket": "sakin"
+  },
+  "09_tulip_night": {
+   "hareket": "derin",
+   "efekt": [
+    "mum"
+   ]
+  },
+  "10_sadabad": {
+   "hareket": "derin"
+  },
+  "11_golden_horn": {
+   "hareket": "derin"
+  },
+  "12_tax_collector": {
+   "hareket": "sakin"
+  },
+  "13_bad_news": {
+   "hareket": "sakin",
+   "efekt": [
+    "mum"
+   ]
+  },
+  "14_uskudar_army": {
+   "hareket": "derin",
+   "efekt": [
+    "toz"
+   ]
+  },
+  "15_halil_portrait": {
+   "hareket": "yaklas"
+  },
+  "16_halil_ship": {
+   "hareket": "derin"
+  },
+  "17_bayezid_gathering": {
+   "hareket": "sakin"
+  },
+  "18_shops_closing": {
+   "hareket": "derin",
+   "efekt": [
+    "toz"
+   ]
+  },
+  "19_weapons": {
+   "hareket": "derin",
+   "efekt": [
+    "toz"
+   ]
+  },
+  "20_crowd_grows": {
+   "hareket": "sarsinti",
+   "efekt": [
+    "toz"
+   ]
+  },
+  "21_etmeydani": {
+   "hareket": "sarsinti",
+   "efekt": [
+    "toz"
+   ]
+  },
+  "22_sultan_returns": {
+   "hareket": "takip",
+   "yon": "sag"
+  },
+  "23_the_list": {
+   "hareket": "derin"
+  },
+  "24_sultan_night": {
+   "hareket": "sakin",
+   "efekt": [
+    "mum"
+   ]
+  },
+  "25_gate_torches": {
+   "hareket": "derin",
+   "efekt": [
+    "kivilcim"
+   ]
+  },
+  "26_mahmud_accession": {
+   "hareket": "derin"
+  },
+  "27_halil_divan": {
+   "hareket": "sakin"
+  },
+  "28_gold_refused": {
+   "hareket": "yaklas"
+  },
+  "29_sadabad_looted": {
+   "hareket": "sarsinti",
+   "efekt": [
+    "toz"
+   ]
+  },
+  "30_mahmud_window": {
+   "hareket": "yaklas"
+  },
+  "31_secret_plan": {
+   "hareket": "sakin",
+   "efekt": [
+    "mum"
+   ]
+  },
+  "32_invitation": {
+   "hareket": "sakin"
+  },
+  "33_courtyard_walk": {
+   "hareket": "derin"
+  },
+  "34_hidden_men": {
+   "hareket": "sakin"
+  },
+  "35_winter_tulips": {
+   "hareket": "derin",
+   "efekt": [
+    "toz"
+   ]
+  },
+  "36_lala_close": {
+   "hareket": "yaklas",
+   "efekt": [
+    "mum"
+   ]
+  }
+ }
+}

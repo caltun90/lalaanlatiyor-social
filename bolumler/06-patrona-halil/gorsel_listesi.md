@@ -1,0 +1,41 @@
+# 06 Patrona Halil: görsel listesi
+
+Görseller hikâye sırasına göre numaralıdır (22 Kasım 2026 stok oturumu, ChatGPT, iki sohbet). Karakterler bu bölüm için çizilen karakter sayfasından gelir (`karakter_sayfasi_06.jpg`: Patrona Halil, Muslu Beşe, III. Ahmed, İbrahim Paşa, I. Mahmud, Hacı Beşir Ağa). Ölümler hiçbir görselde gösterilmez: 03 boş minder, 06 kapalı kapı ve gölgeler, 34 saklanan adamlar. Bu üçünde sarsıntı hareketi kullanma.
+
+- `00_hook.jpg`: Patrona Halil kılıcını kaldırmış, arkasında kalabalık, sağda devrilmiş taht ve yere düşmüş padişah sarığı (kanca ve kapak).
+- `01_hamam.jpg`: Halil hamamda tellak, müşterinin sırtını keseliyor.
+- `02_bazaar_gate.jpg`: Halil, Muslu Beşe ve bir avuç adam Kapalıçarşı kapısından giriyor.
+- `03_empty_cushion.jpg`: Sadrazamın boş minderi, üzerinde sarığı, yeni sönmüş mum (sadrazamın ölümü, dolaylı).
+- `04_sultan_steps_down.jpg`: III. Ahmed başı önde tahttan iniyor.
+- `05_damat_curtain.jpg`: Kaymakam Mustafa Paşa perdenin arkasından hizmetkârına fısıldıyor (damat).
+- `06_sunnet_door.jpg`: Gece çinili koridor, kapalı kapı, duvarda saklanan adamların gölgeleri.
+- `07_puppet.jpg`: Halil kalabalığın önünde; omuzlarından saray penceresine uzanan kukla ipleri (halkın sesi mi, maşa mı).
+- `08_ahmed_ibrahim.jpg`: III. Ahmed tahtta, İbrahim Paşa yanında eğiliyor.
+- `09_tulip_night.jpg`: Gece lale bahçesinde şenlik, kandiller, müzik.
+- `10_sadabad.jpg`: Kâğıthane'de Sadabad köşkleri ve çağlayanlar.
+- `11_golden_horn.jpg`: Haliç kıyısında yalılar ve bahçeler.
+- `12_tax_collector.jpg`: Vergi memuru yoksul esnaftan para alıyor.
+- `13_bad_news.jpg`: Çadırda İran cephesinden kötü haber getiren ulak.
+- `14_uskudar_army.jpg`: Üsküdar kıyısında ordugâh, karşıda eski şehir.
+- `15_halil_portrait.jpg`: Halil hamam kapısında kollarını kavuşturmuş, arkada Bayezid Camii.
+- `16_halil_ship.jpg`: Genç Halil kalyonda levent.
+- `17_bayezid_gathering.jpg`: Bayezid Camii avlusunda küçük grup toplanıyor.
+- `18_shops_closing.jpg`: Kapalıçarşı'da esnaf kepenk indiriyor.
+- `19_weapons.jpg`: Silah çarşısından kılıç ve tüfek alınıyor.
+- `20_crowd_grows.jpg`: Kalabalık dar sokaklardan akıyor.
+- `21_etmeydani.jpg`: Yeniçeriler katılıyor, kazanlar ters çevrilmiş.
+- `22_sultan_returns.jpg`: Padişah saltanat kayığıyla saraya dönüyor.
+- `23_the_list.jpg`: Halil saray kapısında uzun listeyi uzatıyor (yazı okunmaz).
+- `24_sultan_night.jpg`: Gece III. Ahmed odada endişeyle dolaşıyor, İbrahim Paşa solgun.
+- `25_gate_torches.jpg`: Gece meşaleli kalabalık Bâb-ı Hümâyun önünde.
+- `26_mahmud_accession.jpg`: I. Mahmud ilk kez tahtta, Halil kenarda memnun.
+- `27_halil_divan.jpg`: Halil paşaların arasında divanda emir veriyor.
+- `28_gold_refused.jpg`: Halil altın sandığını geri itiyor.
+- `29_sadabad_looted.jpg`: Sadabad köşkleri yağmalanıyor, ağaçlar kesiliyor.
+- `30_mahmud_window.jpg`: I. Mahmud akşam penceresinden şehre bakıyor, bekliyor.
+- `31_secret_plan.jpg`: Hacı Beşir Ağa ve Kaplan Giray fısıldaşıyor, arkada Pehlivan Halil Ağa.
+- `32_invitation.jpg`: Ulak Halil'e toplantı davetini veriyor.
+- `33_courtyard_walk.jpg`: Halil, Muslu Beşe ve Kel Mehmed saray avlusunda yürüyor.
+- `34_hidden_men.jpg`: Çinili odada kafes arkasında saklanan adamlar, kılıçlar kında.
+- `35_winter_tulips.jpg`: Sonbaharda boş lale bahçesi, solmuş laleler (Lale Devri bitti).
+- `36_lala_close.jpg`: Lala kitabını kapatıyor (kapanış).
