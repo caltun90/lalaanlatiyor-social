@@ -48,9 +48,12 @@
     "no": 6,
     "slug": "patrona-halil",
     "baslik": "Bir hamam tellağı padişahı devirdi",
-    "durum": "hazir",
-    "notlar": "Konu sırasında birinci (Cem, 21 Kasım 2026). Görseller 22 Kasım 2026 stok oturumunda hazırlandı: 37 sahne, bölüme özel karakter sayfası (karakter_sayfasi_06.jpg), kapak.jpg hazır. Giriş (p01) beş kritere göre yeniden yazıldı; anlatım 6 parça (p01-p06). Ses dosyalarının hepsi ses/ altında hazır (p01-p06, ka 2:43, kb 1:55; AI Studio, Algieba); yeniden üretme. Cem 22 Kasım 2026 12:02'de 720p önizlemeyi onayladı ve bugün yayınlanmasını istedi. YouTube başlığı: Bir Hamam Tellağı Padişahı Devirdi | Patrona Halil İsyanı, 1730. Kapak: kapak.jpg (TELLAK PADİŞAHI DEVİRDİ). Ölümler görsellerde yok (03, 06, 34 dolaylı). Kaynaklar: senaryo.md. 22 Kasım 2026 gece: öğlenki çalışma kurgu sırasında kesildi, 22:24'te kaldığı yerden sürdü. Uzun video YouTube'a yüklendi (iwFRZSDAcqc, 7:00, yayın 23:15, containsSyntheticMedia yükleme gövdesinde gönderildi). YENİDEN YÜKLEME. Kısa özetler sırada.",
+    "durum": "yuklendi",
+    "notlar": "Konu sırasında birinci (Cem, 21 Kasım 2026). Görseller 22 Kasım 2026 stok oturumunda hazırlandı: 37 sahne, bölüme özel karakter sayfası (karakter_sayfasi_06.jpg), kapak.jpg hazır. Giriş (p01) beş kritere göre yeniden yazıldı; anlatım 6 parça (p01-p06). Ses dosyalarının hepsi ses/ altında hazır (p01-p06, ka 2:43, kb 1:55; AI Studio, Algieba); yeniden üretme. Cem 22 Kasım 2026 12:02'de 720p önizlemeyi onayladı ve bugün yayınlanmasını istedi. YouTube başlığı: Bir Hamam Tellağı Padişahı Devirdi | Patrona Halil İsyanı, 1730. Kapak: kapak.jpg (TELLAK PADİŞAHI DEVİRDİ). Ölümler görsellerde yok (03, 06, 34 dolaylı). Kaynaklar: senaryo.md. 22 Kasım 2026 gece: öğlenki çalışma kurgu sırasında kesildi, 22:24'te kaldığı yerden sürdü. Uzun video YouTube'a yüklendi (iwFRZSDAcqc, 7:00, yayın 23:15, containsSyntheticMedia yükleme gövdesinde gönderildi). Kısa A 2:45 (YouTube Short API ile oBOa9ui1E_w ve TikTok Buffer ile), kısa B 1:57 (X, Buffer); üçü de 22 Kasım 23:25'e planlı. Kancalar: TELLAK PADİŞAHI DEVİRDİ (uzun ve A), PADİŞAHI BİR TELLAK DEVİRDİ (B); kanca cümlesi üç videoda da 1,87. saniyede bitiyor. Yeni ses isteği yapılmadı. Merkez iddia (isyanı Kaymakam Mustafa Paşa'nın hazırlatması) TDV maddesinin metninden yeniden doğrulandı. Yapay zeka etiketi: containsSyntheticMedia yükleme gövdesinde gönderildi ama API yanıtında görünmüyor; videos.update 403 ACCESS_TOKEN_SCOPE_INSUFFICIENT. iwFRZSDAcqc, oBOa9ui1E_w ve eski dört video Studio'dan elle işaretlenmeli.",
     "tarih": "2026-11-22",
-    "uzun_youtube": "iwFRZSDAcqc"
+    "uzun_youtube": "iwFRZSDAcqc",
+    "kisa_yt_post": "YouTube API ile doğrudan: oBOa9ui1E_w",
+    "kisa_tiktok_post": "6b03479dcc364169c17e8d61",
+    "x_post": "6b03479f846b0ee907b29120"
   }
 ]
