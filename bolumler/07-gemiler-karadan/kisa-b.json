@@ -1,0 +1,191 @@
+{
+ "images_dir": "gorseller",
+ "audio_dir": "ses",
+ "brand": "LALA ANLATIYOR",
+ "title": "Fatih Gemileri Karadan Yürüttü",
+ "subtitle": "",
+ "size": [
+  1080,
+  1920
+ ],
+ "layout": "dikey",
+ "workdir": "work_b",
+ "output": "../../videos/2026-11-24-gemiler-karadan-kisa-b.mp4",
+ "kanca": {
+  "yazi": "GEMİLER TEPEYİ AŞTI",
+  "gorsel": "00_hook",
+  "punto": 100,
+  "efekt": [
+   "mum"
+  ]
+ },
+ "sections": [
+  {
+   "label": "",
+   "pieces": [
+    {
+     "audio": "kb.wav",
+     "shots": [
+      [
+       "00_hook",
+       90
+      ],
+      [
+       "07_chain",
+       80
+      ],
+      [
+       "09_four_ships",
+       70
+      ],
+      [
+       "11_sultan_horse_sea",
+       60
+      ],
+      [
+       "14_divan_tent",
+       60
+      ],
+      [
+       "17_plan",
+       70
+      ],
+      [
+       "21_ship_out",
+       70
+      ],
+      [
+       "20_logs_grease",
+       60
+      ],
+      [
+       "22_pulleys",
+       70
+      ],
+      [
+       "23_sails_open",
+       100
+      ],
+      [
+       "26_launch",
+       70
+      ],
+      [
+       "27_fleet_in_horn",
+       70
+      ],
+      [
+       "02_dawn_walls",
+       80
+      ],
+      [
+       "30_coco_raid",
+       70
+      ],
+      [
+       "33_defenders_spread",
+       70
+      ],
+      [
+       "35_sultan_enters",
+       80
+      ],
+      [
+       "36_lala_close",
+       60
+      ]
+     ],
+     "text": "Gemiler karadan yürüdü. Peki nasıl? Bin dört yüz elli üç, İstanbul. Genç Sultan İkinci Mehmed şehri kuşatıyor, ama limanın ağzında koca bir zincir var. Ağaç kütükleri demirle bağlanmış, yaklaşık sekiz yüz metre. Osmanlı gemileri Haliç'e giremiyor. Üstelik dört büyük yelkenli Osmanlı donanmasını yarıp limana sığınıyor. Padişah öfkeden atını denize sürüyor. Sadrazam Çandarlı Halil Paşa kuşatmanın kaldırılmasını istiyor. Yirmi bir yaşındaki padişah ise başka bir şey düşünüyor. Zincir kırılamıyorsa, etrafından dolaşılacak. Denizden değil, karadan. Gemiler Boğaz'da sudan çıkarılıyor. Galata'nın arkasındaki tepeye yağlanmış kütükler diziliyor. Gemiler halatlarla, makaralarla tepeye çekiliyor. Kaynaklara göre yelkenleri açık, içlerinde kürekçiler oturuyor. Sanki karada yüzüyorlar. Yirmi bir Nisan'ı yirmi iki Nisan'a bağlayan gece gemiler öbür taraftan Haliç'e iniyor. Kaç gemi taşındı? Kaynaklar farklı sayı veriyor, kimi yetmiş iki diyor, kimi altmış yedi. Sabah Bizans askerleri gözlerine inanamıyor. Zincirin arkasında, kendi limanlarında Osmanlı gemileri var. Haftalardır onları koruyan zincir artık bir işe yaramıyor. Gemileri yakmak için gece baskını deniyorlar, ama başarısız oluyor. Şehrin az sayıdaki savunucusu iki cepheye bölünüyor, umutları kırılıyor. Yirmi dokuz Mayıs'ta İstanbul fethediliyor. Böyle hikâyeler için takip et. Devamı YouTube'da, Lala Anlatıyor kanalında."
+    }
+   ]
+  }
+ ],
+ "hareketler": {
+  "00_hook": {
+   "hareket": "derin",
+   "efekt": [
+    "mum"
+   ]
+  },
+  "02_dawn_walls": {
+   "hareket": "derin"
+  },
+  "07_chain": {
+   "hareket": "derin"
+  },
+  "09_four_ships": {
+   "hareket": "sarsinti",
+   "efekt": [
+    "duman"
+   ]
+  },
+  "11_sultan_horse_sea": {
+   "hareket": "takip",
+   "yon": "sag"
+  },
+  "14_divan_tent": {
+   "hareket": "sakin",
+   "efekt": [
+    "mum"
+   ]
+  },
+  "17_plan": {
+   "hareket": "yaklas",
+   "efekt": [
+    "mum"
+   ]
+  },
+  "20_logs_grease": {
+   "hareket": "sakin"
+  },
+  "21_ship_out": {
+   "hareket": "takip",
+   "yon": "sag"
+  },
+  "22_pulleys": {
+   "hareket": "takip",
+   "efekt": [
+    "toz"
+   ],
+   "yon": "sag"
+  },
+  "23_sails_open": {
+   "hareket": "takip",
+   "efekt": [
+    "mum"
+   ],
+   "yon": "sag"
+  },
+  "26_launch": {
+   "hareket": "derin",
+   "efekt": [
+    "mum"
+   ]
+  },
+  "27_fleet_in_horn": {
+   "hareket": "derin"
+  },
+  "30_coco_raid": {
+   "hareket": "sarsinti",
+   "efekt": [
+    "kivilcim"
+   ]
+  },
+  "33_defenders_spread": {
+   "hareket": "takip",
+   "yon": "sag"
+  },
+  "35_sultan_enters": {
+   "hareket": "derin",
+   "efekt": [
+    "toz"
+   ]
+  },
+  "36_lala_close": {
+   "hareket": "yaklas",
+   "efekt": [
+    "mum"
+   ]
+  }
+ }
+}

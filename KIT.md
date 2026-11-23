@@ -21,22 +21,30 @@ Günlük zamanlanmış görev tamamen bulutta çalışır. Cem'in bilgisayarına
   4. Merkezde tanınan bir isim ya da aile içi bir çatışma vardır. Kuru savaş anlatısı ve tarih sırası seçilmez.
   5. Olay gerçek ve kaynaklıdır. Söylence varsa söylence olduğu söylenir.
 - İkinci kanıt (Cem, 24 Kasım 2026): 19 şehzade Short'u YouTube'da 135 bin izlenme, 1.000'den fazla beğeni ve 100'den fazla yorum aldı. İnsanlar kaos, entrika, ihanet ve aile içi ölüm seviyor. Bundan sonraki HER konu bu türden olur: saray entrikası, kardeş ya da evlat öldürme, padişahın devrilmesi ya da öldürülmesi, ihanet, isyan. Sakin, kuru ya da yalnızca "ilginç" konu seçilmez.
-- Konu sırası (24 Kasım 2026'da entrika ve aile içi ölüm öne alınarak yenilendi; kanca cümlesiyle):
-  1. Patrona Halil, 1730: "Bir hamam tellağı padişahı devirdi." (06-patrona-halil, yayında)
-  2. Şehzade Mustafa, 1553: "Kanuni öz oğlunu boğdurdu."
-  3. Genç Osman, 1622: "Yeniçeriler padişahı öldürdü."
-  4. Kösem Sultan, 1651: "Osmanlı'nın en güçlü kadını sarayda boğuldu."
-  5. Pargalı İbrahim Paşa, 1536: "Kanuni en yakın dostunu boğdurdu."
-  6. III. Selim, 1808: "Kurtarıcılar geldi, padişah çoktan ölmüştü."
-  7. Şehzade Bayezid, 1562: "Kanuni ikinci oğlunu da öldürttü."
-  8. Deli İbrahim, 1648: "Tahttan indirildi, 10 gün sonra boğuldu."
-  9. Tütün yasağı, IV. Murad: "Tütün içmenin cezası ölümdü." (04-tutun-yasagi)
-  10. Abdülaziz, 1876: "Tahttan indirildi, 5 gün sonra öldü."
-  11. Yavuz ve II. Bayezid, 1512: "Oğlu tahttan indirdi, babası yolda öldü."
-  12. Vaka-i Hayriye, 1826: "Padişah kendi ordusunu topa tuttu."
-  13. Cem Sultan: "Papa'nın esiri Osmanlı şehzadesi."
-  14. Kanije ve Küçük Kıyamet en sona kalır; ancak güçlü bir kancayla kullanılır.
-- 4, 5, 7, 8 ve 12 numaralı konuların kancaları 24 Kasım 2026'da eklendi: stok oturumunda senaryo yazılırken kancadaki her kelimeyi (kaç gün, kim, nasıl) TDV İslâm Ansiklopedisi ile doğrula, tutmayanı düzelt.
+- Denge (Cem, 24 Kasım 2026 gecesi): "Hep ölüm var, insanlar Osmanlı'dan soğumasın." Ölüm ve entrika konularının arasına Osmanlı'nın büyük başarılarını anlatan zafer konuları girer. Kural: arka arkaya iki ölüm konusu yok; her ölüm ya da entrika konusundan sonra en az bir başarı konusu gelir. Başarı konularında da başlık ve kapak 2a'ya uyar (sert, somut, fiilli gerçek: GEMİLER KARADAN YÜRÜDÜ!), konu yine şaşırtıcı ve tepki doğuran bir an olur, kuru savaş anlatısı değil.
+- Şehzade Mustafa en erken 1 Aralık 2026'da yayınlanır (Cem: "bir hafta sonra falan").
+- Konu sırası (24 Kasım 2026 gecesi yenilendi; kanca cümlesiyle; [B] başarı, [Ö] ölüm ya da entrika):
+  1. [Ö] Patrona Halil, 1730: "Bir hamam tellağı padişahı devirdi." (06-patrona-halil, yayında)
+  2. [B] Gemilerin karadan yürütülmesi, 1453: "Gemiler karadan yürüdü." (07-gemiler-karadan, görseller 24 Kasım 2026 gecesi)
+  3. [B] Preveze, 1538: "Barbaros koca Haçlı donanmasını kaçırdı." (TDV'ye göre Osmanlı 122 kadırga; Haçlı gemi sayısı kaynaklarda tartışmalı, kancaya kesin sayı yazma)
+  4. [Ö] Şehzade Mustafa, 1553: "Kanuni öz oğlunu boğdurdu." (en erken 1 Aralık 2026)
+  5. [B] Nusret mayın gemisi, 18 Mart 1915: "Küçük bir gemi Çanakkale'yi kurtardı." (döktüğü mayın sayısı ve batan gemiler TDV ve ikinci kaynakla doğrulanır)
+  6. [Ö] Genç Osman, 1622: "Yeniçeriler padişahı öldürdü."
+  7. [B] Mohaç, 1526: "Macar ordusu iki saatte dağıldı." (süre kaynakla doğrulanır)
+  8. [Ö] Kösem Sultan, 1651: "Osmanlı'nın en güçlü kadını sarayda boğuldu."
+  9. [B] Niğbolu, 1396: "Yıldırım Bayezid Haçlı ordusunu yendi."
+  10. [Ö] Pargalı İbrahim Paşa, 1536: "Kanuni en yakın dostunu boğdurdu."
+  11. [Ö] III. Selim, 1808: "Kurtarıcılar geldi, padişah çoktan ölmüştü."
+  12. [Ö] Şehzade Bayezid, 1562: "Kanuni ikinci oğlunu da öldürttü."
+  13. [Ö] Deli İbrahim, 1648: "Tahttan indirildi, 10 gün sonra boğuldu."
+  14. [Ö] Tütün yasağı, IV. Murad: "Tütün içmenin cezası ölümdü." (04-tutun-yasagi)
+  15. [Ö] Abdülaziz, 1876: "Tahttan indirildi, 5 gün sonra öldü."
+  16. [Ö] Yavuz ve II. Bayezid, 1512: "Oğlu tahttan indirdi, babası yolda öldü."
+  17. [Ö] Vaka-i Hayriye, 1826: "Padişah kendi ordusunu topa tuttu."
+  18. [Ö] Cem Sultan: "Papa'nın esiri Osmanlı şehzadesi."
+  19. Kanije ve Küçük Kıyamet en sona kalır; ancak güçlü bir kancayla kullanılır.
+- 10. sıradan sonraki [Ö] konuların arasına da yeni [B] konular eklenir (denge kuralı); listede sıradaki [B] yoksa stok oturumunda önce bir başarı konusu bulunur, beş kritere ve kaynağa göre listeye yazılır.
+- 3, 5, 7, 8, 9, 10, 12, 13 ve 17 numaralı konuların kancaları 24 Kasım 2026'da eklendi: stok oturumunda senaryo yazılırken kancadaki her kelimeyi (kaç gün, kim, nasıl) TDV İslâm Ansiklopedisi ile doğrula, tutmayanı düzelt.
 - Görsel stoğu oturumları bu sırayla çalışır. Günlük görevde birden fazla "hazir" bölüm varsa en küçük numarayı değil, bu listede en üstte olanı seç.
 - Yeni konulara da aynı beş kriteri uygula; listeye eklerken kanca cümlesini yaz. Kancadaki her kelime kaynakla doğrulanır (Patrona Halil kaynaklarda "eskici" değil, seyyar satıcı ve hamam tellağıdır).
 

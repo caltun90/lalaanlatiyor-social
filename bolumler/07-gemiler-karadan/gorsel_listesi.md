@@ -1,0 +1,42 @@
+# 07 Gemiler karadan: görsel listesi
+
+24 Kasım 2026 stok oturumu, ChatGPT, iki sohbet (A: karakter sayfası ve karakterli sahneler, B: mekân ve gemi sahneleri). 36_lala_close 06 bölümünden kopyalandı. Ölüm ve kan hiçbir görselde yok.
+
+- `karakter_sayfasi_07.jpg`: Draw a character reference sheet on a plain cream background: MEHMED, ZAGANOS PASHA, HALIL PASHA, AKSEMSEDDIN, BALTAOGLU, CONSTANTINE and GIUSTINIANI standing side by side, full body, front view, clearly separated. Characters: MEHMED, the young Ottoman sultan, 21 years old, slim, short dark beard, slightly hooked nose, large white turban with a small red top and a gold jewel, red-and-gold kaftan with fur collar. ZAGANOS PASHA, middle-aged, black beard, tall white cone-shaped hat, dark green kaftan, sword at belt. HALIL PASHA, old grand vizier, long white beard, tall white rounded hat, burgundy kaftan, worried face. AKSEMSEDDIN, elderly scholar, grey beard, modest white turban, simple cream robe, prayer beads. BALTAOGLU, Ottoman admiral, stocky, brown beard, white turban, navy-blue kaftan. CONSTANTINE, the Byzantine emperor, grey-brown beard, simple gold crown, purple-and-gold robe over armor. GIUSTINIANI, Genoese commander, Italian steel plate armor, short beard, no helmet. 
+- `00_hook.jpg`: MEHMED in the foreground, determined face, pointing forward. Behind him at night, Ottoman oared galleys with their sails spread are being pulled over a grassy hill on greased log rollers by many men with ropes, torches along the path, the Golden Horn water glowing below in moonlight. Dramatic, epic.
+- `03_young_sultan.jpg`: MEHMED on a white horse in front of the massive double land walls of Constantinople, Ottoman army tents and soldiers behind him, spring morning.
+- `11_sultan_horse_sea.jpg`: MEHMED, angry, rides his white horse into the shallow sea water, shouting and pointing at a sea battle in the distance where four tall sailing ships are surrounded by small oared galleys.
+- `13_baltaoglu.jpg`: Inside a large Ottoman tent, BALTAOGLU kneels with his head bowed, a cloth bandage over one eye. MEHMED stands before him, stern and disappointed. Two guards at the entrance.
+- `14_divan_tent.jpg`: War council inside a large Ottoman tent lit by lamps: HALIL PASHA, old and worried, raises his hands arguing to end the siege; ZAGANOS PASHA stands opposite, firm, hand on sword; MEHMED sits on cushions in the middle, listening carefully.
+- `15_aksemseddin_letter.jpg`: AKSEMSEDDIN writes a letter with a reed pen by candlelight inside a simple tent at night, serious face.
+- `16_sultan_reads.jpg`: MEHMED reads a folded letter by lamplight inside his tent at night, his face becoming resolute and confident.
+- `17_plan.jpg`: MEHMED and ZAGANOS PASHA lean over a wooden table with a drawn map of hills and water (no letters on the map); MEHMED traces a line over the hills with his finger, excited idea.
+- `28_emperor_shock.jpg`: Dawn. CONSTANTINE and GIUSTINIANI stand on top of the Golden Horn sea wall, alarmed and shocked, looking down at the harbor where many Ottoman galleys float inside.
+- `33_defenders_spread.jpg`: GIUSTINIANI directs a thin line of tired Byzantine defenders with spears hurrying along the city wall walkway toward the harbor side.
+- `35_sultan_enters.jpg`: MEHMED rides a white horse calmly through a wide city street toward the great dome of Hagia Sophia, Ottoman soldiers walking beside him, afternoon light, peaceful and victorious mood, no fighting.
+- `05_rumeli_hisari.jpg`: The new Rumeli Hisari fortress with three big towers on the European shore of the narrow Bosphorus strait, green hills, calm water.
+- `06_city_view.jpg`: Bird's-eye illustrated view of Constantinople: the city on a triangle of land with walls, the long Golden Horn harbor to the north, the walled Genoese town of Galata across it, and a floating chain across the harbor entrance. No labels.
+- `07_chain.jpg`: A giant iron chain floating on thick wooden logs stretched across the mouth of the Golden Horn between a tower on the city side and a tower on the Galata side; tall Christian sailing ships wait behind it inside the harbor.
+- `04_city_walls.jpg`: Huge Ottoman bronze cannons fire at the massive land walls of Constantinople, smoke clouds, Ottoman soldiers at a safe distance, dust on the walls, no people hurt.
+- `18_galata.jpg`: The walled Genoese town of Galata with its tall round stone tower on a hill, Genoese merchants in Italian clothes watching from a terrace, calm.
+- `29_city_fear.jpg`: Inside Constantinople, Byzantine townspeople in a narrow street whisper anxiously in small groups, a woman holding a child's hand, worried faces, morning.
+- `01_ships_hill_wide.jpg`: Wide night view: a long line of Ottoman oared galleys climbing a grassy hill on log rollers, sails spread, hundreds of tiny workers pulling ropes, torches along the path, moon above, the Golden Horn beyond the hill.
+- `02_dawn_walls.jpg`: Dawn. Byzantine soldiers on the sea wall of Constantinople stare in shock and disbelief at dozens of Ottoman galleys floating inside the Golden Horn harbor below them.
+- `08_ottoman_fleet.jpg`: Many Ottoman oared galleys anchored along the Bosphorus shore near two tall ancient stone columns, Ottoman sailors on deck, green hills behind, morning.
+- `09_four_ships.jpg`: Sea battle: four tall high-sided sailing ships with full white sails push through a crowd of small low Ottoman oared galleys, arrows in the air, smoke, strong waves, no people hurt visible.
+- `10_galleys_struggle.jpg`: Small Ottoman oared galleys struggle against strong wind and big waves, oars tangled, sailors straining, the tall ships sailing away in the background.
+- `12_ships_towed_in.jpg`: Dusk. Christian galleys tow four tall sailing ships through an opening in the floating chain into the Golden Horn harbor, lanterns lit, calm water.
+- `19_clearing_road.jpg`: Ottoman workers with shovels and pickaxes level a path on a grassy hillside and lay long wooden planks in a row, daytime, busy.
+- `20_logs_grease.jpg`: Ottoman workers grease rows of round wooden logs laid on a hillside path, using buckets of oil and fat and brushes, close view.
+- `21_ship_out.jpg`: An Ottoman oared galley is pulled out of the Bosphorus water onto greased log rollers by many men with thick ropes, shoreline, evening.
+- `22_pulleys.jpg`: Teams of Ottoman men pull thick ropes through big wooden pulleys fixed to posts, a galley moving up a slope on log rollers behind them, effort and teamwork.
+- `23_sails_open.jpg`: Magical but real scene: an Ottoman galley sits on log rollers on dry land with its sails spread wide and rowers seated at the oars, moving over a hill as if sailing on land, men pulling ropes in front, night with torches.
+- `24_night_torches.jpg`: A line of Ottoman galleys climbing a dark hill in torchlight, seen from the side, long shadows, stars above.
+- `25_hilltop.jpg`: One Ottoman galley with sails spread at the top of a hill at night, the Golden Horn harbor visible far below in moonlight, workers cheering quietly.
+- `26_launch.jpg`: An Ottoman galley slides down the last slope on log rollers into the Golden Horn water with a big splash, night, torches, men cheering.
+- `27_fleet_in_horn.jpg`: Dawn over the Golden Horn: dozens of Ottoman oared galleys floating inside the harbor, the city walls on the right, Galata on the left, soft pink sky.
+- `30_coco_raid.jpg`: Night on the Golden Horn: a few dark Christian ships try to sneak toward anchored Ottoman galleys; a cannon flash from the shore; one Christian ship is sinking; no people hurt visible.
+- `31_celebration.jpg`: Morning: Ottoman sailors cheer and raise their arms on the decks of galleys in the Golden Horn, happy and proud.
+- `32_barrel_bridge.jpg`: A long floating bridge made of planks on big wooden barrels stretches across the Golden Horn, Ottoman soldiers walk on it five side by side, the city walls ahead.
+- `34_final_dawn.jpg`: Before dawn: the Ottoman army advances toward the land walls of Constantinople with ladders and shields, torches, smoke, dramatic but no blood and no people hurt.
+- `36_lala_close.jpg`: Lala odasında, kapanış (06-patrona-halil'den).

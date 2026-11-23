@@ -55,5 +55,12 @@
     "kisa_yt_post": "YouTube API ile doğrudan: oBOa9ui1E_w",
     "kisa_tiktok_post": "6b03479dcc364169c17e8d61",
     "x_post": "Buffer 6b036e4cc72676f5e9667b7d (23 Kasım 12:30); ilk gönderi 6b03479f846b0ee907b29120 Cem tarafından siliniyor"
+  },
+  {
+    "no": 7,
+    "slug": "gemiler-karadan",
+    "baslik": "Fatih gemileri karadan yürüttü",
+    "durum": "senaryo",
+    "notlar": "İlk başarı konusu (Cem, 24 Kasım 2026 gecesi: ölüm konuları arasına zafer konuları). Senaryo, metinler.json (p01-p06, ka, kb), episode.json, kisa-a.json, kisa-b.json 24 Kasım 2026 stok oturumunda hazırlandı. Görseller ChatGPT'de üretiliyor; hepsi depoya gelince durum hazir olur. YouTube başlığı: Fatih Gemileri Karadan Yürüttü | İstanbul'un Fethi, 1453. Kapak: GEMİLER / KARADAN / YÜRÜDÜ! (kapak.jpg). Short başlığı: Fatih gemileri karadan yürüttü | İstanbul'un fethi, 1453 #shorts. Ses yok: günlük görev 8 istekle üretir (p01-p06, ka, kb). Kaynaklar ve tartışmalı noktalar: senaryo.md."
   }
 ]
