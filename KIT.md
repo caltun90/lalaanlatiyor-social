@@ -57,6 +57,7 @@ Günlük zamanlanmış görev tamamen bulutta çalışır. Cem'in bilgisayarına
 - Sertlik yazıdadır, görselde değil: kapakta ve sahnelerde kan, ceset, boğma anı, çocuk ölümü gösterilmez. Ölüm kelimesi başlıkta ve kapakta kullanılabilir (eski "başlıkta tabut ya da ölüm deme" notu kaldırıldı).
 - Başlık ve kapak yüklemeden ÖNCE kesinleşir: YouTube belirteci kapağı değiştirebilir (thumbnails.set) ama başlığı değiştiremez; sonradan başlık değişikliği yalnızca Studio'dan (Cem'in Chrome'u, authuser=8) yapılır.
 - Kelime kaynağa uyar: kaç kişi, öldürüldü mü boğduruldu mu, kim emretti kaynakla doğrulanır. Kaynakta olmayan ayrıntı ("bebek", "kendi eliyle" gibi) yazılmaz. Tıklama tuzağı değil, olayın kendisi.
+- Shorts kapağı (24 Kasım 2026, Cem: "kapaklar aynı duruyor"): Short'un kapağı kendiliğinden videonun ilk karesi olur ve eski yazıyla kalır. Her Short yüklendikten hemen sonra aynı üç satırla dikey kapak üret ve API ile yükle: `python3 araclar/kapak_dikey.py <görsel> bolumler/NN-slug/kapak_short.jpg "<satır 1>" "<satır 2>" "<satır 3>" [--odak 0.5 --ust 300 --yukseklik 1000]`, sonra `thumbnails.set?videoId=<short kimliği>` (belirteç buna yetkili; kanalın Shorts sekmesinde görünür). Küçültüp Read ile bak: yüzler kesilmesin.
 - Senaryo ve sahne listesi yazılırken kapak cümlesi en baştan belirlenir; ilk 2 saniye kancası ve kapak aynı gerçeği söyler.
 
 ## 3. Depo düzeni
