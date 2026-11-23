@@ -20,18 +20,35 @@ Günlük zamanlanmış görev tamamen bulutta çalışır. Cem'in bilgisayarına
   3. Yorumda taraf tutulabilir (haklı mıydı, başka yolu var mıydı).
   4. Merkezde tanınan bir isim ya da aile içi bir çatışma vardır. Kuru savaş anlatısı ve tarih sırası seçilmez.
   5. Olay gerçek ve kaynaklıdır. Söylence varsa söylence olduğu söylenir.
-- Konu sırası (kanca cümlesiyle):
-  1. Patrona Halil, 1730: "Bir hamam tellağı padişahı devirdi." (06-patrona-halil)
-  2. Tütün yasağı, IV. Murad: "Tütün içmenin cezası ölümdü." (04-tutun-yasagi)
-  3. Şehzade Mustafa, 1553: "Kanuni öz oğlunu boğdurdu."
-  4. Genç Osman, 1622: "Yeniçeriler padişahı öldürdü."
-  5. Cem Sultan: "Papa'nın esiri Osmanlı şehzadesi."
+- İkinci kanıt (Cem, 24 Kasım 2026): 19 şehzade Short'u YouTube'da 135 bin izlenme, 1.000'den fazla beğeni ve 100'den fazla yorum aldı. İnsanlar kaos, entrika, ihanet ve aile içi ölüm seviyor. Bundan sonraki HER konu bu türden olur: saray entrikası, kardeş ya da evlat öldürme, padişahın devrilmesi ya da öldürülmesi, ihanet, isyan. Sakin, kuru ya da yalnızca "ilginç" konu seçilmez.
+- Konu sırası (24 Kasım 2026'da entrika ve aile içi ölüm öne alınarak yenilendi; kanca cümlesiyle):
+  1. Patrona Halil, 1730: "Bir hamam tellağı padişahı devirdi." (06-patrona-halil, yayında)
+  2. Şehzade Mustafa, 1553: "Kanuni öz oğlunu boğdurdu."
+  3. Genç Osman, 1622: "Yeniçeriler padişahı öldürdü."
+  4. Kösem Sultan, 1651: "Osmanlı'nın en güçlü kadını sarayda boğuldu."
+  5. Pargalı İbrahim Paşa, 1536: "Kanuni en yakın dostunu boğdurdu."
   6. III. Selim, 1808: "Kurtarıcılar geldi, padişah çoktan ölmüştü."
-  7. Abdülaziz, 1876: "Tahttan indirildi, 5 gün sonra öldü."
-  8. Yavuz ve II. Bayezid, 1512: "Oğlu tahttan indirdi, babası yolda öldü."
-  9. Kanije ve Küçük Kıyamet en sona kalır; ancak güçlü bir kancayla kullanılır.
+  7. Şehzade Bayezid, 1562: "Kanuni ikinci oğlunu da öldürttü."
+  8. Deli İbrahim, 1648: "Tahttan indirildi, 10 gün sonra boğuldu."
+  9. Tütün yasağı, IV. Murad: "Tütün içmenin cezası ölümdü." (04-tutun-yasagi)
+  10. Abdülaziz, 1876: "Tahttan indirildi, 5 gün sonra öldü."
+  11. Yavuz ve II. Bayezid, 1512: "Oğlu tahttan indirdi, babası yolda öldü."
+  12. Vaka-i Hayriye, 1826: "Padişah kendi ordusunu topa tuttu."
+  13. Cem Sultan: "Papa'nın esiri Osmanlı şehzadesi."
+  14. Kanije ve Küçük Kıyamet en sona kalır; ancak güçlü bir kancayla kullanılır.
+- 4, 5, 7, 8 ve 12 numaralı konuların kancaları 24 Kasım 2026'da eklendi: stok oturumunda senaryo yazılırken kancadaki her kelimeyi (kaç gün, kim, nasıl) TDV İslâm Ansiklopedisi ile doğrula, tutmayanı düzelt.
 - Görsel stoğu oturumları bu sırayla çalışır. Günlük görevde birden fazla "hazir" bölüm varsa en küçük numarayı değil, bu listede en üstte olanı seç.
 - Yeni konulara da aynı beş kriteri uygula; listeye eklerken kanca cümlesini yaz. Kancadaki her kelime kaynakla doğrulanır (Patrona Halil kaynaklarda "eskici" değil, seyyar satıcı ve hamam tellağıdır).
+
+## 2a. Başlık ve kapak (KESİN KURAL, Cem 24 Kasım 2026, istisnasız her video)
+
+- Kapak yazısı olayın en sert, somut gerçeğini açık bir fiille söyler: kim, kaç kişi, ne oldu. Fiil yazıda mutlaka olur: öldürüldü, boğduruldu, öldürttü, devirdi, idam edildi, zehirlendi, ihanet etti. En fazla 5 kelime, üç satır; son satır kırmızı bantta fiil. Örnek: 19 ŞEHZADE / TEK GECEDE / ÖLDÜRÜLDÜ! ve TELLAK / PADİŞAHI / DEVİRDİ!
+- Muğlak, şiirsel ya da sonucu saklayan yazı YASAK. Kullanılmayacak örnekler: "Sarayın En Uzun Gecesi", "Saklanan Sır", "Sırrın 10. Günü", fiilsiz "19 Şehzade Tek Gecede!". Bunlar 24 Kasım 2026'da ilgi çekmediği için değiştirildi.
+- YouTube başlığı kapakla aynı sert gerçekle başlar, sonra " | " ve aranan isim ya da olayın bilinen adı ve yıl. En fazla 70 karakter. Örnek: "19 Şehzade Tek Gecede Öldürüldü | III. Mehmed'in Kardeş Katli, 1595", "Bir Hamam Tellağı Padişahı Devirdi | Patrona Halil İsyanı, 1730". Short başlığı, TikTok metni ve X metninin ilk satırı da aynı gerçekle başlar.
+- Kapak görseli: bölümün yüz ifadesi en güçlü (korku, öfke, şaşkınlık) görseli; yüzler yazının üstünde açık kalır. Üretim: `python3 araclar/kapak.py <görsel> <çıktı.jpg> "<satır 1>" "<satır 2>" "<satır 3, kırmızı bant>" --zoom 1.1 --ust 1.0` (1280x720; satır 1 altın sarısı, satır 2 krem, satır 3 kırmızı bantta beyaz). Sonra kapağı 360 piksel genişliğe küçültüp Read ile aç: telefonda okunmuyorsa ya da yazı yüzleri kapatıyorsa `--zoom`/`--ust` ile düzelt.
+- Sertlik yazıdadır, görselde değil: kapakta ve sahnelerde kan, ceset, boğma anı, çocuk ölümü gösterilmez. Ölüm kelimesi başlıkta ve kapakta kullanılabilir (eski "başlıkta tabut ya da ölüm deme" notu kaldırıldı).
+- Kelime kaynağa uyar: kaç kişi, öldürüldü mü boğduruldu mu, kim emretti kaynakla doğrulanır. Kaynakta olmayan ayrıntı ("bebek", "kendi eliyle" gibi) yazılmaz. Tıklama tuzağı değil, olayın kendisi.
+- Senaryo ve sahne listesi yazılırken kapak cümlesi en baştan belirlenir; ilk 2 saniye kancası ve kapak aynı gerçeği söyler.
 
 ## 3. Depo düzeni
 
@@ -91,7 +108,7 @@ Uzun video (YouTube API):
 - `git clone --depth 1 https://github.com/caltun90/demekoyuzden-social` ile `yt_upload.py` al (yalnızca okuma).
 - Önce belirtecin kanalını doğrula (`channels?mine=true`, kimlik UC-PHvR1Mom6FRRiReVg2USQ). Başka kanal çıkarsa yükleme.
 - `YT_CLIENT_ID=... YT_CLIENT_SECRET=... YT_REFRESH_TOKEN=... python3 yt_upload.py <video.mp4> --title "<en fazla 90 karakter>" --desc "<açıklama>" --tags "lalaanlatiyor,osmanlı tarihi,<konu>" --publish-at <bugün>T19:00:00+03:00 --thumb <kapak.jpg>`. Saat 18:50'yi geçtiyse şimdi + 30 dakika.
-- Açıklama: 2-3 cümlelik kanca, bölüm dakikaları, kaynaklar, en fazla 8 etiket. Kapak 1280x720, en güçlü görsel üzerine en fazla 5 kelimelik başlık.
+- Açıklama: 2-3 cümlelik kanca, bölüm dakikaları, kaynaklar, en fazla 8 etiket. Başlık ve kapak bölüm 2a'ya göre (`araclar/kapak.py`).
 
 Kısa videolar (Buffer API):
 - Kısa videoları push et, `https://raw.githubusercontent.com/caltun90/lalaanlatiyor-social/main/videos/<dosya>` adresinin 200 döndüğünü doğrula.
