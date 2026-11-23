@@ -60,7 +60,8 @@
     "no": 7,
     "slug": "gemiler-karadan",
     "baslik": "Fatih gemileri karadan yürüttü",
-    "durum": "senaryo",
-    "notlar": "İlk başarı konusu (Cem, 24 Kasım 2026 gecesi: ölüm konuları arasına zafer konuları). Senaryo, metinler.json (p01-p06, ka, kb), episode.json, kisa-a.json, kisa-b.json 24 Kasım 2026 stok oturumunda hazırlandı. Görseller ChatGPT'de üretiliyor; hepsi depoya gelince durum hazir olur. YouTube başlığı: Fatih Gemileri Karadan Yürüttü | İstanbul'un Fethi, 1453. Kapak: GEMİLER / KARADAN / YÜRÜDÜ! (kapak.jpg). Short başlığı: Fatih gemileri karadan yürüttü | İstanbul'un fethi, 1453 #shorts. Ses yok: günlük görev 8 istekle üretir (p01-p06, ka, kb). Kaynaklar ve tartışmalı noktalar: senaryo.md."
+    "durum": "hazir",
+    "notlar": "İlk başarı konusu (Cem, 24 Kasım 2026 gecesi: ölüm konuları arasına zafer konuları). Senaryo, metinler.json (p01-p06, ka, kb), episode.json, kisa-a.json, kisa-b.json 24 Kasım 2026 stok oturumunda hazırlandı. Görseller 24 Kasım 2026 gecesi ChatGPT'de üretildi (37 sahne, karakter_sayfasi_07.jpg) ve GitHub web yüklemesiyle depoya kondu. Cem'in uyarısıyla saçma ya da hatalı olanlar (ilgisiz karakterler, denizde ayakta duran devlet adamları, 1453'te olmayan minareler) yeniden üretildi; ayrıntı gorsel_listesi.md. YouTube başlığı: Fatih Gemileri Karadan Yürüttü | İstanbul'un Fethi, 1453. Kapak: GEMİLER / KARADAN / YÜRÜDÜ! (kapak.jpg). Short başlığı: Fatih gemileri karadan yürüttü | İstanbul'un fethi, 1453 #shorts. Ses yok: günlük görev 8 istekle üretir (p01-p06, ka, kb). Kaynaklar ve tartışmalı noktalar: senaryo.md.",
+    "tarih": "2026-11-24"
   }
 ]
