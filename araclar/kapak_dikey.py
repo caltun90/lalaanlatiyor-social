@@ -46,7 +46,7 @@ def main():
     im = Image.alpha_composite(im.convert("RGBA"), ov)
     d = ImageDraw.Draw(im)
     lines = [(a.satir1,(255,205,40),190),(a.satir2,(255,244,225),160),(a.satir3,(255,255,255),170)]
-    y = TOP+PH-170
+    y = TOP+PH-240  # Instagram ızgarası 9:16 kapağı ortadan 3:4 kırpar (y 240-1680); yazı bu alanda kalmalı
     for i,(t,col,s) in enumerate(lines):
         if not t: continue
         f = fit(d, t, W-80, s); bb = d.textbbox((0,0), t, font=f); h = bb[3]-bb[1]; tw = d.textlength(t, font=f); x = (W-tw)/2
