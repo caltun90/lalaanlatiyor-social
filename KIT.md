@@ -5,7 +5,7 @@ Günlük zamanlanmış görev tamamen bulutta çalışır. Cem'in bilgisayarına
 ## 1. Sabitler
 
 - Kanal: Lala Anlatıyor, YouTube @LalaAnlatiyor, kanal kimliği UC-PHvR1Mom6FRRiReVg2USQ.
-- Buffer (lalaanlatiyor hesabı, ücretsiz plan, kanal başına en fazla 10 planlı gönderi): YouTube "Lala Anlatıyor", TikTok "osmanl.tarihi73", X "lalaanlatiyor".
+- Buffer (lalaanlatiyor hesabı, ücretsiz plan, kanal başına en fazla 10 planlı gönderi): YouTube "Lala Anlatıyor", TikTok "osmanl.tarihi73", Instagram "lalaanlatiyor" (Reels, profesyonel hesap). X 24 Kasım 2026'da Cem'in isteğiyle Buffer'dan kaldırıldı; X'e gönderi yapılmaz.
 - Senaryolar: https://claude.ai/artifact/UbeYc7E79sCQTxwsKeLZfX (1. hafta, 5 senaryo, Claude Docs bağlayıcısıyla okunur; kimlik df7d2b7d-21ba-449c-96e9-b63d8bcc0542). Konu takvimi: https://claude.ai/artifact/EfQSU1KxKFxXnTmAzvXb3F
 - Anlatım kalıbı (Cem, 17 Kasım 2026 gecesi, 2. bölümden itibaren): düz hikâye anlatımı. Anlatıcı bir hikâye anlatır gibi anlatır. "Şehzadem" hitabı YOK, izleyiciye rol verme YOK ("sen kâtipsin" gibi ikinci tekil anlatım yok), araya giren dersler ve öğütler yok, "Hadi şimdi yat" kapanışı yok. Olay baştan sona üçüncü kişiyle, sahne sahne, merak uyandırarak anlatılır; uydurma kişi ve konuşma eklenmez, bu yüzden "neyi uydurdum" kapanışına da gerek kalmaz. Açılış tek cümlelik kanca, kapanış olayın sonucunu ve bir sonraki bölümün konusunu söyleyen 1-2 cümle. Senaryo belgesindeki 2-5. bölüm metinleri eski kalıpla (şehzadem, sen anlatımı) yazılıdır: seslendirmeden önce aynı olayları ve aynı kaynakları koruyarak bu yeni kalıba göre yeniden yaz ve `bolumler/NN-slug/senaryo.md` olarak kaydet. 1. bölüm (Zigetvar) eski kalıpla yayınlandı, ona dokunma. Görsel tariflerinde de izleyici karakteri (genç kâtip, çırak vb.) yerine olayın gerçek kişileri ve mekânları çizilir; Lala yalnızca açılış ve kapanış görselinde anlatıcı olarak görünebilir. Uzun videonun son cümlesi: "Böyle hikâyeler için abone ol." Bir sonraki bölümün adını yalnızca görselleri depoda hazır olan bir bölümse söyle; değilse sonraki konuyu söyleme, genel bir kapanış yap.
 - Üslup: Cem'e yazılan her şey Türkçe, kısa, sade. Uzun tire (em dash) hiçbir yerde kullanılmaz.
@@ -63,7 +63,7 @@ Günlük zamanlanmış görev tamamen bulutta çalışır. Cem'in bilgisayarına
 
 ## 3. Depo düzeni
 
-- `log.json`: kayıt listesi. Her kayıt: {no, slug, baslik, durum, tarih, uzun_youtube, kisa_yt_post, kisa_tiktok_post, x_post, notlar}. Durumlar: senaryo (görsel yok), hazir (görseller depoda), yuklendi.
+- `log.json`: kayıt listesi. Her kayıt: {no, slug, baslik, durum, tarih, uzun_youtube, kisa_yt_post, kisa_tiktok_post, x_post (24 Kasım 2026'ya kadar), instagram_post, notlar}. Durumlar: senaryo (görsel yok), hazir (görseller depoda), yuklendi.
 - `bolumler/NN-slug/`: `episode.json`, `gorseller/*.jpg`, `ses/pNN.wav`, `seslendirme_metni.txt`, varsa `senaryo.md`.
 - `araclar/build_video.py`: kurgu betiği. `stil/karakter_sayfasi.jpg`: karakter referansı. `videos/`: Buffer'ın alacağı kısa videolar.
 - `work/` ve `cikti/` klasörleri depoya girmez (.gitignore). Uzun video depoya konmaz (100 MB sınırı), doğrudan YouTube'a yüklenir.
@@ -108,8 +108,8 @@ Bölüm 01-zigetvar (17 Kasım 2026): 35 görsel, p01-p14 ses ve `episode.json` 
 
 ## 8. Kısa özet videolar
 
-- İki dikey özet (1080x1920, 30 fps): A (YouTube Short ve TikTok, 2:40-2:55), B (X, en fazla 2:15).
-- Özet uzun videodan kesme değil, kendi kısa anlatımıdır: Lala'nın ağzından, olayın en çarpıcı üç anı. Son cümle her zaman aynen şu: "Böyle hikâyeler için takip et. Devamı YouTube'da, Lala Anlatıyor kanalında." "Devamı kanalda" ya da "şehzadem" deme; TikTok ve X'te uzun video yok, izleyici YouTube'a yönlendirilir. A yaklaşık 330-360 kelime, B yaklaşık 250-270 kelime, ayrı seslendirilir.
+- İki dikey özet (1080x1920, 30 fps): A (YouTube Short ve TikTok, 2:40-2:55), B (Instagram Reels, en fazla 2:15).
+- Özet uzun videodan kesme değil, kendi kısa anlatımıdır: Lala'nın ağzından, olayın en çarpıcı üç anı. Son cümle her zaman aynen şu: "Böyle hikâyeler için takip et. Devamı YouTube'da, Lala Anlatıyor kanalında." "Devamı kanalda" ya da "şehzadem" deme; TikTok ve Instagram'da uzun video yok, izleyici YouTube'a yönlendirilir. A yaklaşık 330-360 kelime, B yaklaşık 250-270 kelime, ayrı seslendirilir.
 - Görseller o bölümün görselleridir. Dikey yerleşim: arka planda aynı görselin bulanık ve koyulaştırılmış hali, ortada görselin kendisi (genişliğe sığdırılmış, hafif yakınlaşma hareketi), üstte "LALA ANLATIYOR" ve video başlığı. `build_video.py` yalnızca yatay üretir; dikey kipi ilk çalışmada ekle (episode.json'a "size": [1080, 1920] ve "layout": "dikey"), kare kontrolü yap, betiği commit et ve "Öğrenilenler"e not düş.
 - Dosyalar `videos/<tarih>-<slug>-kisa-a.mp4` ve `-kisa-b.mp4`, her biri 90 MB altında.
 
@@ -124,8 +124,8 @@ Uzun video (YouTube API):
 Kısa videolar (Buffer API):
 - Kısa videoları push et, `https://raw.githubusercontent.com/caltun90/lalaanlatiyor-social/main/videos/<dosya>` adresinin 200 döndüğünü doğrula.
 - POST https://api.buffer.com , Authorization: Bearer <BUFFER_API_KEY>, GraphQL. Şemayı ezbere yazma: https://developers.buffer.com/llms.txt içindeki örnekleri oku, alanları introspection ile doğrula. Kanal kimliklerini her çalışmada API'den oku.
-- A: YouTube Short (başlık en fazla 90 karakter, categoryId "27", public, madeForKids false) ve TikTok, bugün 20:00 (+03:00). B: X, bugün 20:00. Saat geçtiyse şimdi + 30 dakika.
-- Metin: 1-2 cümlelik kanca, "Uzun hâli YouTube'da: Lala Anlatıyor", en fazla 5 etiket (#lalaanlatiyor dahil). X metni en fazla 280 karakter, bağlantı yok.
+- A: YouTube Short (başlık en fazla 90 karakter, categoryId "27", public, madeForKids false) ve TikTok, bugün 20:00 (+03:00). B: Instagram Reels, bugün 20:00 (createPost metadata: `instagram: {type: reel, shouldShareToFeed: true, isAiGenerated: true}`, asset `video.url`). Saat geçtiyse şimdi + 30 dakika.
+- Metin: 1-2 cümlelik kanca, "Uzun hâli YouTube'da: Lala Anlatıyor", en fazla 5 etiket (#lalaanlatiyor dahil). Instagram metni: ilk satır başlıktaki sert gerçek (bölüm 2a), sonra "Devamı YouTube'da: Lala Anlatıyor", en fazla 5 etiket, bağlantı yok.
 - Planladıktan sonra üç gönderiyi API'den geri okuyup doğrula. Aynı videoyu iki kez planlama.
 
 ## 10. Öğrenilenler
@@ -135,7 +135,7 @@ Kısa videolar (Buffer API):
 - (18 Kasım 2026) YouTube yenileme belirteci üretildikten yaklaşık 3,5 saat sonra invalid_grant verdi; sebebi bilinmiyor. Belirteç reddedilirse uzun videoyu `cikti/` altında bırakma, yüklemeyi atla, kısa özetlere devam et ve Cem'e bildir.
 - (18 Kasım 2026) Altyazı betiğe eklendi: episode.json parçalarındaki `text` alanından üretilir.
 - (18 Kasım 2026) Dikey kip betiğe eklendi: episode json'da "size": [1080, 1920], "layout": "dikey". Örnek: bolumler/01-zigetvar/kisa-a.json.
-- (18 Kasım 2026) YouTube Short'u Buffer ile DEĞİL, uzun video gibi YouTube API ile doğrudan yükle (başlığın sonuna #shorts). Buffer'daki YouTube kanalı kopuk; Buffer yalnızca TikTok ve X için kullanılır. Buffer kanal listesinde isDisconnected true olan kanala gönderi oluşturma.
+- (18 Kasım 2026) YouTube Short'u Buffer ile DEĞİL, uzun video gibi YouTube API ile doğrudan yükle (başlığın sonuna #shorts). Buffer'daki YouTube kanalı kopuk; Buffer yalnızca TikTok ve Instagram için kullanılır (24 Kasım 2026'ya kadar X). Buffer kanal listesinde isDisconnected true olan kanala gönderi oluşturma.
 - (18 Kasım 2026) Kanal 17 Kasım gecesi YouTube tarafından kapatıldı, itirazla ertesi gün açıldı. Yeni kanalda aynı gün içinde yoğun otomasyon riskli: günde en fazla bir uzun video ve bir Short yükle, aynı videonun ikinci kopyasını yükleme.
 - (18 Kasım 2026) Kısa özet metinleri saniyede yaklaşık 16 karakter hızla okunuyor: 2:50 için yaklaşık 2.700, 2:10 için yaklaşık 2.050 karakter yaz.
 - (19 Kasım 2026) 2.5D hareket betiğe eklendi (`derinlik` komutu, `hareketler` alanı, bölüm 7). Tek katmanlı derinlik kaydırması karakter kenarında hayalet kopya bırakıyordu; betik artık ön planı ayrı katmana alıp arkasını dolduruyor. Takip hareketinde kaydırmayı büyütme, hayalet geri gelir.
@@ -154,3 +154,4 @@ Kısa videolar (Buffer API):
 - (24 Kasım 2026) ChatGPT sohbet sayfası DOM'da yalnızca bir görsel tutuyor ve ekran görüntüsü ya da kaydırmadan sonra eski bir görseli yeniden çiziyor (yeni blob adresiyle); sayfa içi döngü bu yüzden iki görseli yanlış adla kaydetti. Eşlemeyi her zaman konuşma API'siyle doğrula: `/api/auth/session` ile belirteç, `/backend-api/conversation/<id>` içinde her kullanıcı isteğinden sonraki `asset_pointer`, `/backend-api/files/download/<dosya>?conversation_id=<id>` ile indirme adresi (araç çıktısına adresi yazdırma, sorgu dizesi engelleniyor). Üretim sürerken o sekmede ekran görüntüsü alma.
 - (24 Kasım 2026) Cem görselleri izleyip saçma olanı hemen fark ediyor. Her partiden sonra kontak sayfasıyla bak: sahnede kim var, yerinde mi (denizde ayakta duran insan, düşman çadırında düşman komutanı), dönem hatası var mı (1453 öncesi minare). Şüpheli görseli kullanma, yeniden üret.
 - (24 Kasım 2026) Instagram Reels kapağı videonun ilk karesi oluyor ve sonradan web'den değiştirilemiyor. Zigetvar kısa videoları siyahtan açılarak başladığı için Instagram'da siyah kapakla çıktı. Instagram'a (ve TikTok'a) gidecek her videonun ilk karesi dolu olmalı; eski bir videoyu paylaşmadan önce ilk karenin parlaklığına bak, siyahsa ilk 0,5 saniyeyi sonraki kareyle doldur (`-vf trim=start=0.5,setpts=PTS-STARTPTS,tpad=start_duration=0.5:start_mode=clone`, ses aynen kalır). Örnek: `videos/2026-11-18-zigetvar-kisa-a-ig.mp4`.
+- (24 Kasım 2026) X Buffer'dan kaldırıldı, Instagram "lalaanlatiyor" bağlandı (Creator hesabı). Instagram profili YouTube ile aynı (ad, fotoğraf, açıklama). Geçmiş üç Short Instagram'a Reels olarak gönderildi: 01 kisa-a, 02 kisa-b-x2, 06 kisa-a (raw.githubusercontent adresi Buffer'da çalıştı). B artık Instagram'a gider.
