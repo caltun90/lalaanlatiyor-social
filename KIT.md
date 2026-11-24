@@ -50,6 +50,8 @@ Günlük zamanlanmış görev tamamen bulutta çalışır. Cem'in bilgisayarına
 
 ## 2a. Başlık ve kapak (KESİN KURAL, Cem 24 Kasım 2026, istisnasız her video)
 
+- KAPAK HER PLATFORMDA (Cem 24 Kasım 2026: "bunu artık hafızaya kaydet"; 07'nin Short'u yine video karesiyle göründü): hiçbir platformda videodan bir kare kapak olarak kalmaz. Uzun video `kapak.jpg`, YouTube Short `kapak_short.jpg` (thumbnails.set), TikTok ve Instagram `-ig.mp4` (başında 0,2 sn kapak, thumbnailOffset 0). Short'un kapağını videonun işlenmesi bitmeden gönderme: `videos.list?part=processingDetails` ile `processingStatus` "succeeded" olana kadar 60 saniyede bir bak (en fazla 20 dakika), sonra thumbnails.set. İşleme bitmeden konan kapak YouTube'un kendi karesiyle değiştirilebiliyor. Çalışmanın en sonunda (rapordan hemen önce) uzun videonun ve Short'un kapağını thumbnails.set ile bir kez daha gönder. Raporda her platform için "kapak kondu" satırı olur; konamadıysa Cem'e bildir.
+
 - Kapak yazısı olayın en sert, somut gerçeğini açık bir fiille söyler: kim, kaç kişi, ne oldu. Fiil yazıda mutlaka olur: öldürüldü, boğduruldu, öldürttü, devirdi, idam edildi, zehirlendi, ihanet etti. En fazla 5 kelime, üç satır; son satır kırmızı bantta fiil. Örnek: 19 ŞEHZADE / TEK GECEDE / ÖLDÜRÜLDÜ! ve TELLAK / PADİŞAHI / DEVİRDİ!
 - Muğlak, şiirsel ya da sonucu saklayan yazı YASAK. Kullanılmayacak örnekler: "Sarayın En Uzun Gecesi", "Saklanan Sır", "Sırrın 10. Günü", fiilsiz "19 Şehzade Tek Gecede!". Bunlar 24 Kasım 2026'da ilgi çekmediği için değiştirildi.
 - YouTube başlığı kapakla aynı sert gerçekle başlar, sonra " | " ve aranan isim ya da olayın bilinen adı ve yıl. En fazla 70 karakter. Örnek: "19 Şehzade Tek Gecede Öldürüldü | III. Mehmed'in Kardeş Katli, 1595", "Bir Hamam Tellağı Padişahı Devirdi | Patrona Halil İsyanı, 1730". Short başlığı, TikTok metni ve X metninin ilk satırı da aynı gerçekle başlar.
@@ -82,6 +84,7 @@ Günlük zamanlanmış görev tamamen bulutta çalışır. Cem'in bilgisayarına
 4. Uzun video: bölüm 7.
 5. Kısa özetler: bölüm 8.
 6. Yayın: bölüm 9.
+6a. Kapak son kontrolü (her gün, atlanmaz): bölüm 2a'daki "KAPAK HER PLATFORMDA" maddesi. Uzun video ve Short için thumbnails.set'i işleme bittikten sonra ve çalışmanın sonunda tekrar gönder; TikTok ve Instagram'a giden dosyanın `-ig.mp4` olduğunu ve 0. karesinin kapak olduğunu Read ile doğrula.
 7. Kayıt: `log.json` güncelle, yeni ses dosyalarını, kısa videoları, episode dosyalarını commit et, `git push origin HEAD:main`. Cem'e rapor ver.
 
 Bölüm 01-zigetvar (17 Kasım 2026): 35 görsel, p01-p14 ses ve `episode.json` hazır. Yapılacak: uzun video kurgusu, kısa özetler, yayın.
@@ -124,6 +127,7 @@ Uzun video (YouTube API):
 Kısa videolar (Buffer API):
 - Kısa videoları push et, `https://raw.githubusercontent.com/caltun90/lalaanlatiyor-social/main/videos/<dosya>` adresinin 200 döndüğünü doğrula.
 - POST https://api.buffer.com , Authorization: Bearer <BUFFER_API_KEY>, GraphQL. Şemayı ezbere yazma: https://developers.buffer.com/llms.txt içindeki örnekleri oku, alanları introspection ile doğrula. Kanal kimliklerini her çalışmada API'den oku.
+- Kapaklar: bölüm 2a "KAPAK HER PLATFORMDA". TikTok ve Instagram'a yalnızca `-ig.mp4` dosyası gider (asıl `kisa-a.mp4`/`kisa-b.mp4` değil), asset metadata'sında `thumbnailOffset: 0`.
 - A: YouTube Short (başlık en fazla 90 karakter, categoryId "27", public, madeForKids false) ve TikTok, bugün 20:00 (+03:00). B: Instagram Reels, bugün 20:00 (createPost metadata: `instagram: {type: reel, shouldShareToFeed: true, isAiGenerated: true}`, asset `video.url`). Saat geçtiyse şimdi + 30 dakika.
 - Metin: 1-2 cümlelik kanca, "Uzun hâli YouTube'da: Lala Anlatıyor", en fazla 5 etiket (#lalaanlatiyor dahil). Instagram metni: ilk satır başlıktaki sert gerçek (bölüm 2a), sonra "Devamı YouTube'da: Lala Anlatıyor", en fazla 5 etiket, bağlantı yok.
 - Planladıktan sonra üç gönderiyi API'den geri okuyup doğrula. Aynı videoyu iki kez planlama.
