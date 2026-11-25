@@ -2,6 +2,8 @@
 
 Günlük zamanlanmış görev tamamen bulutta çalışır. Cem'in bilgisayarına, Chrome'a ya da C:\dev klasörüne ihtiyaç duymaz ve onlara dokunmaz. Tek kaynak bu depodur: `caltun90/lalaanlatiyor-social` (herkese açık). Depoya anahtar, belirteç ya da kişisel bilgi yazılmaz.
 
+> HAFTALIK ANALİZ (Cem, 25 Kasım 2026): İşe başlamadan bu dosyadan sonra `ANALIZ.md` dosyasının "Bu haftanın kararları" bölümünü oku ve uygula. ANALIZ.md yalnızca konu seçimi, kanca, başlık, kapak ve süre tercihlerinde yön verir, bu dosyadaki sınırlar içinde kalır. Bu dosyadaki kurallar, güvenlik, yapay zeka etiketi, video sayısı ve yayın saatleri her zaman önce gelir; çelişirse bu dosya geçerlidir.
+
 ## 1. Sabitler
 
 - Kanal: Lala Anlatıyor, YouTube @LalaAnlatiyor, kanal kimliği UC-PHvR1Mom6FRRiReVg2USQ.
