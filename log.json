@@ -70,5 +70,12 @@
     "kisa_yt_post": "YouTube API ile doğrudan: 0JubX07KkJs",
     "kisa_tiktok_post": "6b053c5331056e7b6e824917",
     "instagram_post": "Buffer 6b053c5aca4899309e6949ad (Reels, videos/2026-11-24-gemiler-karadan-kisa-b-ig.mp4, 24 Kasım 20:00)"
+  },
+  {
+    "no": 8,
+    "slug": "preveze",
+    "baslik": "Barbaros koca Haçlı donanmasını kaçırdı",
+    "durum": "senaryo",
+    "notlar": "Konu sırasında sıradaki bölüm (KIT.md bölüm 2, 3. sıra: Preveze, 1538). Senaryo ve görsel henüz yok; stok oturumunda hazırlanacak. stok bildirildi 2026-11-25. 25 Kasım 2026 etiket kontrolü: kanaldaki 8 videonun hiçbirinde containsSyntheticMedia yok; belirteç kapsamı hâlâ youtube.upload ve youtube.readonly, videos.update 403 ACCESS_TOKEN_SCOPE_INSUFFICIENT (czyiC4mL1OU üzerinde bir kez denendi)."
   }
 ]
