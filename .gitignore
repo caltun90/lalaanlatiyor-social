@@ -2,3 +2,4 @@ work/
 work_*/
 cikti/
 __pycache__/
+node_modules/

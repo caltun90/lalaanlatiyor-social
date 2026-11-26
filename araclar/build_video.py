@@ -16,6 +16,9 @@ Optional (2.5D animation, needs derinlik maps; without them the old 2D motion is
                          "efekt": [toz, kivilcim, duman, mum], "yon": sag|sol}}
   "hareket_varsayilan": "derin", "vinyet": true
   A single shot can override with a third element: [image, weight, {"hareket": ...}]
+Optional (animated campaign map, 27 Nov 2026): a shot named "harita:<ad>" plays a Remotion map clip instead of a
+  picture; "haritalar": {"<ad>": {baslik, altBaslik, duraklar, hedefYazi, cerceve, baslikYeri}} and
+  araclar/harita/cek.py <episode.json> must run after `audio` (see araclar/harita/src/seferler.ts).
 Optional (first 2 seconds hook, rule of 19 Nov 2026):
   "kanca": {"yazi": "SARAY NEDEN SUSTU?", "gorsel": image, "y": 0.7, "duraklama": 1}
   The first sentence of the first piece is the spoken hook: audio starts at ~0.15 s, the sentence is fitted to
@@ -978,13 +981,51 @@ class Shot:
         return comp
 
 
+class VideoShot:
+    """Remotion ile cizilmis harita klibi (araclar/harita/cek.py, Cem 27 Kasim 2026). Gorsel adi 'harita:<ad>' olan
+    cekim gorsel yerine <workdir>/harita_<ad>.mp4 klibini oynatir; klip cekimin gorundugu andan baslar."""
+    def __init__(self, rec, cfg):
+        self.t0, self.t1, self.sec, self.name = rec['t0'], rec['t1'], rec['sec'], rec['image']
+        self.dep = 'video'
+        self.path = os.path.join(cfg['workdir'], 'harita_' + self.name.split(':', 1)[1] + '.mp4')
+        assert os.path.exists(self.path), f'harita klibi yok: {self.path} (once: python3 araclar/harita/cek.py <episode.json>)'
+        self.cap = cv2.VideoCapture(self.path)
+        self.n = int(self.cap.get(cv2.CAP_PROP_FRAME_COUNT)); self.fps = self.cap.get(cv2.CAP_PROP_FPS) or FPS
+        self.pos, self.cur = -1, None
+        self.ow, self.oh = (W, H) if LAYOUT == 'yatay' else (W, FG_H)
+
+    def _read(self, i):
+        i = max(0, min(self.n - 1, i))
+        if i == self.pos:
+            return self.cur
+        if i != self.pos + 1:
+            self.cap.set(cv2.CAP_PROP_POS_FRAMES, i)
+        ok, fr = self.cap.read()
+        if ok:
+            self.pos, self.cur = i, fr
+        return self.cur
+
+    def frame(self, t, lo, hi):
+        fr = self._read(int(round((t - lo) * self.fps)))
+        if fr.shape[1] != self.ow or fr.shape[0] != self.oh:
+            fr = cv2.resize(fr, (self.ow, self.oh), interpolation=cv2.INTER_AREA)
+        if LAYOUT == 'yatay':
+            return fr.copy()
+        sc = max(W / self.ow, H / self.oh)
+        big = cv2.resize(fr, (int(self.ow * sc) + 1, int(self.oh * sc) + 1), interpolation=cv2.INTER_AREA)
+        x0 = (big.shape[1] - W) // 2; y0 = (big.shape[0] - H) // 2
+        comp = (cv2.GaussianBlur(big[y0:y0 + H, x0:x0 + W], (0, 0), 28).astype(np.float32) * 0.42).astype(np.uint8)
+        comp[FG_Y:FG_Y + FG_H] = fr
+        return comp
+
+
 class Renderer:
     def __init__(self, cfg):
         self.cfg = cfg
         with open(os.path.join(cfg['workdir'], 'timeline.json'), encoding='utf-8') as f:
             self.tl = json.load(f)
         cache = {}
-        self.shots = [Shot(r, i, cfg, cache) for i, r in enumerate(self.tl['shots'])]
+        self.shots = [VideoShot(r, cfg) if r['image'].startswith('harita:') else Shot(r, i, cfg, cache) for i, r in enumerate(self.tl['shots'])]
         miss = sorted({s.name for s in self.shots if s.dep is None})
         if miss:
             print(f'uyari: derinlik haritasi yok, 2D hareket kullaniliyor: {", ".join(miss)}', file=sys.stderr)
