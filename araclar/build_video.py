@@ -297,8 +297,42 @@ def caption_chunks(text):
     return out
 
 
+def whisperx_times(words, a, sr, cache_dir, est):
+    """WhisperX kelime saatleri (Cem, 27 Kasim 2026). Bulut oturumu HuggingFace'e ulasamadigi icin olcum GitHub
+    Actions'ta yapilir (araclar/hizala_lala.py, .github/workflows/hizala.yml). Bu parcanin olcumu onbellekte
+    (<cache_dir>/whisperx/<anahtar>.json) varsa (bas[], son[]) doner; yoksa <cache_dir>/istek/ altina ses (ogg) ve
+    kelimeler + tahmini saatler yazar ve None doner (altyazi align_words tahminiyle kurulur). WHISPERX=0 kapatir."""
+    if not cache_dir or os.environ.get('WHISPERX') == '0':
+        return None
+    import hashlib
+    key = 'wx' + hashlib.md5(np.round(a * 32767).astype('<i2').tobytes() + ' '.join(words).encode()).hexdigest()[:14]
+    p = os.path.join(cache_dir, 'whisperx', key + '.json')
+    if os.path.exists(p):
+        with open(p, encoding='utf-8') as f:
+            d = json.load(f)
+        k = d.get('kelimeler', [])
+        if len(k) == len(words):
+            return np.array([float(x[1]) for x in k]), np.array([float(x[2]) for x in k])
+        return None
+    q = os.path.join(cache_dir, 'istek')
+    os.makedirs(q, exist_ok=True)
+    ogg = os.path.join(q, key + '.ogg')
+    if not os.path.exists(ogg):
+        tmp = os.path.join(q, key + '.tmp.wav')
+        with wave.open(tmp, 'wb') as w:
+            w.setnchannels(1); w.setsampwidth(2); w.setframerate(sr); w.writeframes((np.clip(a, -1, 1) * 32767).astype('<i2').tobytes())
+        subprocess.run(['ffmpeg', '-y', '-v', 'error', '-i', tmp, '-ac', '1', '-ar', '16000', '-c:a', 'libopus', '-b:a', '48k', ogg], check=True)
+        os.remove(tmp)
+        with open(os.path.join(q, key + '.json'), 'w', encoding='utf-8') as f:
+            json.dump({'kelimeler': words, 'tahmin': [[round(float(x), 3), round(float(y), 3)] for x, y in zip(*est)],
+                       'sure': round(len(a) / sr, 3)}, f, ensure_ascii=False)
+    print(f'whisperx: {key} olcumu yok, istek yazildi', file=sys.stderr)
+    return None
+
+
 def captions_for_piece(text, a, sr, t0, cache_dir=None):
-    """Captions timed to the speech: each line appears when its first word is spoken (align_words)."""
+    """Captions timed to the speech: each line appears when its first word is spoken (WhisperX if measured,
+    otherwise align_words)."""
     if not text:
         return []
     chunks = caption_chunks(text)
@@ -308,6 +342,12 @@ def captions_for_piece(text, a, sr, t0, cache_dir=None):
     except Exception as e:      # fall back to the old estimate
         print(f'uyari: altyazi hizalanamadi ({e}), tahmini zamanlama kullaniliyor', file=sys.stderr)
         return captions_estimate(text, a, sr, t0)
+    try:
+        wx = whisperx_times(words, a, sr, cache_dir, (ws, we))
+        if wx is not None:
+            ws, we = wx
+    except Exception as e:
+        print(f'uyari: whisperx okunamadi ({e})', file=sys.stderr)
     caps, k = [], 0
     for n, c in enumerate(chunks):
         nw = len(c.split())

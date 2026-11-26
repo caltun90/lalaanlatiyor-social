@@ -1,0 +1,53 @@
+# WhisperX altyazı hizalama. Bulut oturumu HuggingFace'e ulaşamadığı için ölçüm burada yapılır.
+# Tetikleme (REST): gh api -X POST repos/<owner>/<repo>/actions/workflows/hizala.yml/dispatches
+#   -f ref=main -f 'inputs[klasor]=bolumler/<NN-slug>/ses/hizalama'
+# Önce görev build_video.py audio'nun yazdığı <klasor>/istek/ dosyalarını main'e push etmiş olmalı.
+# Çıktı: hizalama/<NN-slug> dalında whisperx/<anahtar>.json dosyaları (dal her seferinde üzerine yazılır).
+# Oturum: git fetch -q --depth 1 origin hizalama/<NN-slug> && git archive FETCH_HEAD whisperx | tar -x -C <klasor>
+name: hizala
+run-name: hizala ${{ inputs.klasor }}
+on:
+  workflow_dispatch:
+    inputs:
+      klasor: { description: 'bolumler/<NN-slug>/ses/hizalama', required: true }
+permissions:
+  contents: write
+concurrency:
+  group: hizala-${{ inputs.klasor }}
+  cancel-in-progress: false
+jobs:
+  hizala:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            araclar/hizala_lala.py
+            ${{ inputs.klasor }}
+          sparse-checkout-cone-mode: false
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache/pip
+            ~/.cache/huggingface
+            ~/.cache/torch
+          key: whisperx-3.8.6-cpu-v1
+      - name: paketler
+        run: |
+          python -m pip install -q imageio-ffmpeg && sudo ln -sf "$(python -c 'import imageio_ffmpeg as m; print(m.get_ffmpeg_exe())')" /usr/local/bin/ffmpeg
+          python -m pip install -q "torch==2.8.*" "torchaudio==2.8.*" "torchvision==0.23.*" --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install -q whisperx==3.8.6
+      - name: hizala
+        run: python araclar/hizala_lala.py "${{ inputs.klasor }}"
+      - name: teslim dalına koy
+        run: |
+          K="${{ inputs.klasor }}"; S=$(echo "$K" | cut -d/ -f2); B="hizalama/$S"
+          mkdir -p /tmp/r && cd /tmp/r && git init -q && mkdir whisperx
+          cp "$GITHUB_WORKSPACE/$K"/whisperx/*.json whisperx/ 2>/dev/null || true
+          git add -A
+          git -c user.name=hizala -c user.email=actions@users.noreply.github.com commit -q --allow-empty -m "hizala $S (${{ github.run_id }})"
+          git push -q -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}" HEAD:refs/heads/$B
+          ls whisperx | wc -l; echo "dal: $B"
