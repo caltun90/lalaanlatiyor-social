@@ -23,30 +23,26 @@ Günlük zamanlanmış görev tamamen bulutta çalışır. Cem'in bilgisayarına
   4. Merkezde tanınan bir isim ya da aile içi bir çatışma vardır. Kuru savaş anlatısı ve tarih sırası seçilmez.
   5. Olay gerçek ve kaynaklıdır. Söylence varsa söylence olduğu söylenir.
 - İkinci kanıt (Cem, 24 Kasım 2026): 19 şehzade Short'u YouTube'da 135 bin izlenme, 1.000'den fazla beğeni ve 100'den fazla yorum aldı. İnsanlar kaos, entrika, ihanet ve aile içi ölüm seviyor. Bundan sonraki HER konu bu türden olur: saray entrikası, kardeş ya da evlat öldürme, padişahın devrilmesi ya da öldürülmesi, ihanet, isyan. Sakin, kuru ya da yalnızca "ilginç" konu seçilmez.
-- Denge (Cem, 24 Kasım 2026 gecesi): "Hep ölüm var, insanlar Osmanlı'dan soğumasın." Ölüm ve entrika konularının arasına Osmanlı'nın büyük başarılarını anlatan zafer konuları girer. Kural: arka arkaya iki ölüm konusu yok; her ölüm ya da entrika konusundan sonra en az bir başarı konusu gelir. Başarı konularında da başlık ve kapak 2a'ya uyar (sert, somut, fiilli gerçek: GEMİLER KARADAN YÜRÜDÜ!), konu yine şaşırtıcı ve tepki doğuran bir an olur, kuru savaş anlatısı değil.
+- Yalnızca kaos ve entrika (KESİN KURAL, Cem 26 Kasım 2026): "Hani demiştim ya Osmanlı'nın iyi yanlarını da anlatalım. Vazgeçtim. Kaos entrika dolu hikayeler daha çok izleniyor. Bundan sonra öyle konuları işleyelim sürekli." 24 Kasım'daki denge kuralı (her ölüm konusundan sonra bir başarı konusu) KALDIRILDI. Başarı ve zafer konuları (Preveze, Nusret, Mohaç, Niğbolu) sıradan çıktı ve seçilmez. Her konu ölüm, entrika, ihanet, isyan ya da padişahın devrilmesi olur.
+- Dayanak (26 Kasım 2026 öğlen, YouTube Shorts): 19 şehzade 180 bin, Patrona Halil 4,6 bin, Zigetvar 2,1 bin, Gemiler karadan (tek başarı konusu) 535.
+- En güçlü damar aile içi ölüm (kardeş, evlat). Ama aynı kalıp art arda tekrar etmez (YouTube şablon içerik kuralı): tür çeşitlenir (aile içi ölüm, isyan, saray kadını, gizemli ölüm, babayı tahttan indirme) ve Kanuni konuları aralıklı gelir.
 - Şehzade Mustafa en erken 1 Aralık 2026'da yayınlanır (Cem: "bir hafta sonra falan").
-- Konu sırası (24 Kasım 2026 gecesi yenilendi; kanca cümlesiyle; [B] başarı, [Ö] ölüm ya da entrika):
-  1. [Ö] Patrona Halil, 1730: "Bir hamam tellağı padişahı devirdi." (06-patrona-halil, yayında)
-  2. [B] Gemilerin karadan yürütülmesi, 1453: "Gemiler karadan yürüdü." (07-gemiler-karadan, görseller 24 Kasım 2026 gecesi)
-  3. [B] Preveze, 1538: "Barbaros koca Haçlı donanmasını kaçırdı." (TDV'ye göre Osmanlı 122 kadırga; Haçlı gemi sayısı kaynaklarda tartışmalı, kancaya kesin sayı yazma)
-  4. [Ö] Şehzade Mustafa, 1553: "Kanuni öz oğlunu boğdurdu." (en erken 1 Aralık 2026)
-  5. [B] Nusret mayın gemisi, 18 Mart 1915: "Küçük bir gemi Çanakkale'yi kurtardı." (döktüğü mayın sayısı ve batan gemiler TDV ve ikinci kaynakla doğrulanır)
-  6. [Ö] Genç Osman, 1622: "Yeniçeriler padişahı öldürdü."
-  7. [B] Mohaç, 1526: "Macar ordusu iki saatte dağıldı." (süre kaynakla doğrulanır)
-  8. [Ö] Kösem Sultan, 1651: "Osmanlı'nın en güçlü kadını sarayda boğuldu."
-  9. [B] Niğbolu, 1396: "Yıldırım Bayezid Haçlı ordusunu yendi."
-  10. [Ö] Pargalı İbrahim Paşa, 1536: "Kanuni en yakın dostunu boğdurdu."
-  11. [Ö] III. Selim, 1808: "Kurtarıcılar geldi, padişah çoktan ölmüştü."
-  12. [Ö] Şehzade Bayezid, 1562: "Kanuni ikinci oğlunu da öldürttü."
-  13. [Ö] Deli İbrahim, 1648: "Tahttan indirildi, 10 gün sonra boğuldu."
-  14. [Ö] Tütün yasağı, IV. Murad: "Tütün içmenin cezası ölümdü." (04-tutun-yasagi)
-  15. [Ö] Abdülaziz, 1876: "Tahttan indirildi, 5 gün sonra öldü."
-  16. [Ö] Yavuz ve II. Bayezid, 1512: "Oğlu tahttan indirdi, babası yolda öldü."
-  17. [Ö] Vaka-i Hayriye, 1826: "Padişah kendi ordusunu topa tuttu."
-  18. [Ö] Cem Sultan: "Papa'nın esiri Osmanlı şehzadesi."
-  19. Kanije ve Küçük Kıyamet en sona kalır; ancak güçlü bir kancayla kullanılır.
-- 10. sıradan sonraki [Ö] konuların arasına da yeni [B] konular eklenir (denge kuralı); listede sıradaki [B] yoksa stok oturumunda önce bir başarı konusu bulunur, beş kritere ve kaynağa göre listeye yazılır.
-- 3, 5, 7, 8, 9, 10, 12, 13 ve 17 numaralı konuların kancaları 24 Kasım 2026'da eklendi: stok oturumunda senaryo yazılırken kancadaki her kelimeyi (kaç gün, kim, nasıl) TDV İslâm Ansiklopedisi ile doğrula, tutmayanı düzelt.
+- Konu sırası (26 Kasım 2026'da yenilendi; kanca cümlesiyle):
+  1. Genç Osman, 1622: "Yeniçeriler padişahı öldürdü."
+  2. Şehzade Mustafa, 1553: "Kanuni öz oğlunu boğdurdu." (en erken 1 Aralık 2026)
+  3. Kösem Sultan, 1651: "Osmanlı'nın en güçlü kadını sarayda boğuldu."
+  4. III. Selim, 1808: "Kurtarıcılar geldi, padişah çoktan ölmüştü."
+  5. Pargalı İbrahim Paşa, 1536: "Kanuni en yakın dostunu boğdurdu."
+  6. Abdülaziz, 1876: "Tahttan indirildi, 5 gün sonra öldü."
+  7. Deli İbrahim, 1648: "Tahttan indirildi, 10 gün sonra boğuldu."
+  8. Şehzade Bayezid, 1562: "Kanuni ikinci oğlunu da öldürttü."
+  9. Yavuz ve II. Bayezid, 1512: "Oğlu tahttan indirdi, babası yolda öldü."
+  10. Vaka-i Hayriye, 1826: "Padişah kendi ordusunu topa tuttu."
+  11. Cem Sultan: "Papa'nın esiri Osmanlı şehzadesi."
+  12. Tütün yasağı, IV. Murad: "Tütün içmenin cezası ölümdü." (04-tutun-yasagi)
+  13. Kanije ve Küçük Kıyamet en sona kalır; ancak güçlü bir kancayla kullanılır.
+- Liste biterken yeni konu, beş kritere ve kaynağa göre, yine bu türden bulunur ve listeye kanca cümlesiyle yazılır.
+- Kancalar 24 Kasım 2026'da yazıldı: stok oturumunda senaryo yazılırken kancadaki her kelimeyi (kaç gün, kim, nasıl) TDV İslâm Ansiklopedisi ile doğrula, tutmayanı düzelt.
 - Görsel stoğu oturumları bu sırayla çalışır. Günlük görevde birden fazla "hazir" bölüm varsa en küçük numarayı değil, bu listede en üstte olanı seç.
 - Yeni konulara da aynı beş kriteri uygula; listeye eklerken kanca cümlesini yaz. Kancadaki her kelime kaynakla doğrulanır (Patrona Halil kaynaklarda "eskici" değil, seyyar satıcı ve hamam tellağıdır).
 
@@ -77,6 +73,7 @@ Günlük zamanlanmış görev tamamen bulutta çalışır. Cem'in bilgisayarına
 - Görseller ChatGPT ile üretilir ve bu yalnızca Cem'in bilgisayarında, Cem'in başlattığı ayrı bir oturumda yapılır. Günlük görev görsel ÜRETMEZ. Gemini API'nin ücretsiz katmanında görsel üretimi yok (17 Kasım 2026'da denendi, 429).
 - Görev yalnızca `gorseller/` klasörü dolu olan (log'da durum "hazir") bölümleri işler. Hazır bölüm kalmadıysa hiçbir şey üretmez ve Cem'e tek cümleyle "Görsel stoğu bitti, sıradaki bölüm: <ad>" diye bildirir.
 - Stok oturumunda kullanılan stil cümlesi: clean flat 2D cartoon illustration, thick dark-brown outlines, simple shapes, flat colors with minimal shading, slightly large heads, small dot eyes, friendly and readable. Palette: deep teal, burgundy, warm gold, cream, muted navy. 16:9 landscape, no text or letters.
+- Osmanlı karakterinde haç yok (KESİN KURAL, Cem 25 Kasım 2026: "Adam Osmanlı padişahı. Bunlara dikkat et."): 07'de Fatih'in, 02'de III. Mehmed'in sarık süsü haç biçiminde çıktı ("small red top and a gold jewel" tarifi yüzünden). Her istemin başına "No crosses on any Ottoman character, clothing, turban, tent, flag or object." yaz. Padişah ve paşa sarığını her istemde ve karakter sayfasında "turban ornament: a jeweled sorguç with a tall white feather plume, no cross, no crown, no fleur-de-lis" diye tarif et. Haç yalnızca Bizans ve Haçlı tarafında ve fetihten önceki kiliselerde olabilir. Kontrolde Osmanlı karakterlerinin sarığını kırpıp yakından bak; haç varsa görseli yeniden üret.
 
 ## 5. Günlük akış
 

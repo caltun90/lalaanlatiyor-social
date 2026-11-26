@@ -75,7 +75,14 @@
     "no": 8,
     "slug": "preveze",
     "baslik": "Barbaros koca Haçlı donanmasını kaçırdı",
+    "durum": "iptal",
+    "notlar": "Senaryo ve görsel henüz yok; stok oturumunda hazırlanacak. stok bildirildi 2026-11-25. 25 Kasım 2026 etiket kontrolü: kanaldaki 8 videonun hiçbirinde containsSyntheticMedia yok; belirteç kapsamı hâlâ youtube.upload ve youtube.readonly, videos.update 403 ACCESS_TOKEN_SCOPE_INSUFFICIENT (czyiC4mL1OU üzerinde bir kez denendi). 26 Kasım 2026: hazır bölüm yok (stok bildirimi daha önce yapıldı, tekrarlanmadı). Etiket kontrolü: 8 videonun hiçbirinde containsSyntheticMedia yok; kapsam aynı, videos.update 403 insufficientPermissions (0JubX07KkJs, bir kez). 26 Kasım 2026: sıradan çıktı (Cem: başarı konuları yerine yalnızca kaos ve entrika, KIT.md bölüm 2). Sıradaki bölüm Genç Osman, 1622."
+  },
+  {
+    "no": 9,
+    "slug": "genc-osman",
+    "baslik": "Yeniçeriler padişahı öldürdü",
     "durum": "senaryo",
-    "notlar": "Konu sırasında sıradaki bölüm (KIT.md bölüm 2, 3. sıra: Preveze, 1538). Senaryo ve görsel henüz yok; stok oturumunda hazırlanacak. stok bildirildi 2026-11-25. 25 Kasım 2026 etiket kontrolü: kanaldaki 8 videonun hiçbirinde containsSyntheticMedia yok; belirteç kapsamı hâlâ youtube.upload ve youtube.readonly, videos.update 403 ACCESS_TOKEN_SCOPE_INSUFFICIENT (czyiC4mL1OU üzerinde bir kez denendi). 26 Kasım 2026: hazır bölüm yok (stok bildirimi daha önce yapıldı, tekrarlanmadı). Etiket kontrolü: 8 videonun hiçbirinde containsSyntheticMedia yok; kapsam aynı, videos.update 403 insufficientPermissions (0JubX07KkJs, bir kez)."
+    "notlar": "Konu sırasında sıradaki bölüm (KIT.md bölüm 2, 1. sıra: Genç Osman, 1622; Cem 26 Kasım 2026 kararı). Senaryo ve görsel henüz yok; stok oturumunda hazırlanacak. Kancadaki her kelime TDV ile doğrulanır."
   }
 ]

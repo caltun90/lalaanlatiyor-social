@@ -13,7 +13,7 @@ Sınır: Bu dosya yalnızca konu seçimi (KIT.md bölüm 2'deki sıra ve kuralla
 
 ## Bu haftanın kararları (25 Kasım - 1 Aralık 2026)
 
-1. Konu sırası ve denge kuralı KIT.md bölüm 2'deki gibi devam eder. Yeni bir yön yok.
+1. Konu sırası KIT.md bölüm 2'deki gibi. 26 Kasım 2026: denge kuralı Cem'in kararıyla kaldırıldı, bundan sonra yalnızca kaos ve entrika konuları (KIT.md bölüm 2).
 2. Darboğaz görsel stoğu: 25 Kasım'da hazır bölüm yoktu. Bu Cem'in görsel oturumlarına bağlı; günlük görev bu konuda ek bir şey yapmaz, KIT.md'deki stok bildirimi kuralı yeterli.
 
 ## Geçmiş kararlar
