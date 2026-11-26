@@ -9,7 +9,7 @@ import type { Sefer } from './seferler';
 
 const INK = '#4a3524', LAND = '#ead8ad', SEA = '#a8c3bd', RIVER = '#5f93a8', RED = '#a3271f', PAPER = '#f3e4bf';
 const FONT = "'DejaVu Serif', 'Lora', serif";
-const NEHIR = ['Danube', 'Donau', 'Drava', 'Sava', 'Tisza', 'Morava', 'Maritsa', 'Dunav', 'Dnipro', 'Dniester', 'Euphrates', 'Tigris', 'Nile', 'Kizilirmak'];
+const NEHIR = ['Danube', 'Donau', 'Drava', 'Sava', 'Tisza', 'Morava', 'Maritsa', 'Dunav', 'Dnipro', 'Dniester', 'Euphrates', 'Tigris', 'Nile', 'Kizilirmak', 'Kızılırmak', 'Sakarya', 'Volga', 'Don', 'Prut', 'Bug', 'Rhine', 'Rhein', 'Po', 'Ebro', 'Firat', 'Dicle', 'Al Furat', 'Shatt al Arab', 'Dnepre', 'Tisa', 'Damietta Branch', 'Rosetta Branch'];
 
 type FC = { type: 'FeatureCollection'; features: any[] };
 function useGeo(name: string) {
