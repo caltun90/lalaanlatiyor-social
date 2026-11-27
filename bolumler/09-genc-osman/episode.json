@@ -66,7 +66,7 @@
      "text": "Yeniçeriler padişahı öldürdü. Bin altı yüz yirmi iki yılının mayıs ayı, İstanbul. On yedi yaşında bir padişah, başı açık, perişan halde bir ata bindirilmiş. Yolun iki yanında kendi askerleri ona bağırıyor, hakaret ediyor. Daha bir gün önce dünyanın en güçlü devletlerinden birinin başındaydı. Şimdi Yedikule'ye götürülüyor. Osmanlı tarihinde ilk kez bir padişah, kendi askerlerinin isyanıyla tahttan indirilip öldürülecek. Tarih ona Genç Osman diyor. Peki bir padişahı kendi askerleri neden öldürür? Bu hikâye bir kardeş katliyle, kaybedilmiş bir kuşatmayla ve hiç çıkılamayan bir hac yolculuğuyla başlıyor.",
      "shots": [
       [
-       "00_hook",
+       "klip:00_hook",
        130
       ],
       [
@@ -74,7 +74,7 @@
        90
       ],
       [
-       "01_yedikule",
+       "klip:01_yedikule",
        80
       ],
       [
@@ -148,12 +148,12 @@
        120
       ],
       [
-       "10_hotin",
-       130
+       "klip:10_hotin",
+       100
       ],
       [
        "13_cold_return",
-       100
+       120
       ],
       [
        "11_tent_angry",
@@ -165,7 +165,7 @@
       ],
       [
        "14_marriage",
-       130
+       140
       ]
      ]
     }
@@ -195,12 +195,12 @@
        100
       ],
       [
-       "02_crowd_hippodrome",
-       120
+       "klip:02_crowd_hippodrome",
+       110
       ],
       [
        "20_list_refused",
-       120
+       130
       ]
      ]
     }
@@ -214,7 +214,7 @@
      "text": "Bunun üzerine isyancılar saraya girdi. Aradıkları yalnızca o adamlar değildi. Osman'ın amcası Mustafa'yı, tahttan indirilen o eski padişahı arıyorlardı. Mustafa'nın bulunduğu odaya giden yolu bulamayınca odanın kubbesine çıktılar. Kubbeyi kaplayan kurşunu baltalarla kestiler. Açılan delikten üç kişi iple aşağı sarktı. Mustafa bir minderin üstünde oturuyordu. Onu dışarı çıkardılar ve padişah ilan ettiler. Osman durumu kurtarmak için geri adım attı. Sadrazam Dilaver Paşa'yı ve Süleyman Ağa'yı isyancılara teslim etti. İsyancılar ikisini de öldürdü. Ama kalabalık dağılmadı. Şeyhülislam Esad Efendi isyancıların çekilmesini, Mustafa'nın eski yerine götürülmesini istedi. Dinleyen olmadı. Din adamlarının çoğu yeni padişah Mustafa'ya bağlılık bildirdi. Mustafa önce Eski Saray'a, sonra yeniçerilerin camisi Orta Cami'ye götürüldü. İstanbul'da artık iki padişah vardı. Gece yarısı Osman son bir çare denedi. Ohrili Hüseyin Paşa'nın sözüne uydu ve gizlice yeniçeri ağası Ali Ağa'nın konağına sığındı. Ağadan askerleri yatıştırmasını istedi. Ama yeniçeriler Ali Ağa'ya konuşma fırsatı bile vermedi. Onu öldürdüler ve padişahı yakaladılar.",
      "shots": [
       [
-       "19_palace_gate",
+       "klip:19_palace_gate",
        90
       ],
       [
@@ -222,11 +222,11 @@
        100
       ],
       [
-       "22_rope_down",
-       110
+       "klip:22_rope_down",
+       100
       ],
       [
-       "23_mustafa_carried",
+       "klip:23_mustafa_carried",
        90
       ],
       [
@@ -235,7 +235,7 @@
       ],
       [
        "25_scholars_bow",
-       100
+       110
       ],
       [
        "26_night_escape",
@@ -246,8 +246,8 @@
        80
       ],
       [
-       "28_captured",
-       80
+       "klip:28_captured",
+       70
       ]
      ]
     }
@@ -261,15 +261,15 @@
      "text": "Yirmi Mayıs. Osman'ı başı açık, perişan halde bir ata bindirdiler. Hakaretlerle sokaklardan geçirip Orta Cami'ye, amcası Mustafa'nın bulunduğu yere getirdiler. İsyancıların yeni sadrazam yaptığı Kara Davud Paşa da oradaydı. Davud Paşa, Mustafa'nın eniştesiydi. Camide Osman'ı öldürmeye kalktı ama engellendi. Aynı gün öğleden sonra Osman Yedikule'ye gönderildi. Orada Davud Paşa ve adamları, on yedi yaşındaki padişahı iple boğarak öldürdü. Öldüğünü kanıtlamak için bir kulağını kesip Mustafa'nın annesine gönderdiler. Osman'ın cesedi gece gizlice saraya getirildi. Sabah cenaze namazı kılındı ve Sultanahmet Camii'nin yanındaki türbeye, babası Sultan Ahmed'in yanına gömüldü. Davud Paşa'nın sadrazamlığı yalnızca yirmi dört gün sürdü. Askerler bu kez padişahın katillerini istiyordu. Davud Paşa emri yukarıdan aldığını söyledi, kaçmaya çalıştı ama yakalandı. Ocak bin altı yüz yirmi üçte Yedikule'de, Genç Osman'ı öldürdüğü yerde idam edildi. Mustafa da bir yıldan biraz sonra yeniden tahttan indirildi. Genç Osman ise geride bir soru bıraktı: ordusunu değiştirmek isteyen padişah haklı mıydı, yoksa herkesi karşısına alan aceleci bir genç miydi? Böyle hikâyeler için abone ol.",
      "shots": [
       [
-       "29_bareheaded_ride",
-       120
+       "klip:29_bareheaded_ride",
+       110
       ],
       [
        "30_orta_cami",
        110
       ],
       [
-       "31_to_yedikule",
+       "klip:31_to_yedikule",
        100
       ],
       [
@@ -281,7 +281,7 @@
        80
       ],
       [
-       "34_funeral",
+       "klip:34_funeral",
        100
       ],
       [
@@ -301,5 +301,182 @@
    ]
   }
  ],
- "hareketler": {}
+ "hareketler": {
+  "00_hook": {
+   "hareket": "derin",
+   "efekt": [
+    "mum"
+   ]
+  },
+  "01_yedikule": {
+   "hareket": "derin"
+  },
+  "02_crowd_hippodrome": {
+   "hareket": "derin",
+   "efekt": [
+    "toz"
+   ]
+  },
+  "03_accession": {
+   "hareket": "sakin",
+   "efekt": [
+    "mum"
+   ]
+  },
+  "04_mustafa_room": {
+   "hareket": "sakin",
+   "efekt": [
+    "toz"
+   ]
+  },
+  "05_osman_horse": {
+   "hareket": "takip",
+   "yon": "sag"
+  },
+  "06_brothers": {
+   "hareket": "sakin"
+  },
+  "07_esad_refuses": {
+   "hareket": "sakin"
+  },
+  "08_closed_door": {
+   "hareket": "sakin",
+   "efekt": [
+    "mum"
+   ]
+  },
+  "09_army_march": {
+   "hareket": "derin",
+   "efekt": [
+    "toz"
+   ]
+  },
+  "10_hotin": {
+   "hareket": "sarsinti",
+   "efekt": [
+    "duman"
+   ]
+  },
+  "11_tent_angry": {
+   "hareket": "sakin",
+   "efekt": [
+    "mum"
+   ]
+  },
+  "12_payroll": {
+   "hareket": "derin"
+  },
+  "13_cold_return": {
+   "hareket": "derin"
+  },
+  "14_marriage": {
+   "hareket": "sakin"
+  },
+  "15_hajj_plan": {
+   "hareket": "yaklas",
+   "efekt": [
+    "mum"
+   ]
+  },
+  "16_rumor": {
+   "hareket": "sakin",
+   "efekt": [
+    "kivilcim"
+   ]
+  },
+  "17_tents_boats": {
+   "hareket": "derin"
+  },
+  "18_esad_fatwa": {
+   "hareket": "sakin"
+  },
+  "19_palace_gate": {
+   "hareket": "sarsinti",
+   "efekt": [
+    "toz"
+   ]
+  },
+  "20_list_refused": {
+   "hareket": "yaklas"
+  },
+  "21_dome_axes": {
+   "hareket": "sarsinti",
+   "efekt": [
+    "toz"
+   ]
+  },
+  "22_rope_down": {
+   "hareket": "derin",
+   "efekt": [
+    "toz"
+   ]
+  },
+  "23_mustafa_carried": {
+   "hareket": "derin"
+  },
+  "24_handover": {
+   "hareket": "sakin"
+  },
+  "25_scholars_bow": {
+   "hareket": "sakin",
+   "efekt": [
+    "mum"
+   ]
+  },
+  "26_night_escape": {
+   "hareket": "takip",
+   "efekt": [
+    "mum"
+   ],
+   "yon": "sag"
+  },
+  "27_agha_mansion": {
+   "hareket": "sakin",
+   "efekt": [
+    "mum"
+   ]
+  },
+  "28_captured": {
+   "hareket": "derin",
+   "efekt": [
+    "mum"
+   ]
+  },
+  "29_bareheaded_ride": {
+   "hareket": "takip",
+   "yon": "sag"
+  },
+  "30_orta_cami": {
+   "hareket": "derin"
+  },
+  "31_to_yedikule": {
+   "hareket": "takip",
+   "yon": "sag"
+  },
+  "32_tower_door": {
+   "hareket": "yaklas",
+   "efekt": [
+    "mum"
+   ]
+  },
+  "33_valide_box": {
+   "hareket": "yaklas"
+  },
+  "34_funeral": {
+   "hareket": "sakin",
+   "efekt": [
+    "mum"
+   ]
+  },
+  "35_davud_caught": {
+   "hareket": "derin"
+  },
+  "36_lala_close": {
+   "hareket": "sakin",
+   "efekt": [
+    "mum"
+   ]
+  }
+ },
+ "klipler_not": "klip:<ad> çekimleri klipler/<ad>.mp4 dosyasını oynatır (Veo: 00 ve 02 Gemini uygulaması, diğerleri Flow Veo 3.1 Lite, 27 Kasım 2026). Klip yoksa ya da beğenilmezse çekim adındaki 'klip:' önekini sil, aynı adlı görsel kullanılır."
 }

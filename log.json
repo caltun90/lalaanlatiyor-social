@@ -81,8 +81,8 @@
   {
     "no": 9,
     "slug": "genc-osman",
-    "baslik": "Yeniçeriler padişahı öldürdü",
-    "durum": "senaryo",
-    "notlar": "Konu sırasında sıradaki bölüm (KIT.md bölüm 2, 1. sıra: Genç Osman, 1622; Cem 26 Kasım 2026 kararı). Senaryo ve görsel henüz yok; stok oturumunda hazırlanacak. Kancadaki her kelime TDV ile doğrulanır. stok bildirildi 2026-11-27. 27 Kasım 2026 etiket kontrolü: kanaldaki 8 videonun hiçbirinde containsSyntheticMedia yok; belirteç kapsamı hâlâ youtube.upload ve youtube.readonly, videos.update 403 insufficientPermissions (0JubX07KkJs, bir kez)."
+    "baslik": "Yeniçeriler 17 Yaşındaki Padişahı Öldürdü | Genç Osman, 1622",
+    "durum": "hazir",
+    "notlar": "Stok oturumu 27 Kasım 2026: senaryo.md (TDV Osman II, Mustafa I, Dâvud Paşa; Britannica), 36 görsel + karakter_sayfasi_09.jpg (ChatGPT, iki sohbet, haç/bayrak/sarık kontrolü yapıldı; 09, 15, 24, 25, 33 düzeltildi), episode.json (6 parça, hareketler, harita:hotin), kapak.jpg ve kapak_short.jpg (YENİÇERİLER / PADİŞAHI / ÖLDÜRDÜ!). YENİ: klipler/ altında 11 Veo klibi (00_hook ve 02 Gemini uygulaması, diğer 9'u Flow Veo 3.1 Lite); episode.json'da 'klip:<ad>' çekimleri, build_video.py bunları görsel yerine oynatır. Ses yok, günlük görev üretir. Konu sırasında sıradaki bölüm (KIT.md bölüm 2, 1. sıra: Genç Osman, 1622; Cem 26 Kasım 2026 kararı). Senaryo ve görsel henüz yok; stok oturumunda hazırlanacak. Kancadaki her kelime TDV ile doğrulanır. stok bildirildi 2026-11-27. 27 Kasım 2026 etiket kontrolü: kanaldaki 8 videonun hiçbirinde containsSyntheticMedia yok; belirteç kapsamı hâlâ youtube.upload ve youtube.readonly, videos.update 403 insufficientPermissions (0JubX07KkJs, bir kez)."
   }
 ]
