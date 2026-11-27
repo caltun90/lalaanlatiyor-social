@@ -1,0 +1,305 @@
+{
+ "workdir": "work",
+ "images_dir": "gorseller",
+ "audio_dir": "ses",
+ "output": "cikti/Lala_Anlatiyor_09_Genc_Osman_1622.mp4",
+ "brand": "LALA ANLATIYOR",
+ "title": "Yeniçeriler Padişahı Öldürdü",
+ "subtitle": "Genç Osman, 1622",
+ "kanca": {
+  "yazi": "YENİÇERİLER PADİŞAHI ÖLDÜRDÜ",
+  "gorsel": "00_hook",
+  "y": 0.7,
+  "punto": 96,
+  "efekt": [
+   "mum"
+  ]
+ },
+ "haritalar": {
+  "hotin": {
+   "baslik": "1621",
+   "altBaslik": "Genç Osman'ın Hotin seferi",
+   "duraklar": [
+    {
+     "ad": "İstanbul",
+     "lonlat": [
+      28.98,
+      41.01
+     ]
+    },
+    {
+     "ad": "İsakça",
+     "lonlat": [
+      28.46,
+      45.27
+     ]
+    },
+    {
+     "ad": "Hotin",
+     "lonlat": [
+      26.49,
+      48.51
+     ],
+     "alt": "Eylül 1621"
+    }
+   ],
+   "hedefYazi": "KUŞATMA",
+   "cerceve": [
+    [
+     22.5,
+     39.8
+    ],
+    [
+     33.5,
+     49.6
+    ]
+   ],
+   "baslikYeri": "sag-ust"
+  }
+ },
+ "sections": [
+  {
+   "label": "YEDİKULE, 1622",
+   "pieces": [
+    {
+     "audio": "p01.wav",
+     "text": "Yeniçeriler padişahı öldürdü. Bin altı yüz yirmi iki yılının mayıs ayı, İstanbul. On yedi yaşında bir padişah, başı açık, perişan halde bir ata bindirilmiş. Yolun iki yanında kendi askerleri ona bağırıyor, hakaret ediyor. Daha bir gün önce dünyanın en güçlü devletlerinden birinin başındaydı. Şimdi Yedikule'ye götürülüyor. Osmanlı tarihinde ilk kez bir padişah, kendi askerlerinin isyanıyla tahttan indirilip öldürülecek. Tarih ona Genç Osman diyor. Peki bir padişahı kendi askerleri neden öldürür? Bu hikâye bir kardeş katliyle, kaybedilmiş bir kuşatmayla ve hiç çıkılamayan bir hac yolculuğuyla başlıyor.",
+     "shots": [
+      [
+       "00_hook",
+       130
+      ],
+      [
+       "29_bareheaded_ride",
+       90
+      ],
+      [
+       "01_yedikule",
+       80
+      ],
+      [
+       "02_crowd_hippodrome",
+       70
+      ],
+      [
+       "06_brothers",
+       60
+      ],
+      [
+       "10_hotin",
+       60
+      ],
+      [
+       "17_tents_boats",
+       60
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "label": "GENÇ PADİŞAH",
+   "pieces": [
+    {
+     "audio": "p02.wav",
+     "text": "Hikâyenin başına dönelim. Bin altı yüz on yedi yılında Sultan Birinci Ahmed genç yaşta öldü. Büyük oğlu Osman daha on üç yaşındaydı. Tahta Ahmed'in kardeşi Mustafa çıkarıldı. Ama Mustafa'nın aklı yerinde değildi. Yıllarını sarayda kapalı bir hayatla geçirmişti. Garip davranışları yüzünden doksan altı gün sonra tahttan indirildi. Yerine Osman geçti. Yıl bin altı yüz on sekiz, Osman on dört yaşında. Genç padişah zeki ve hareketliydi. Paşaların ve saray büyüklerinin sözüyle değil, kendi kararıyla hükmetmek istiyordu. Ama bu isteğin bir bedeli olacaktı. Bin altı yüz yirmi bir yılının başında Osman, Lehistan'a sefere çıkmaya karar verdi. Gitmeden önce bir şey daha yaptı. Kardeşi Şehzade Mehmed'i öldürttü. Gerekçe şuydu: padişah seferdeyken Mehmed tahta rakip olabilirdi. Şeyhülislam Esad Efendi bu ölüme şiddetle karşı çıktı ve izin vermedi. İzni başka bir din adamı, Rumeli kazaskeri verdi. Genç padişah daha yolun başında, devletin en büyük din adamını karşısına almıştı.",
+     "shots": [
+      [
+       "04_mustafa_room",
+       110
+      ],
+      [
+       "03_accession",
+       120
+      ],
+      [
+       "05_osman_horse",
+       100
+      ],
+      [
+       "09_army_march",
+       70
+      ],
+      [
+       "06_brothers",
+       110
+      ],
+      [
+       "08_closed_door",
+       110
+      ],
+      [
+       "07_esad_refuses",
+       120
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "label": "HOTİN",
+   "pieces": [
+    {
+     "audio": "p03.wav",
+     "text": "Bin altı yüz yirmi bir baharında Osman büyük bir orduyla kuzeye yürüdü. Hedef, Dinyester Irmağı kıyısındaki Hotin Kalesi'ydi. Osmanlı askeri kalenin önünde haftalarca savaştı. Hücum üstüne hücum yapıldı ama kale düşmedi. Paşalar birbiriyle çekişiyordu, işler yürümüyordu. Sonunda barış yapıldı ve ordu geri döndü. İstanbul'da bu sefer bir zafer diye ilan edildi. Ama gerçeği herkes biliyordu. Genç padişah suçu askerde buldu. Ona göre yeniçeriler gönülsüz savaşmıştı. Askerler de padişaha kırgındı. Osman bahşiş dağıtırken cimri davranıyordu. Maaşlar dağıtılırken başına geçip her şeyi kendisi denetliyordu. Yeniçerilerin ileri gelenleri bundan hiç hoşlanmadı. Dönüşte Osman sarayı bir kez daha şaşırttı. Osmanlı padişahları uzun zamandır saraydaki cariyelerle evleniyordu. Osman ise Şeyhülislam Esad Efendi'nin kızı Âkile ile evlendi. Esad Efendi bu evliliğe önce karşı çıktı, sonunda razı olmak zorunda kaldı. Ama ikisinin arası hiç düzelmedi. Padişahın çevresinde ona kırgın olanların sayısı her gün biraz daha artıyordu.",
+     "shots": [
+      [
+       "harita:hotin",
+       120
+      ],
+      [
+       "10_hotin",
+       130
+      ],
+      [
+       "13_cold_return",
+       100
+      ],
+      [
+       "11_tent_angry",
+       110
+      ],
+      [
+       "12_payroll",
+       130
+      ],
+      [
+       "14_marriage",
+       130
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "label": "HAC YOLU",
+   "pieces": [
+    {
+     "audio": "p04.wav",
+     "text": "Dönüşün üzerinden beş ay kadar geçti. Osman yeni bir karar açıkladı: hacca gidecekti. Osmanlı padişahlarından hiçbiri o güne kadar hacca gitmemişti. İstanbul'da dedikodu hızla yayıldı. Söylentiye göre padişah hac bahanesiyle Anadolu'ya geçecek, orada yeni bir ordu toplayacak, sonra dönüp yeniçerileri ortadan kaldıracaktı. Hatta başkenti Bursa'ya ya da Kahire'ye taşıyacaktı. Bu iddiaların padişahın muhalifleri tarafından yayıldığı da düşünülüyor. Ama o günlerde askerler buna inandı. Şeyhülislam Esad Efendi padişahı vazgeçirmeye çalıştı. Hac yerine bir cami yaptırmasını önerdi. Olmayınca bir fetva verdi: bir padişah için adaletle hükmetmek, hacca gitmekten daha üstündü. Osman dinlemedi. Bir gün padişahın çadırlarının Boğaz'ın karşısına, Üsküdar'a geçirildiği duyuldu. Bu haber kıvılcım oldu. On dokuz Mayıs bin altı yüz yirmi iki. Yeniçeriler ve din adamları ayaklandı. İstekleri açıktı: padişahı yanlış yola sürükleyen adamlar ölmeliydi. Listenin başında padişahın hocası Ömer Efendi ve haremin ağası Süleyman Ağa vardı. Sadrazam Dilaver Paşa'nın adı da listedeydi. Osman bu adamları vermeyi reddetti.",
+     "shots": [
+      [
+       "15_hajj_plan",
+       120
+      ],
+      [
+       "16_rumor",
+       130
+      ],
+      [
+       "18_esad_fatwa",
+       120
+      ],
+      [
+       "17_tents_boats",
+       100
+      ],
+      [
+       "02_crowd_hippodrome",
+       120
+      ],
+      [
+       "20_list_refused",
+       120
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "label": "İKİ PADİŞAH",
+   "pieces": [
+    {
+     "audio": "p05.wav",
+     "text": "Bunun üzerine isyancılar saraya girdi. Aradıkları yalnızca o adamlar değildi. Osman'ın amcası Mustafa'yı, tahttan indirilen o eski padişahı arıyorlardı. Mustafa'nın bulunduğu odaya giden yolu bulamayınca odanın kubbesine çıktılar. Kubbeyi kaplayan kurşunu baltalarla kestiler. Açılan delikten üç kişi iple aşağı sarktı. Mustafa bir minderin üstünde oturuyordu. Onu dışarı çıkardılar ve padişah ilan ettiler. Osman durumu kurtarmak için geri adım attı. Sadrazam Dilaver Paşa'yı ve Süleyman Ağa'yı isyancılara teslim etti. İsyancılar ikisini de öldürdü. Ama kalabalık dağılmadı. Şeyhülislam Esad Efendi isyancıların çekilmesini, Mustafa'nın eski yerine götürülmesini istedi. Dinleyen olmadı. Din adamlarının çoğu yeni padişah Mustafa'ya bağlılık bildirdi. Mustafa önce Eski Saray'a, sonra yeniçerilerin camisi Orta Cami'ye götürüldü. İstanbul'da artık iki padişah vardı. Gece yarısı Osman son bir çare denedi. Ohrili Hüseyin Paşa'nın sözüne uydu ve gizlice yeniçeri ağası Ali Ağa'nın konağına sığındı. Ağadan askerleri yatıştırmasını istedi. Ama yeniçeriler Ali Ağa'ya konuşma fırsatı bile vermedi. Onu öldürdüler ve padişahı yakaladılar.",
+     "shots": [
+      [
+       "19_palace_gate",
+       90
+      ],
+      [
+       "21_dome_axes",
+       100
+      ],
+      [
+       "22_rope_down",
+       110
+      ],
+      [
+       "23_mustafa_carried",
+       90
+      ],
+      [
+       "24_handover",
+       110
+      ],
+      [
+       "25_scholars_bow",
+       100
+      ],
+      [
+       "26_night_escape",
+       80
+      ],
+      [
+       "27_agha_mansion",
+       80
+      ],
+      [
+       "28_captured",
+       80
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "label": "YEDİKULE",
+   "pieces": [
+    {
+     "audio": "p06.wav",
+     "text": "Yirmi Mayıs. Osman'ı başı açık, perişan halde bir ata bindirdiler. Hakaretlerle sokaklardan geçirip Orta Cami'ye, amcası Mustafa'nın bulunduğu yere getirdiler. İsyancıların yeni sadrazam yaptığı Kara Davud Paşa da oradaydı. Davud Paşa, Mustafa'nın eniştesiydi. Camide Osman'ı öldürmeye kalktı ama engellendi. Aynı gün öğleden sonra Osman Yedikule'ye gönderildi. Orada Davud Paşa ve adamları, on yedi yaşındaki padişahı iple boğarak öldürdü. Öldüğünü kanıtlamak için bir kulağını kesip Mustafa'nın annesine gönderdiler. Osman'ın cesedi gece gizlice saraya getirildi. Sabah cenaze namazı kılındı ve Sultanahmet Camii'nin yanındaki türbeye, babası Sultan Ahmed'in yanına gömüldü. Davud Paşa'nın sadrazamlığı yalnızca yirmi dört gün sürdü. Askerler bu kez padişahın katillerini istiyordu. Davud Paşa emri yukarıdan aldığını söyledi, kaçmaya çalıştı ama yakalandı. Ocak bin altı yüz yirmi üçte Yedikule'de, Genç Osman'ı öldürdüğü yerde idam edildi. Mustafa da bir yıldan biraz sonra yeniden tahttan indirildi. Genç Osman ise geride bir soru bıraktı: ordusunu değiştirmek isteyen padişah haklı mıydı, yoksa herkesi karşısına alan aceleci bir genç miydi? Böyle hikâyeler için abone ol.",
+     "shots": [
+      [
+       "29_bareheaded_ride",
+       120
+      ],
+      [
+       "30_orta_cami",
+       110
+      ],
+      [
+       "31_to_yedikule",
+       100
+      ],
+      [
+       "32_tower_door",
+       100
+      ],
+      [
+       "33_valide_box",
+       80
+      ],
+      [
+       "34_funeral",
+       100
+      ],
+      [
+       "35_davud_caught",
+       120
+      ],
+      [
+       "01_yedikule",
+       80
+      ],
+      [
+       "36_lala_close",
+       110
+      ]
+     ]
+    }
+   ]
+  }
+ ],
+ "hareketler": {}
+}
