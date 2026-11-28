@@ -46,12 +46,12 @@
    "hedefYazi": "KUŞATMA",
    "cerceve": [
     [
-     22.5,
-     39.8
+     22.0,
+     39.6
     ],
     [
-     33.5,
-     49.6
+     34.0,
+     50.9
     ]
    ],
    "baslikYeri": "sag-ust"
@@ -274,7 +274,7 @@
       ],
       [
        "32_tower_door",
-       100
+       80
       ],
       [
        "33_valide_box",
