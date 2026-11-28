@@ -1,0 +1,301 @@
+{
+ "images_dir": "gorseller",
+ "audio_dir": "ses",
+ "brand": "LALA ANLATIYOR",
+ "title": "Yeniçeriler Padişahı Öldürdü",
+ "subtitle": "",
+ "size": [
+  1080,
+  1920
+ ],
+ "layout": "dikey",
+ "workdir": "work_b",
+ "output": "../../videos/2026-11-28-genc-osman-kisa-b.mp4",
+ "kanca": {
+  "yazi": "ASKERLER PADİŞAHI DEVİRDİ",
+  "gorsel": "29_bareheaded_ride",
+  "punto": 100
+ },
+ "sections": [
+  {
+   "label": "",
+   "pieces": [
+    {
+     "audio": "kb.wav",
+     "shots": [
+      [
+       "29_bareheaded_ride",
+       50
+      ],
+      [
+       "03_accession",
+       50
+      ],
+      [
+       "06_brothers",
+       50
+      ],
+      [
+       "07_esad_refuses",
+       50
+      ],
+      [
+       "klip:10_hotin",
+       60
+      ],
+      [
+       "11_tent_angry",
+       40
+      ],
+      [
+       "12_payroll",
+       50
+      ],
+      [
+       "15_hajj_plan",
+       50
+      ],
+      [
+       "18_esad_fatwa",
+       60
+      ],
+      [
+       "16_rumor",
+       50
+      ],
+      [
+       "17_tents_boats",
+       40
+      ],
+      [
+       "klip:02_crowd_hippodrome",
+       50
+      ],
+      [
+       "21_dome_axes",
+       40
+      ],
+      [
+       "klip:22_rope_down",
+       40
+      ],
+      [
+       "klip:23_mustafa_carried",
+       40
+      ],
+      [
+       "24_handover",
+       50
+      ],
+      [
+       "26_night_escape",
+       30
+      ],
+      [
+       "klip:28_captured",
+       40
+      ],
+      [
+       "klip:29_bareheaded_ride",
+       50
+      ],
+      [
+       "klip:31_to_yedikule",
+       50
+      ],
+      [
+       "32_tower_door",
+       40
+      ],
+      [
+       "35_davud_caught",
+       50
+      ],
+      [
+       "36_lala_close",
+       50
+      ]
+     ],
+     "text": "Askerler padişahı devirdi. Sonra öldürdüler. Bin altı yüz yirmi iki, İstanbul. Genç Osman on yedi yaşında bir padişah. Kendi kararıyla hükmetmek istiyor ama herkesi karşısına alıyor. Sefere çıkmadan kardeşini öldürtüyor. Şeyhülislam Esad Efendi buna izin vermiyor, padişah izni başka bir din adamından alıyor. Sonra Hotin Kalesi'ne yürüyor. Haftalarca hücum ediliyor ama kale düşmüyor. Ordu eli boş dönüyor ve Osman suçu yeniçerilere atıyor. Askerler de ona kırgın. Bahşişte cimri davranıyor, maaşları kendisi denetliyor. Sonra hacca gideceğini açıklıyor. O güne kadar hiçbir Osmanlı padişahı hacca gitmemiş. Esad Efendi onu vazgeçirmek için bir fetva veriyor: bir padişah için adaletle hükmetmek, hacca gitmekten daha üstündür. Osman dinlemiyor. Şehirde bir söylenti yayılıyor: padişah Anadolu'da yeni bir ordu kuracak, yeniçerileri ortadan kaldıracak. Askerler buna inanıyor. Padişahın çadırları Üsküdar'a geçirilince kıvılcım çakıyor. On dokuz Mayıs'ta yeniçeriler ve din adamları ayaklanıyor. Saraya girip Osman'ın amcası Mustafa'yı arıyorlar. Kubbeyi baltayla delip iple aşağı sarkıyor, onu padişah ilan ediyorlar. İstanbul'da artık iki padişah var. Osman sadrazamını ve harem ağasını teslim ediyor ama işe yaramıyor. İkisi de öldürülüyor. Gece yeniçeri ağasının konağına sığınıyor. Askerler ağayı öldürüp padişahı yakalıyor. Ertesi gün Osman'ı başı açık bir ata bindiriyorlar. Kendi askerleri yol boyunca ona hakaret ediyor. Yedikule'de, isyancıların sadrazam yaptığı Davud Paşa ve adamları onu iple boğuyor. Osmanlı tarihinde ilk kez bir padişah, kendi askerlerinin isyanıyla tahttan indirilip öldürülüyor. Onu öldüren Davud Paşa da yedi ay kadar sonra aynı yerde idam ediliyor. Sence Osman haklı mıydı, yoksa aceleci bir genç mi? Böyle hikâyeler için takip et. Devamı YouTube'da, Lala Anlatıyor kanalında."
+    }
+   ]
+  }
+ ],
+ "hareketler": {
+  "00_hook": {
+   "hareket": "derin",
+   "efekt": [
+    "mum"
+   ]
+  },
+  "01_yedikule": {
+   "hareket": "derin"
+  },
+  "02_crowd_hippodrome": {
+   "hareket": "derin",
+   "efekt": [
+    "toz"
+   ]
+  },
+  "03_accession": {
+   "hareket": "sakin",
+   "efekt": [
+    "mum"
+   ]
+  },
+  "04_mustafa_room": {
+   "hareket": "sakin",
+   "efekt": [
+    "toz"
+   ]
+  },
+  "05_osman_horse": {
+   "hareket": "takip",
+   "yon": "sag"
+  },
+  "06_brothers": {
+   "hareket": "sakin"
+  },
+  "07_esad_refuses": {
+   "hareket": "sakin"
+  },
+  "08_closed_door": {
+   "hareket": "sakin",
+   "efekt": [
+    "mum"
+   ]
+  },
+  "09_army_march": {
+   "hareket": "derin",
+   "efekt": [
+    "toz"
+   ]
+  },
+  "10_hotin": {
+   "hareket": "sarsinti",
+   "efekt": [
+    "duman"
+   ]
+  },
+  "11_tent_angry": {
+   "hareket": "sakin",
+   "efekt": [
+    "mum"
+   ]
+  },
+  "12_payroll": {
+   "hareket": "derin"
+  },
+  "13_cold_return": {
+   "hareket": "derin"
+  },
+  "14_marriage": {
+   "hareket": "sakin"
+  },
+  "15_hajj_plan": {
+   "hareket": "yaklas",
+   "efekt": [
+    "mum"
+   ]
+  },
+  "16_rumor": {
+   "hareket": "sakin",
+   "efekt": [
+    "kivilcim"
+   ]
+  },
+  "17_tents_boats": {
+   "hareket": "derin"
+  },
+  "18_esad_fatwa": {
+   "hareket": "sakin"
+  },
+  "19_palace_gate": {
+   "hareket": "sarsinti",
+   "efekt": [
+    "toz"
+   ]
+  },
+  "20_list_refused": {
+   "hareket": "yaklas"
+  },
+  "21_dome_axes": {
+   "hareket": "sarsinti",
+   "efekt": [
+    "toz"
+   ]
+  },
+  "22_rope_down": {
+   "hareket": "derin",
+   "efekt": [
+    "toz"
+   ]
+  },
+  "23_mustafa_carried": {
+   "hareket": "derin"
+  },
+  "24_handover": {
+   "hareket": "sakin"
+  },
+  "25_scholars_bow": {
+   "hareket": "sakin",
+   "efekt": [
+    "mum"
+   ]
+  },
+  "26_night_escape": {
+   "hareket": "takip",
+   "efekt": [
+    "mum"
+   ],
+   "yon": "sag"
+  },
+  "27_agha_mansion": {
+   "hareket": "sakin",
+   "efekt": [
+    "mum"
+   ]
+  },
+  "28_captured": {
+   "hareket": "derin",
+   "efekt": [
+    "mum"
+   ]
+  },
+  "29_bareheaded_ride": {
+   "hareket": "takip",
+   "yon": "sag"
+  },
+  "30_orta_cami": {
+   "hareket": "derin"
+  },
+  "31_to_yedikule": {
+   "hareket": "takip",
+   "yon": "sag"
+  },
+  "32_tower_door": {
+   "hareket": "yaklas",
+   "efekt": [
+    "mum"
+   ]
+  },
+  "33_valide_box": {
+   "hareket": "yaklas"
+  },
+  "34_funeral": {
+   "hareket": "sakin",
+   "efekt": [
+    "mum"
+   ]
+  },
+  "35_davud_caught": {
+   "hareket": "derin"
+  },
+  "36_lala_close": {
+   "hareket": "sakin",
+   "efekt": [
+    "mum"
+   ]
+  }
+ }
+}

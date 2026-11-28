@@ -27,7 +27,7 @@ Yeniçeriler padişahı öldürdü. Bin altı yüz yirmi iki yılının mayıs a
 
 ## GENÇ PADİŞAH (p02)
 
-Hikâyenin başına dönelim. Bin altı yüz on yedi yılında Sultan Birinci Ahmed genç yaşta öldü. Büyük oğlu Osman daha on üç yaşındaydı. Tahta Ahmed'in kardeşi Mustafa çıkarıldı. Ama Mustafa'nın aklı yerinde değildi. Yıllarını sarayda kapalı bir hayatla geçirmişti. Garip davranışları yüzünden doksan altı gün sonra tahttan indirildi. Yerine Osman geçti. Yıl bin altı yüz on sekiz, Osman on dört yaşında.
+Hikâyenin başına dönelim. Bin altı yüz on yedi yılında Sultan Birinci Ahmed genç yaşta öldü. Büyük oğlu Osman daha on üç yaşındaydı. Tahta Ahmed'in kardeşi Mustafa çıkarıldı. Ama Mustafa'nın aklı yerinde değildi. Yıllarını sarayda kapalı bir hayatla geçirmişti. Garip davranışları yüzünden doksan altı gün sonra tahttan indirildi. Yerine Osman geçti. Yıl bin altı yüz on sekiz. Osman henüz çocuk denecek yaştaydı.
 
 Genç padişah zeki ve hareketliydi. Paşaların ve saray büyüklerinin sözüyle değil, kendi kararıyla hükmetmek istiyordu. Ama bu isteğin bir bedeli olacaktı.
 
